@@ -1,20 +1,27 @@
+<!--<div *ngFor="let users of users$ | async | slice:0:2">-->
+<!--  <span>{{users.id}}</span>-->
+<!--  <span>{{users.username}}</span>-->
+<!--</div>-->
 
-<mat-card class="m-3">
+<mat-card class="m-3" *ngFor="let schuelers of schueler$ | async | slice:0:10">
+<!--  <span *ngIf=" schuelers.id === "></span>-->
   <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Schüler</mat-card-title>
-    <mat-card-subtitle>Schüler</mat-card-subtitle>
+<!--    <div mat-card-avatar class="example-header-image"></div>-->
+    <img mat-card-avatar [src]=schuelers.pic  alt="Photo of a Student">
+    <mat-card-title>{{schuelers.firstname}}</mat-card-title>
+    <mat-card-title>{{schuelers.lastname}}</mat-card-title>
   </mat-card-header>
-  <img mat-card-image   class="img-thumbnail"  src="https://image.freepik.com/vektoren-kostenlos/mind-space-lineart-illustration_151511-38.jpg"  alt="Photo of a Shiba Inu">
+  <img mat-card-image class="figure-img" [src]=schuelers.pic  alt="Photo of a Student">
   <mat-card-content>
   </mat-card-content>
   <ul>
-    <li *ngFor="let schuelers of schueler$ | async | slice:0:5 ">
-      <span>{{schuelers.shortname}}</span> - <small>{{schuelers.longname}}</small>
-    </li>
+<!--    <p *ngFor="let schuelers of schueler$ | async | slice:0:1">-->
+      <span>{{schuelers.firstname}} </span> <span>{{schuelers.lastname}}</span>
+<!--    </p>-->
   </ul>
   <mat-card-actions>
     <button mat-button>Bearbeiten</button>
+    <button mat-button [routerLink]="['/start-page']">Abmelden</button>
   </mat-card-actions>
 </mat-card>
 

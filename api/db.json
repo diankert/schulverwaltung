@@ -1,0 +1,51 @@
+{
+  "studentsLogin":[
+    {
+      "id": 1,
+      "username": "DP"
+    },
+    {
+      "id": 2,
+      "username": "MP"
+    }
+  ],
+
+  "students": [
+    {
+      "id": 1,
+      "pic": "https://www.tierchenwelt.de/images/stories/fotos/babys/afrikanisches_elefanten_baby_xl.jpg",
+      "firstname": "Diana",
+      "lastname": "Polinski"
+    },
+    {
+      "id": 2,
+      "pic": "https://ais.rtl.de/masters/361442",
+      "firstname": "Michael",
+      "lastname": "Polinski"
+    },
+    {
+      "id": 3,
+      "pic": "https://img.ohmymag.de/article/480/tier/unbekannte-und-seltene-tierbabys-ein-susser-kleiner-tapir_1798dae48bf6796f148ad0d1c033b5ea879bb02c.jpg",
+      "firstname": "Alina",
+      "lastname": "Glatzel"
+    },
+    {
+      "id": 4,
+      "pic": "https://i.pinimg.com/564x/6a/69/89/6a6989b9ecbed4de1211778fb5165883.jpg",
+      "firstname": "Nike",
+      "lastname": "Madej"
+    },
+    {
+      "id": 5,
+      "pic": "https://cdn.pixabay.com/photo/2013/02/21/19/13/agriculture-84702_960_720.jpg",
+      "firstname": "Edda",
+      "lastname": "Scholl"
+    },
+    {
+      "id": 6,
+      "pic": "https://www.peta.de/wp-content/uploads/2020/11/Kalb-Wiese-Weide-iStock-865223592-c-Mandragora2.jpg",
+      "firstname": "Oskar",
+      "lastname": "Scholl"
+    }
+  ]
+}

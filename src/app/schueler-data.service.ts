@@ -1,47 +1,46 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {filter, tap} from 'rxjs/operators';
 
-export interface WetterStation {
-  uuid: string;
-  number: string;
-  shortname: string;
-  longname: string;
-  km: number;
-  agency: string;
-  longitude: number;
-  latitude: number;
-  water: {
-    shortname: string;
-    longname: string;
+export interface StudentsLogin {
+  id: number;
+  username: string;
+};
+
+export interface StudentsJason {
+  id: number;
+  pic: string;
+  firstname: string;
+  lastname: string;
   };
 
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class SchuelerDataService {
-  // schueler = [
-  //   {
-  //     title: 'Schüler 1 from Service',
-  //     subtitle: 'Subtitle #1',
-  //   },
-  //   {
-  //     title: 'Schüler #2 from Service',
-  //     subtitle: 'Subtitle #2',
-  //   },
-  //   {
-  //     title: 'Schüler #3 from Service',
-  //     subtitle: 'Subtitle #3',
-  //   },
-  //   {
-  //     title: 'Schüler #4 from Service',
-  //     subtitle: 'Subtitle #4',
-  //   },
-  // ];
+
   constructor(private http: HttpClient) { }
 
-  getSchueler() {
-    return this.http.get<WetterStation[]>('https://www.pegelonline.wsv.de/webservices/rest-api/v2/stations.json');
+  findAllUsers(): Observable<StudentsLogin[]> {
+    return this.http.get<StudentsLogin[]>('api/studentsLogin');
+  }
+
+  findUser(name: string): Observable<StudentsLogin[]> {
+    return this.http.get<StudentsLogin[]>('api/studentsLogin?username='+name);
+  }
+
+  // getSchueler() {
+  //   return this.http.get<StudentsJason[]>('api/students');
+  // }
+
+  getSchueler(): Observable<StudentsJason[]> {
+    return this.http.get<StudentsJason[]>('api/students');
+  }
+
+
+  findSchueler(id: string) {
+    return this.http.get<StudentsJason[]>('api/students?id='+id);
   }
 }

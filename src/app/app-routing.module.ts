@@ -4,6 +4,7 @@ import {HeaderComponent} from './header/header.component';
 import {StartPageComponent} from './start-page/start-page.component';
 import {HelloComponent} from './hello/hello.component';
 import {ShowUserComponent} from './show-user/show-user.component';
+import {MainComponent} from './main/main.component';
 
 const routes: Routes = [
   {
@@ -16,13 +17,17 @@ const routes: Routes = [
     component: StartPageComponent,
   },
   {
-    path: 'hello',
-    component: HelloComponent
+    path: 'hello/:id',
+    component: HelloComponent,
   },
   {
     path: 'show-user',
     component: ShowUserComponent,
-  }
+  },
+  {
+    path: 'main',
+    component: MainComponent,
+  },
   ];
 
 @NgModule({

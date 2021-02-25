@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import {SchuelerDataService} from '../schueler-data.service';
 
 @Component({
   selector: 'app-start-page',
@@ -11,12 +12,20 @@ export class StartPageComponent implements OnInit {
   username  = '';
 
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private schuelerDataService: SchuelerDataService) { }
 
   ngOnInit(): void {
   }
 
   routeToHeader() {
-    this.router.navigate( ['/hello'] );
+    this.schuelerDataService.findUser(this.username).subscribe(foundUser => {
+      if (!foundUser || foundUser.length < 1) {
+        // Keinen User gefunden
+      } else {
+        const user = foundUser[0];
+        this.router.navigate( ['/hello', user.id] );
+      }
+    });
   }
 }
