@@ -1,0 +1,44 @@
+.containerr{
+  background-color: lightsteelblue;
+  border: darkgrey solid 1px;
+  /*height: 100%;*/
+  /*width: 94%;*/
+  /*margin: 50px;*/
+  /*display: inline-flex;*/
+  /*justify-content: center;*/
+}
+
+.leftside{
+  border: red solid 1px;
+  background-color: whitesmoke;
+  /*height: 90%;*/
+  /*width: 30%;*/
+  /*margin-right: 70px;*/
+  /*margin-top: 20px;*/
+  /*margin-bottom: 20px;*/
+
+}
+
+.rightside{
+  border: black solid 1px;
+  background-color: whitesmoke;
+  /*height: 90%;*/
+  /*width: 50%;*/
+  /*margin-top: 20px;*/
+  /*margin-bottom: 20px;*/
+}
+/*.user{*/
+/*  margin: 45px;*/
+/*}*/
+
+/*.info{*/
+/*  margin: 45px;*/
+/*}*/
+
+/*.mainboard>mat-card{*/
+/*  margin: 20px;*/
+/*}*/
+
+table {
+  width: 100%;
+}
