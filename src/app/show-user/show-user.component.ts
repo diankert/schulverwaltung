@@ -22,7 +22,7 @@ export class ShowUserComponent implements OnInit {
     this.id = this.activatedRoute.snapshot.paramMap.get('id')
     this.schuelerData.findSchueler(this.id).subscribe(foundSchueler => {
       if (!foundSchueler || foundSchueler.length < 1) {
-        // Keinen Schueler gefunden
+        console.log("WIESO?")
       } else {
         this.schueler = foundSchueler[0];
         console.log(this.schueler);

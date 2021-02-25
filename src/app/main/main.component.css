@@ -1,6 +1,5 @@
 .containerr{
-  background-color: lightsteelblue;
-  border: darkgrey solid 1px;
+  background-color: #b0c4de;
   /*height: 100%;*/
   /*width: 94%;*/
   /*margin: 50px;*/
@@ -9,8 +8,9 @@
 }
 
 .leftside{
-  border: red solid 1px;
+  /*border: #a2a0a0 solid 1px;*/
   background-color: whitesmoke;
+  box-shadow: 0 0 1em 0.2em #606060;
   /*height: 90%;*/
   /*width: 30%;*/
   /*margin-right: 70px;*/
@@ -20,8 +20,9 @@
 }
 
 .rightside{
-  border: black solid 1px;
+  /*border: #a2a0a0 solid 1px;*/
   background-color: whitesmoke;
+  box-shadow: 0 0 1em 0.2em #606060;
   /*height: 90%;*/
   /*width: 50%;*/
   /*margin-top: 20px;*/

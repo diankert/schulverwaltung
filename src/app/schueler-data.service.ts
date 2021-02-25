@@ -31,9 +31,6 @@ export class SchuelerDataService {
     return this.http.get<StudentsLogin[]>('api/studentsLogin?username='+name);
   }
 
-  // getSchueler() {
-  //   return this.http.get<StudentsJason[]>('api/students');
-  // }
 
   getSchueler(): Observable<StudentsJason[]> {
     return this.http.get<StudentsJason[]>('api/students');

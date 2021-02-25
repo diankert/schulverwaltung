@@ -25,6 +25,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { PostfachComponent } from './postfach/postfach.component';
 import { InformationenComponent } from './informationen/informationen.component';
 import {HttpClientModule} from '@angular/common/http';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import {HttpClientModule} from '@angular/common/http';
     MatTableModule,
     MatTabsModule,
     HttpClientModule,
+    MatProgressSpinnerModule,
 
 
   ],

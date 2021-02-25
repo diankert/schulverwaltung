@@ -1,18 +1,21 @@
 <div class="example-container">
-<div class="miau">
-  <mat-form-field appearance="fill">
-    <mat-label>Username</mat-label>
-    <input matInput type="text" [(ngModel)]="username">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Enter your password</mat-label>
-    <input matInput [type]="hide ? 'password' : 'text'">
-    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-            [attr.aria-pressed]="hide">
-      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  <div class="miau">
+    <mat-form-field appearance="fill">
+      <mat-label>Username</mat-label>
+      <input matInput type="text" [(ngModel)]="username">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter your password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button class="button" mat-raised-button color="primary" [disabled]="username === ''" (click)="routeToHeader()">
+      Anmelden
     </button>
-  </mat-form-field>
-    <button class="button" mat-raised-button color="primary" [disabled]="username === ''" (click)="routeToHeader()">Anmelden</button>
   </div>
 </div>
 

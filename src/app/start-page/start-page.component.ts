@@ -18,10 +18,11 @@ export class StartPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
   routeToHeader() {
     this.schuelerDataService.findUser(this.username).subscribe(foundUser => {
       if (!foundUser || foundUser.length < 1) {
-        // Keinen User gefunden
+        alert("Keinen passenden User gefunden!")
       } else {
         const user = foundUser[0];
         this.router.navigate( ['/hello', user.id] );
