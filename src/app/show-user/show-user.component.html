@@ -8,10 +8,11 @@
   <img mat-card-image class="card-img" [src]=schueler?.pic  alt="Photo of a Student">
   <mat-card-content>
   </mat-card-content>
-      <span>{{schueler?.firstname}} </span> <span>{{schueler?.lastname}}</span>
+      <strong>{{schueler?.firstname}} </strong> <strong>{{schueler?.lastname}}</strong>
+
   <mat-card-actions>
     <button mat-button>Bearbeiten</button>
-    <button mat-button [routerLink]="['/start-page']">Abmelden</button>
+    <button mat-button (click)="onLogout()">Abmelden</button>
   </mat-card-actions>
 </mat-card>
 

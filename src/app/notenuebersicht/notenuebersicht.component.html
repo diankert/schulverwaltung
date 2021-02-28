@@ -1,1 +1,30 @@
-<p>notenuebersicht works!</p>
+<mat-accordion>
+<mat-expansion-panel (opened)="panelOpenState = true"
+                     (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      Notenübersicht
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <table mat-table [dataSource]="noten">
+    <ng-container matColumnDef="kurs">
+      <th mat-header-cell *matHeaderCellDef> Kurs</th>
+      <td mat-cell *matCellDef="let NotenUebersicht"> {{NotenUebersicht.kurs}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dozent">
+      <th mat-header-cell *matHeaderCellDef> Dozent</th>
+      <td mat-cell *matCellDef="let NotenUebersicht"> {{NotenUebersicht.dozent}} </td>
+    </ng-container>
+    <ng-container matColumnDef="datum">
+      <th mat-header-cell *matHeaderCellDef> Datum der Klasur</th>
+      <td mat-cell *matCellDef="let NotenUebersicht"> {{NotenUebersicht.datum}} </td>
+    </ng-container>
+    <ng-container matColumnDef="dokument">
+      <th mat-header-cell *matHeaderCellDef> Dokument</th>
+      <td mat-cell *matCellDef="let NotenUebersicht"> {{NotenUebersicht.dokument}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
+  </table>
+</mat-expansion-panel>
+</mat-accordion>

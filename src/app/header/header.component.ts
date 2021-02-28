@@ -4,10 +4,9 @@ import {Component} from '@angular/core';
   selector: 'app-header',
   templateUrl: './header.component.html'
 })
-export  class HeaderComponent{
+export  class HeaderComponent {
   hidden = false;
   constructor() { }
-
 
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;

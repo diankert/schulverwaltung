@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs';
-import {StudentsLogin} from '../schueler-data.service';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
+
+export interface LoginData {
+  id: string;
+  username: string;
+};
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +17,8 @@ export class UserService {
   constructor(private http: HttpClient,
               private router: Router) { }
 
-  findUser(name: string): Observable<StudentsLogin[]> {
-    return this.http.get<StudentsLogin[]>('api/studentsLogin?username='+name);
+  findUser(name: string): Observable<LoginData[]> {
+    return this.http.get<LoginData[]>('api/loginData?username='+name);
   }
 
   logout(): void {

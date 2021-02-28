@@ -1,33 +1,30 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import {HeaderComponent} from './header/header.component';
-import {StartPageComponent} from './start-page/start-page.component';
-import {HelloComponent} from './hello/hello.component';
-import {ShowUserComponent} from './show-user/show-user.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {LoginPageComponent} from './auth/login-page/login-page.component';
+import {AuthGuard} from './auth/auth.guard';
 import {MainComponent} from './main/main.component';
+import {KursuebersichtComponent} from './kursuebersicht/kursuebersicht.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'start-page',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
-    path: 'start-page',
-    component: StartPageComponent,
-  },
-  {
-    path: 'hello/:id',
-    component: HelloComponent,
-  },
-  {
-    path: 'show-user',
-    component: ShowUserComponent,
+    path: 'login',
+    component: LoginPageComponent,
   },
   {
     path: 'main',
     component: MainComponent,
+    canActivate: [AuthGuard]
   },
+  {
+    path: 'kursuebersicht',
+    component: KursuebersichtComponent,
+    canActivate: [AuthGuard]
+  }
   ];
 
 @NgModule({

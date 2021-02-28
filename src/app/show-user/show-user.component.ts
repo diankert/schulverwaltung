@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {SchuelerDataService, StudentsJason, StudentsLogin} from '../schueler-data.service';
-import {Observable} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
+import {SchuelerDataService, StudentData} from '../schueler-data.service';
+import {UserService} from '../auth/user.service';
 
 
 @Component({
@@ -10,29 +9,26 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./show-user.component.css']
 })
 export class ShowUserComponent implements OnInit {
-  schueler$: Observable<StudentsJason[]>;
-  users$: Observable<StudentsLogin[]>
   id: string;
-  schueler: StudentsJason;
+  schueler: StudentData;
 
   constructor(private schuelerData: SchuelerDataService,
-              private activatedRoute: ActivatedRoute) {}
+              private userService: UserService) {}
 
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.paramMap.get('id')
+    this.id = this.userService.id;
     this.schuelerData.findSchueler(this.id).subscribe(foundSchueler => {
-      if (!foundSchueler || foundSchueler.length < 1) {
+      if (!foundSchueler) {
         console.log("WIESO?")
       } else {
-        this.schueler = foundSchueler[0];
+        this.schueler = foundSchueler;
         console.log(this.schueler);
       }
     });
+  }
 
-
-    this.users$ = this.schuelerData.findAllUsers();
-    // this.schueler$ = this.schuelerData.getSchueler();
-    this.schueler$ = this.schuelerData.getSchueler();
+  onLogout() {
+    this.userService.logout();
   }
 }
 

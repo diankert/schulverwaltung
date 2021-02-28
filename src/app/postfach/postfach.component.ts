@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {KursUebersicht} from '../main/main.component';
 
 export interface MailUebersicht {
   betreff: string;
@@ -13,8 +12,9 @@ export interface MailUebersicht {
   styleUrls: ['./postfach.component.css']
 })
 export class PostfachComponent implements OnInit {
-  panelOpenState = false;
   displayedColumns: string[] = ['betreff', 'von', 'vom'];
+  panelOpenState: boolean;
+  giveDate = new Date();
 
   beispielMail: MailUebersicht = {
     betreff: 'WEB UNTERRICHT',

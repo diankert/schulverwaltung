@@ -21,9 +21,8 @@ export class LoginPageComponent implements OnInit {
       if (!foundUser || foundUser.length < 1) {
         alert("Keinen passenden User gefunden!")
       } else {
-        const user = foundUser[0];
-        this.userService.id = user.id;
-        this.router.navigate( ['/hello', user.id] );
+        this.userService.id = foundUser[0].id;
+        this.router.navigate( ['/', 'main'] );
       }
     });
   }

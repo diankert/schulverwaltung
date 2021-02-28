@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { StartPageComponent } from './start-page/start-page.component';
+import { LoginPageComponent } from './auth/login-page/login-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -26,17 +26,23 @@ import { PostfachComponent } from './postfach/postfach.component';
 import { InformationenComponent } from './informationen/informationen.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NotenuebersichtComponent } from './notenuebersicht/notenuebersicht.component';
+import { KursuebersichtComponent } from './kursuebersicht/kursuebersicht.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    StartPageComponent,
+    LoginPageComponent,
     HelloComponent,
     MainComponent,
     ShowUserComponent,
     PostfachComponent,
     InformationenComponent,
+    NotenuebersichtComponent,
+    KursuebersichtComponent,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
