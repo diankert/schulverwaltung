@@ -6,22 +6,22 @@
       Notenübersicht
     </mat-panel-title>
   </mat-expansion-panel-header>
-  <table mat-table [dataSource]="noten">
+  <table mat-table [dataSource]="notenUebersicht">
     <ng-container matColumnDef="kurs">
       <th mat-header-cell *matHeaderCellDef> Kurs</th>
-      <td mat-cell *matCellDef="let NotenUebersicht"> {{NotenUebersicht.kurs}} </td>
+      <td mat-cell *matCellDef="let notenUebersicht"> {{notenUebersicht.kurs}} </td>
     </ng-container>
     <ng-container matColumnDef="dozent">
       <th mat-header-cell *matHeaderCellDef> Dozent</th>
-      <td mat-cell *matCellDef="let NotenUebersicht"> {{NotenUebersicht.dozent}} </td>
+      <td mat-cell *matCellDef="let notenUebersicht"> {{notenUebersicht.dozent}} </td>
     </ng-container>
     <ng-container matColumnDef="datum">
       <th mat-header-cell *matHeaderCellDef> Datum der Klasur</th>
-      <td mat-cell *matCellDef="let NotenUebersicht"> {{NotenUebersicht.datum}} </td>
+      <td mat-cell *matCellDef="let notenUebersicht"> {{notenUebersicht.datum}} </td>
     </ng-container>
     <ng-container matColumnDef="dokument">
       <th mat-header-cell *matHeaderCellDef> Dokument</th>
-      <td mat-cell *matCellDef="let NotenUebersicht"> {{NotenUebersicht.dokument}} </td>
+      <td mat-cell *matCellDef="let notenUebersicht"> {{notenUebersicht.dokument}} </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>

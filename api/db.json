@@ -1,31 +1,33 @@
 {
-  "studentsLogin":[
+  "loginData": [
     {
       "id": 1,
-      "username": "DP"
+      "username": "dp",
+      "status" : "admin"
     },
     {
       "id": 2,
-      "username": "MP"
+      "username": "mp",
+      "status" : ""
     },
     {
       "id": 3,
-      "username": "AG"
+      "username": "ag",
+      "status" : "admin"
     },
     {
       "id": 4,
-      "username": "NM"
+      "username": "nm"
     },
     {
       "id": 5,
-      "username": "ES"
+      "username": "ed"
     },
     {
       "id": 6,
-      "username": "OS"
+      "username": "os"
     }
   ],
-
   "students": [
     {
       "id": 1,
@@ -63,5 +65,62 @@
       "firstname": "Oskar",
       "lastname": "Scholl"
     }
+  ],
+  "postfachuebersicht": [
+    {
+      "id": "1",
+      "mail": [
+        {
+          "betreff": "Bescheinugung",
+          "absender": "Herr Beiler",
+          "datum": "01.02.2020"
+        },
+        {
+          "betreff": "Praktikumsvertrag",
+          "absender": "Herr Borkhofer",
+          "datum": "22.02.2020"
+        }
+      ]
+    }
+  ],
+  "kursuebersicht": [
+    {
+      "id": "1",
+      "kurse": [
+        {
+          "kurs": "Web",
+          "dozent": "Herr Ickler",
+          "start": "01.02.2020",
+          "ende": "20.02.2020"
+        },
+        {
+          "kurs": "Mathematik",
+          "dozent": "Herr Wald",
+          "start": "01.04.2020",
+          "ende": "20.05.2020"
+        }
+      ]
+    }
+  ],
+  "notenuebersicht": [
+    {
+      "id": "2",
+      "klasur": [
+        {
+          "kurs": "Web",
+          "dozent": "Herr ICKLER",
+          "datum": "01.02.2020",
+          "dokument": "WEB_KLASUR_DIANAPOLINSKI"
+        },
+        {
+          "kurs": "Mathematik",
+          "dozent": "Herr Wald",
+          "datum": "01.04.2020",
+          "dokument": "MATHEMATIK_KLASUR_DIANAPOLINSKI"
+        }
+      ]
+    }
   ]
 }
+
+

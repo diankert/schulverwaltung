@@ -6,19 +6,12 @@
       </ng-template>
       <app-show-user></app-show-user>
     </mat-tab>
-
     <mat-tab>
       <ng-template mat-tab-label>
-        <mat-icon matBadge="4" [matBadgeHidden]="userHidden" (click)="usertoggleBadgeVisibility()">email</mat-icon>
+        <mat-icon>build</mat-icon>
       </ng-template>
-      <app-postfach></app-postfach>
-    </mat-tab>
-
-    <mat-tab>
-      <ng-template mat-tab-label>
-        <mat-icon matBadge="1" [matBadgeHidden]="mailHidden" (click)="mailtoggleBadgeVisibility()">info</mat-icon>
-      </ng-template>
-      <app-informationen></app-informationen>
+      <app-show-user></app-show-user>
     </mat-tab>
   </mat-tab-group>
 </div>
+

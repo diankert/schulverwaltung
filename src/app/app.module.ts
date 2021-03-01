@@ -29,6 +29,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NotenuebersichtComponent } from './notenuebersicht/notenuebersicht.component';
 import { KursuebersichtComponent } from './kursuebersicht/kursuebersicht.component';
 import { UserComponent } from './user/user.component';
+import { AdminansichtComponent } from './adminansicht/adminansicht.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { UserComponent } from './user/user.component';
     NotenuebersichtComponent,
     KursuebersichtComponent,
     UserComponent,
+    AdminansichtComponent,
   ],
   imports: [
     BrowserModule,

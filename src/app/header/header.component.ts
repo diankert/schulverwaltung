@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {UserService} from '../auth/user.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,15 @@ import {Component} from '@angular/core';
 })
 export  class HeaderComponent {
   hidden = false;
-  constructor() { }
+  constructor( private userService: UserService) { }
 
   toggleBadgeVisibility() {
     this.hidden = !this.hidden;
   }
+
+  onLogout() {
+    this.userService.logout();
+  }
+
 
 }

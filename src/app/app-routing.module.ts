@@ -4,6 +4,7 @@ import {LoginPageComponent} from './auth/login-page/login-page.component';
 import {AuthGuard} from './auth/auth.guard';
 import {MainComponent} from './main/main.component';
 import {KursuebersichtComponent} from './kursuebersicht/kursuebersicht.component';
+import {PostfachComponent} from './postfach/postfach.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,12 @@ const routes: Routes = [
     path: 'kursuebersicht',
     component: KursuebersichtComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'postfach',
+    component: PostfachComponent,
+    canActivate: [AuthGuard]
+  },
   ];
 
 @NgModule({

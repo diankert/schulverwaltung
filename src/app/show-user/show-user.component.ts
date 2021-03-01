@@ -27,8 +27,5 @@ export class ShowUserComponent implements OnInit {
     });
   }
 
-  onLogout() {
-    this.userService.logout();
-  }
 }
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../auth/user.service';
+import {PostfachService} from './postfach.service';
 
-export interface MailUebersicht {
+export interface Mail {
   betreff: string;
   von: string;
   vom: string;
@@ -15,24 +17,20 @@ export class PostfachComponent implements OnInit {
   displayedColumns: string[] = ['betreff', 'von', 'vom'];
   panelOpenState: boolean;
   giveDate = new Date();
+  postfachUebersicht: Mail[] = [];
 
-  beispielMail: MailUebersicht = {
-    betreff: 'WEB UNTERRICHT',
-    von: 'HERR ICKLER',
-    vom:  '21.10.2020',
-  };
-  beispielMailZwei: MailUebersicht = {
-    betreff: 'BESCHEINIGUNG',
-    von: 'HERR BEILER',
-    vom:  '01.10.2020',
-  };
+  constructor(private postfachubersichtServie: PostfachService,
+              private userService: UserService) { }
 
-  mail: MailUebersicht[] = [
-    this.beispielMail,
-    this.beispielMailZwei,
-  ];
   ngOnInit(): void {
+    this.postfachubersichtServie.getPostfachuebersicht(this.userService.id)
+      .subscribe(postfachUebersicht => {
+        if (!postfachUebersicht) {
+          console.error('FEHLER! ALARM!');
+        } else {
+          this.postfachUebersicht = postfachUebersicht.mail
+        }
+      });
   }
-  constructor() { }
 
 }

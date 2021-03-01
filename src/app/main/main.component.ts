@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {SchuelerDataService} from '../schueler-data.service';
 
 
 @Component({
@@ -8,13 +9,13 @@ import {Component, OnInit} from '@angular/core';
 })
 export class MainComponent implements OnInit {
   show = true;
-
   giveDate = new Date();
 
   ngOnInit(): void {
   }
 
   constructor() {
+
   }
 
 }
