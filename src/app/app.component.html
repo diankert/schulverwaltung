@@ -1,1 +1,47 @@
-<router-outlet></router-outlet>
+<!--<mat-toolbar *ngIf="toolbarShow" color="black">-->
+<mat-toolbar color="black">
+  <span class="fill-remaining-space">
+    <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
+            (mouseover)="menuTrigger.openMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+    <span (mouseleave)="menuTrigger.closeMenu()">
+      <button mat-menu-item routerLink="/hallo">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+        <button mat-menu-item routerLink="/postfach">
+        <mat-icon>email</mat-icon>
+        <span>Postfach</span>
+      </button>
+       <button mat-menu-item routerLink="/kursuebersicht">
+<mat-icon> local_library</mat-icon>
+        <span>Kursplan</span>
+      </button>
+       <button mat-menu-item  routerLink="/notenuebersicht" >
+         <mat-icon>school</mat-icon>
+        <span>Notenübersicht</span>
+      </button>
+       <button mat-menu-item  routerLink="/wochenbericht" >
+       <mat-icon>create</mat-icon>
+        <span>Wochenbericht</span>
+      </button>
+      <button mat-menu-item (click)="onLogout()" >
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </span>
+    </mat-menu>
+  </span>
+  <span class="fill-remaining-space">Menü</span>
+  <span class="flexExpand"></span>
+<span>
+ <img mat-card-avatar [src]=schueler?.pic  alt="Photo of a Student">
+</span>
+</mat-toolbar>
+<div class="hintergrund d-flex justify-content-center" style="background-color: #72898f">
+  <div class="hauptContainer w-75 h-75 m-5" style="background-color: #b8860b"><router-outlet></router-outlet></div>
+</div>
+
+

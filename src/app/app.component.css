@@ -1,1 +1,11 @@
+.hintergrund{
+  height: 100%;
+}
+.hauptContainer{
+  box-shadow: 0 0 1em 0.2em #666666;
+}
 
+
+.flexExpand {
+  flex: 1 1 auto;
+}

@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatOptionModule} from '@angular/material/core';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {AppRoutingModule} from './app-routing.module';
@@ -23,13 +23,16 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
 import { PostfachComponent } from './postfach/postfach.component';
-import { InformationenComponent } from './informationen/informationen.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { NotenuebersichtComponent } from './notenuebersicht/notenuebersicht.component';
 import { KursuebersichtComponent } from './kursuebersicht/kursuebersicht.component';
 import { UserComponent } from './user/user.component';
 import { AdminansichtComponent } from './adminansicht/adminansicht.component';
+import {IonicModule} from '@ionic/angular';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import { WochenberichtComponent } from './wochenbericht/wochenbericht.component';
 
 @NgModule({
   declarations: [
@@ -40,11 +43,11 @@ import { AdminansichtComponent } from './adminansicht/adminansicht.component';
     MainComponent,
     ShowUserComponent,
     PostfachComponent,
-    InformationenComponent,
     NotenuebersichtComponent,
     KursuebersichtComponent,
     UserComponent,
     AdminansichtComponent,
+    WochenberichtComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +69,10 @@ import { AdminansichtComponent } from './adminansicht/adminansicht.component';
     MatTabsModule,
     HttpClientModule,
     MatProgressSpinnerModule,
+    IonicModule,
+    MatSidenavModule,
+    MatListModule,
+    ReactiveFormsModule,
 
 
   ],

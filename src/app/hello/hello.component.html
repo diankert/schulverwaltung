@@ -1,6 +1,62 @@
+<!--<p class="p-3" style="font-size: xxx-large">Hallo Diana!</p>-->
+<div class="d">
+    <div>
+    <app-show-user></app-show-user>
+  </div>
 
-<app-header></app-header>
-<app-main></app-main>
-<!--<app-show-user></app-show-user>-->
+    <div class=" h-75 offset-1" style="background-color: #ffffff">
+      <mat-tab-group>
+        <mat-tab label="Aktueller Kurs"><app-kursuebersicht></app-kursuebersicht></mat-tab>
+        <mat-tab label="Aktuelle Information"></mat-tab>
+        <mat-tab label="Meine Daten">
+          <div class="d-flex justify-content-around align-items-center pt-5">
+          <div>
+          <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Nachname</mat-label>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Straße</mat-label>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Telefonmummer</mat-label>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </p>
+          </div>
 
+          <div class="">
+          <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Vorname</mat-label>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="fill">
+              <mat-label>Hausnummer & PLZ</mat-label>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </p>
+          <p>
+            <mat-form-field appearance="fill">
+              <mat-label>E-Mail</mat-label>
+              <input matInput placeholder="Placeholder">
+            </mat-form-field>
+          </p>
+          </div>
 
+          </div>
+          <div class="button d-flex justify-content-end align-content-end p-5">
+          <button mat-raised-button color="primary">Submit</button>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+
+  </div>

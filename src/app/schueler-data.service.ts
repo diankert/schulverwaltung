@@ -17,6 +17,7 @@ export class SchuelerDataService {
   constructor(private http: HttpClient) { }
 
   findSchueler(id: string) {
+    console.log('FINDE SCHÜLER', id)
     return this.http.get<StudentData>('api/students/'+id);
   }
 }

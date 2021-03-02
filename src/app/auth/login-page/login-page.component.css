@@ -3,14 +3,14 @@
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: lightsteelblue;
+  background-color: #b88400;
 }
 
 .miau{
 
   padding: 9rem 4rem;
-  background-color: whitesmoke;
-  border: lightgray solid 2px;
+  background-color: #f5f5f5;
+  box-shadow: 0 0 1em 0.2em #666666;
 
 }
 

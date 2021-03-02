@@ -22,7 +22,12 @@ export class LoginPageComponent implements OnInit {
         alert("Keinen passenden User gefunden!")
       } else {
         this.userService.id = foundUser[0].id;
-        this.router.navigate( ['/', 'main'] );
+        console.log('BOP', foundUser[0].id)
+        // if(this.userService[0].status == "admin")
+        // {
+        //   this.router.navigate( ['/', 'adminansicht'] );
+        // }
+        this.router.navigate( ['/', 'hallo'] );
       }
     });
   }
