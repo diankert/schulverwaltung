@@ -8,13 +8,19 @@ import {UserService} from './user.service';
 })
 export class AuthGuard implements CanActivate {
 
+  id: string;
+
   constructor(private userService: UserService,
-              private router: Router) { }
+              private router: Router) {
+    this.userService.idChanged.subscribe(id => {
+      this.id = id ? id : null;
+    })
+  }
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | boolean | UrlTree {
-    if (!this.userService.id) {
+    if (!this.id) {
       return this.router.createUrlTree(['/login']);
     } else {
       return true;

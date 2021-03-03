@@ -1,6 +1,7 @@
-import { Component} from '@angular/core';
+import {Component, Injectable} from '@angular/core';
 import {UserService} from './auth/user.service';
 import {SchuelerDataService, StudentData} from './schueler-data.service';
+import {BehaviorSubject} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,17 +17,10 @@ export class AppComponent {
   constructor(private schuelerData: SchuelerDataService,
               private userService: UserService) {}
   ngOnInit(): void {
-    this.id = this.userService.id;
-    // this.schuelerData.findSchueler(this.id).subscribe(foundSchueler => {
-    //   if (!foundSchueler) {
-    //     console.log("WIESO?")
-    //   } else {
-    //     this.schueler = foundSchueler;
-    //     console.log(this.schueler);
-    //     console.log('BEEP')
-    //   }
-    // });
-    this.toolbarShow = !!this.userService.id;
+    this.userService.idChanged.subscribe(id => {
+      this.id = id ? id : null;
+      this.toolbarShow = !!id;
+    });
   }
 
   onLogout() {

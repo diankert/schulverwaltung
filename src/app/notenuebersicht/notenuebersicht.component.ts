@@ -41,14 +41,19 @@ export class NotenuebersichtComponent implements OnInit {
               private userService: UserService) { }
 
   ngOnInit(): void {
-    this.notenuebersichtService.getKursuebersicht(this.userService.id)
-      .subscribe(notenUebersicht => {
-        if (!notenUebersicht) {
-          console.error('FEHLER! ALARM!');
-        } else {
-          this.notenUebersicht = notenUebersicht.klasur;
-        }
-      });
+    this.userService.idChanged.subscribe(id => {
+      if (id) {
+        this.notenuebersichtService.getNotenuebersicht(id)
+          .subscribe(notenUebersicht => {
+            if (!notenUebersicht) {
+              console.error('FEHLER! ALARM!');
+            } else {
+              this.notenUebersicht = notenUebersicht.klasur
+            }
+          });
+      }
+    })
+
   }
 
 }

@@ -1,3 +1,7 @@
 .example-card {
-  max-width: 600px;
+  max-width: 650px;
+  box-shadow: 0 0 1em 0.2em #666666;
+}
+.mat-card-image{
+  image-resolution: from-image;
 }

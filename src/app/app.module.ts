@@ -33,6 +33,7 @@ import {IonicModule} from '@ionic/angular';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { WochenberichtComponent } from './wochenbericht/wochenbericht.component';
+import {SchueleranglegenComponent} from './schueleranglegen/schueleranglegen.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { WochenberichtComponent } from './wochenbericht/wochenbericht.component'
     UserComponent,
     AdminansichtComponent,
     WochenberichtComponent,
+    SchueleranglegenComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {Component, Injectable, OnInit} from '@angular/core';
+import {UserService} from '../auth/user.service';
+import {SchuelerDataService, StudentData} from '../schueler-data.service';
+
 
 @Component({
   selector: 'app-hello',
@@ -7,18 +9,24 @@ import {FormControl, Validators} from '@angular/forms';
   styleUrls: ['./hello.component.css']
 })
 export class HelloComponent implements OnInit {
-  email = new FormControl('', [Validators.required, Validators.email]);
+  id: string;
+  schueler: StudentData;
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-  constructor() { }
+  constructor(private schuelerData: SchuelerDataService,
+              private userService: UserService) { }
 
   ngOnInit(): void {
-  }
+    this.userService.idChanged.subscribe(id => {
+      this.id = id ? id : null;
+    })
+    this.schuelerData.findSchueler(this.id).subscribe(foundSchueler => {
+      if (!foundSchueler) {
+        console.log("WIESO?")
+      } else {
+        this.schueler = foundSchueler;
+        console.log(this.schueler);
+      }
+    });}
+
 
 }

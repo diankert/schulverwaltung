@@ -16,7 +16,7 @@ export class NotenuebersichService {
   constructor(private http: HttpClient) {
   }
 
-  getKursuebersicht(userId: string): Observable<NotenUebersicht> {
+  getNotenuebersicht(userId: string): Observable<NotenUebersicht> {
     return this.http.get<NotenUebersicht>('api/notenuebersicht/' + userId);
   }
 }

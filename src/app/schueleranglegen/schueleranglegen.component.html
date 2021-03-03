@@ -1,28 +1,31 @@
-<p>
-  <mat-form-field appearance="legacy">
-    <mat-label>Legacy form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-hint>Hint</mat-hint>
+<form
+  [formGroup]="schuelerAnlegenFormGroup"
+  class="d-flex flex-column"
+  (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width">
+    <mat-label>Vorname</mat-label>
+    <input matInput formControlName="vorname">
   </mat-form-field>
-</p>
-<p>
-  <mat-form-field appearance="standard">
-    <mat-label>Standard form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-hint>Hint</mat-hint>
+  <mat-form-field class="example-full-width">
+    <mat-label>Nachname</mat-label>
+    <input matInput formControlName="nachname">
   </mat-form-field>
-</p>
-<p>
-  <mat-form-field appearance="fill">
-    <mat-label>Fill form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-hint>Hint</mat-hint>
+  <mat-form-field class="example-full-width">
+    <mat-label>Straße</mat-label>
+    <input matInput formControlName="strasse">
   </mat-form-field>
-</p>
-<p>
-  <mat-form-field appearance="outline">
-    <mat-label>Outline form field</mat-label>
-    <input matInput placeholder="Placeholder">
-    <mat-hint>Hint</mat-hint>
+  <mat-form-field class="example-full-width">
+    <mat-label>Hausnummer</mat-label>
+    <input matInput formControlName="hausnr">
   </mat-form-field>
-</p>
+  <mat-form-field class="example-full-width">
+    <mat-label>Telefonnummer</mat-label>
+    <input matInput formControlName="tele">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>E-Mail</mat-label>
+    <input matInput  formControlName="email">
+  </mat-form-field>
+  <button mat-raised-button color="primary">Anlegen</button>
+</form>
+

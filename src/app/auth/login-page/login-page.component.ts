@@ -21,8 +21,7 @@ export class LoginPageComponent implements OnInit {
       if (!foundUser || foundUser.length < 1) {
         alert("Keinen passenden User gefunden!")
       } else {
-        this.userService.id = foundUser[0].id;
-        console.log('BOP', foundUser[0].id)
+        this.userService.idChanged.next(foundUser[0].id);
         // if(this.userService[0].status == "admin")
         // {
         //   this.router.navigate( ['/', 'adminansicht'] );

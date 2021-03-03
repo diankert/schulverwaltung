@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Injectable, OnInit} from '@angular/core';
 import {SchuelerDataService, StudentData} from '../schueler-data.service';
 import {UserService} from '../auth/user.service';
 
@@ -16,13 +16,17 @@ export class ShowUserComponent implements OnInit {
               private userService: UserService) {}
 
   ngOnInit(): void {
-    this.id = this.userService.id;
-    this.schuelerData.findSchueler(this.id).subscribe(foundSchueler => {
-      if (!foundSchueler) {
-        console.log("WIESO?")
-      } else {
-        this.schueler = foundSchueler;
-        console.log(this.schueler);
+    this.userService.idChanged.subscribe(id => {
+      this.id = id;
+      if (id) {
+        this.schuelerData.findSchueler(id).subscribe(foundSchueler => {
+          if (!foundSchueler) {
+            console.log("WIESO?")
+          } else {
+            this.schueler = foundSchueler;
+            console.log(this.schueler);
+          }
+        });
       }
     });
   }

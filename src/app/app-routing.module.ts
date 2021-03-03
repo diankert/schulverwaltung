@@ -10,6 +10,7 @@ import {AdminansichtComponent} from './adminansicht/adminansicht.component';
 import {HelloComponent} from './hello/hello.component';
 import {NotenuebersichtComponent} from './notenuebersicht/notenuebersicht.component';
 import {WochenberichtComponent} from './wochenbericht/wochenbericht.component';
+import {SchueleranglegenComponent} from './schueleranglegen/schueleranglegen.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,11 @@ const routes: Routes = [
   {
     path: 'wochenbericht',
     component: WochenberichtComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'schueleranlegen',
+    component: SchueleranglegenComponent,
     canActivate: [AuthGuard]
   }
 

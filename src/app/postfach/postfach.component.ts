@@ -23,14 +23,18 @@ export class PostfachComponent implements OnInit {
               private userService: UserService) { }
 
   ngOnInit(): void {
-    this.postfachubersichtServie.getPostfachuebersicht(this.userService.id)
-      .subscribe(postfachUebersicht => {
-        if (!postfachUebersicht) {
-          console.error('FEHLER! ALARM!');
-        } else {
-          this.postfachUebersicht = postfachUebersicht.mail
-        }
-      });
+    this.userService.idChanged.subscribe(id => {
+      if (id) {
+        this.postfachubersichtServie.getPostfachuebersicht(id)
+          .subscribe(postfachUebersicht => {
+            if (!postfachUebersicht) {
+              console.error('FEHLER! ALARM!');
+            } else {
+              this.postfachUebersicht = postfachUebersicht.mail
+            }
+          });
+      }
+    })
   }
 
 }

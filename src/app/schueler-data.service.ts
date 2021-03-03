@@ -2,10 +2,14 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 export interface StudentData {
-  id: string;
-  pic: string;
+  id?: string;
+  pic?: string;
   firstname: string;
   lastname: string;
+  strasse: string;
+  hausnr: string;
+  email: string;
+  tele: string;
 };
 
 
