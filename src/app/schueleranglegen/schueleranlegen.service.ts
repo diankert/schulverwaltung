@@ -10,20 +10,14 @@ export class SchueleranlegenService {
   constructor(private http: HttpClient) { }
 
   getSchuelerData(): Observable<StudentData[]> {
-    console.log('getSchuelerData '+this.baseURL + ' students')
-    return this.http.get<StudentData[]>(this.baseURL + 'students')
+    console.log('getSchuelerData '+this.baseURL + 'teilnehmer')
+    return this.http.get<StudentData[]>(this.baseURL + 'teilnehmer')
   }
 
   addschueler(schueler:StudentData): Observable<StudentData> {
-    // const head = new HttpHeaders()
-    //   .append('Content-Type', 'application/json')
-    //   .append('Access-Control-Allow-Headers', 'Content-Type')
-    //   .append('Access-Control-Allow-Methods', 'POST')
-    //   .append('Access-Control-Allow-Origin', '*');
-    const headers = { 'content-type': 'application/json'};
-    console.log(headers)
-    return this.http.post<StudentData>(this.baseURL + 'students',
-      schueler,{'headers':headers})
+
+    return this.http.post<StudentData>(this.baseURL + 'teilnehmer',
+      schueler)
   }
 
 }

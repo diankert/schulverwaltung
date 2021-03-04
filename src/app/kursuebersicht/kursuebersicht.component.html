@@ -1,12 +1,7 @@
-
-<!--  <mat-panel-title>-->
-<!--    Kursübersicht-->
-<!--  </mat-panel-title>-->
-<!--  <mat-panel-description>-->
-<!--    {{giveDate | date}}-->
-<!--  </mat-panel-description>-->
-
-<h2>Kursübersicht {{giveDate | date}}</h2>
+<div class="p-3">
+  <h3>
+    Kursübersicht
+  </h3>
 <table mat-table [dataSource]="kursUebersicht">
 
   <ng-container matColumnDef="kurs">
@@ -34,3 +29,4 @@
   <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
 </table>
 
+</div>

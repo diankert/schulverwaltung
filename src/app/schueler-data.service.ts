@@ -4,12 +4,15 @@ import {HttpClient} from '@angular/common/http';
 export interface StudentData {
   id?: string;
   pic?: string;
-  firstname: string;
-  lastname: string;
+  vorname: string;
+  nachname: string;
+  geburtsdatum: string;
   strasse: string;
-  hausnr: string;
+  hausnummer: string;
   email: string;
-  tele: string;
+  telefon: string;
+  plz: string;
+  stadt: string;
 };
 
 
@@ -22,6 +25,6 @@ export class SchuelerDataService {
 
   findSchueler(id: string) {
     console.log('FINDE SCHÜLER', id)
-    return this.http.get<StudentData>('api/students/'+id);
+    return this.http.get<StudentData>('api/teilnehmer/get/?id='+ id);
   }
 }

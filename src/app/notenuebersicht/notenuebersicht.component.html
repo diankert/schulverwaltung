@@ -1,30 +1,25 @@
-<mat-accordion>
-<mat-expansion-panel (opened)="panelOpenState = true"
-                     (closed)="panelOpenState = false">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Notenübersicht
-    </mat-panel-title>
-  </mat-expansion-panel-header>
+<div class="p-3">
+  <h3>
+    Notenübersicht
+  </h3>
   <table mat-table [dataSource]="notenUebersicht">
     <ng-container matColumnDef="kurs">
-      <th mat-header-cell *matHeaderCellDef> Kurs</th>
-      <td mat-cell *matCellDef="let notenUebersicht"> {{notenUebersicht.kurs}} </td>
+      <th mat-header-cell *matHeaderCellDef> Bezeichnung</th>
+      <td mat-cell *matCellDef="let notenUebersicht"> {{notenUebersicht.bezeichnung}} </td>
     </ng-container>
     <ng-container matColumnDef="dozent">
-      <th mat-header-cell *matHeaderCellDef> Dozent</th>
-      <td mat-cell *matCellDef="let notenUebersicht"> {{notenUebersicht.dozent}} </td>
+      <th mat-header-cell *matHeaderCellDef> Thema</th>
+      <td mat-cell *matCellDef="let notenUebersicht"> {{notenUebersicht.thema}} </td>
     </ng-container>
     <ng-container matColumnDef="datum">
       <th mat-header-cell *matHeaderCellDef> Datum der Klasur</th>
       <td mat-cell *matCellDef="let notenUebersicht"> {{notenUebersicht.datum}} </td>
     </ng-container>
     <ng-container matColumnDef="dokument">
-      <th mat-header-cell *matHeaderCellDef> Dokument</th>
-      <td mat-cell *matCellDef="let notenUebersicht"> {{notenUebersicht.dokument}} </td>
+      <th mat-header-cell *matHeaderCellDef> MaxPunkte</th>
+      <td mat-cell *matCellDef="let notenUebersicht"> {{notenUebersicht.maxPunkte}} </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
   </table>
-</mat-expansion-panel>
-</mat-accordion>
+</div>

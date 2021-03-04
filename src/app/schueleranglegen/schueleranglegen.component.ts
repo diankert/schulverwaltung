@@ -19,39 +19,35 @@ export class SchueleranglegenComponent implements OnInit {
   constructor(private schuelerAnlegenServie: SchueleranlegenService,
               private schulerDataService: SchuelerDataService) { }
 
-  ngOnInit(): void {
-    this.schuelerAnlegenFormGroup = new FormGroup({
-      "vorname": new FormControl('Hans'),
-      "nachname": new FormControl('Meiser'),
-      "strasse": new FormControl('Brunnenweg'),
-      "hausnr": new FormControl('21a'),
-      "email": new FormControl('h.meiser@meister-meiser.de'),
-      "tele": new FormControl('02086931272')
-    });
+    ngOnInit(): void {
+      this.schuelerAnlegenFormGroup = new FormGroup({
+        "vorname": new FormControl('Hans'),
+        "nachname": new FormControl('Meiser'),
+        "geburtsdatum": new FormControl(new Date('1987-11-03')),
+        "strasse": new FormControl('Brunnenweg'),
+        "hausnummer": new FormControl('21a'),
+        "email": new FormControl('h.meiser@meister-meiser.de'),
+        "telefon": new FormControl('02086931272'),
+        "stadt": new FormControl('Essen'),
+        "plz": new FormControl('45144')
+      });
+    }
+
+    onSubmit() {
+      const schuelerEins = {
+        vorname: this.schuelerAnlegenFormGroup.controls.vorname.value,
+        nachname: this.schuelerAnlegenFormGroup.controls.nachname.value,
+        geburtsdatum: this.schuelerAnlegenFormGroup.controls.geb.value,
+        strasse: this.schuelerAnlegenFormGroup.controls.strasse.value,
+        hausnummer: this.schuelerAnlegenFormGroup.controls.hausnr.value,
+        telefon: this.schuelerAnlegenFormGroup.controls.tele.value,
+        stadt: this.schuelerAnlegenFormGroup.controls.stadt.value,
+        plz: this.schuelerAnlegenFormGroup.controls.plz.value,
+        email: this.schuelerAnlegenFormGroup.controls.email.value,
+      };
+      this.schuelerAnlegenServie.addschueler(schuelerEins).subscribe(data => {
+        console.log('data: ', data)
+      });
+    }
   }
 
-  // refreshPeople() {
-  //
-  //   this.schuelerAnlegenServie.getSchuelerData()
-  //     .subscribe(data => {
-  //       console.log(data)
-  //       this.einSchueler=data;
-  //     })
-  // }
-
-
-  onSubmit() {
-    const schuelerEins = {
-      firstname: this.schuelerAnlegenFormGroup.controls.vorname.value,
-      lastname: this.schuelerAnlegenFormGroup.controls.nachname.value,
-      strasse: this.schuelerAnlegenFormGroup.controls.strasse.value,
-      hausnr: this.schuelerAnlegenFormGroup.controls.hausnr.value,
-      tele: this.schuelerAnlegenFormGroup.controls.tele.value,
-      email: this.schuelerAnlegenFormGroup.controls.email.value
-    };
-    this.schuelerAnlegenServie.addschueler(schuelerEins).subscribe(data => {
-      console.log('data: ', data)
-      // this.refreshPeople();
-    });
-  }
-}

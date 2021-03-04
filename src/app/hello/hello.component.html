@@ -1,78 +1,79 @@
 <!--<p class="p-3" style="font-size: xxx-large">Hallo Diana!</p>-->
-<div class="d">
-    <div>
-    <app-show-user></app-show-user>
-  </div>
-
-    <div class=" a h-75 offset-1" style="background-color: #ffffff">
-      <mat-tab-group>
-        <mat-tab label="Aktueller Kurs"><app-kursuebersicht></app-kursuebersicht></mat-tab>
-        <mat-tab label="TO Do evtl.?"></mat-tab>
-        <mat-tab label="Meine Daten">
-          <div class="d-flex justify-content-around align-items-center pt-5">
-          <div>
-          <p>
-            <mat-form-field appearance="fill">
-              <mat-label>{{schueler?.lastname}}</mat-label>
-              <input matInput placeholder="Placeholder" readonly>
-              <mat-hint>Nachname</mat-hint>
-            </mat-form-field>
-          <p>
-            <mat-form-field appearance="fill">
-              <mat-label>{{schueler?.strasse}}</mat-label>
-              <input matInput placeholder="Placeholder" readonly>
-              <mat-hint>Straße</mat-hint>
-            </mat-form-field>
-          </p>
-          <p>
-            <mat-form-field appearance="fill">
-              <mat-label>PLZ</mat-label>
-              <input matInput placeholder="Placeholder" readonly>
-              <mat-hint>PLZ</mat-hint>
-            </mat-form-field>
-          </p>
-            <p>
-              <mat-form-field appearance="fill">
-                <mat-label>{{schueler?.tele}}</mat-label>
-                <input matInput placeholder="Placeholder" readonly >
-                <mat-hint>Telefonnummer</mat-hint>
-              </mat-form-field>
-            </p>
-          </div>
-
-          <div class="">
-          <p>
-            <mat-form-field appearance="fill">
-              <mat-label>{{schueler?.firstname}}</mat-label>
-              <input matInput placeholder="Placeholder" readonly>
-              <mat-hint>Vorname</mat-hint>
-            </mat-form-field>
-          </p>
-          <p>
-            <mat-form-field appearance="fill">
-              <mat-label>{{schueler?.strasse}} {{schueler?.hausnr}}</mat-label>
-              <input matInput placeholder="Placeholder" readonly>
-              <mat-hint>Straße und Hausnummer</mat-hint>
-            </mat-form-field>
-          </p>
-            <p>
-              <mat-form-field appearance="fill">
-                <mat-label>Stadt</mat-label>
-                <input matInput placeholder="Placeholder" readonly >
-                <mat-hint>Stadt</mat-hint>
-              </mat-form-field>
-            </p>
-            <p>
-              <mat-form-field appearance="fill">
-                <mat-label>{{schueler?.email}}</mat-label>
-                <input matInput placeholder="Placeholder" readonly >
-                <mat-hint>E-Mail</mat-hint>
-              </mat-form-field>
-            </p>
-          </div>
-          </div>
-        </mat-tab>
-      </mat-tab-group>
+<div class="container-fluid h-100">
+  <div class="row p-5 h-100">
+    <div class="col-4">
+      <app-show-user></app-show-user>
     </div>
-  </div>
+    <div class="a col-8 rounded" style=" background-color: #ffffff">
+        <mat-tab-group>
+          <mat-tab label="Aktueller Kurs">
+            <app-ein-kurs></app-ein-kurs>
+          </mat-tab>
+          <mat-tab label="Meine Daten">
+            <div class="d-flex justify-content-around align-items-center mt-5">
+              <div class="">
+                <p>
+                  <mat-form-field >
+                    <mat-label>{{schueler?.vorname}}</mat-label>
+                    <input matInput placeholder="Placeholder" >
+                    <mat-hint>Nachname</mat-hint>
+                  </mat-form-field>
+                <p>
+                  <mat-form-field >
+                    <mat-label>{{schueler?.strasse}}</mat-label>
+                    <input matInput placeholder="Placeholder" >
+                    <mat-hint>Straße</mat-hint>
+                  </mat-form-field>
+                </p>
+                <p>
+                  <mat-form-field >
+                    <mat-label>{{schueler?.plz}}</mat-label>
+                    <input matInput placeholder="Placeholder" >
+                    <mat-hint>PLZ</mat-hint>
+                  </mat-form-field>
+                </p>
+                <p>
+                  <mat-form-field>
+                    <mat-label>{{schueler?.telefon}}</mat-label>
+                    <input matInput placeholder="Placeholder" >
+                    <mat-hint>Telefonnummer</mat-hint>
+                  </mat-form-field>
+                </p>
+              </div>
 
+              <div class="">
+                <p>
+                  <mat-form-field >
+                    <mat-label>{{schueler?.vorname}}</mat-label>
+                    <input matInput placeholder="Placeholder" >
+                    <mat-hint>Vorname</mat-hint>
+                  </mat-form-field>
+                </p>
+                <p>
+                  <mat-form-field >
+                    <mat-label>{{schueler?.hausnummer}}</mat-label>
+                    <input matInput placeholder="Placeholder" >
+                    <mat-hint>Hausnummer</mat-hint>
+                  </mat-form-field>
+                </p>
+                <p>
+                  <mat-form-field >
+                    <mat-label>{{schueler?.stadt}}</mat-label>
+                    <input matInput placeholder="Placeholder" >
+                    <mat-hint>Stadt</mat-hint>
+                  </mat-form-field>
+                </p>
+                <p>
+                  <mat-form-field >
+                    <mat-label>{{schueler?.email}}</mat-label>
+                    <input matInput placeholder="Placeholder" >
+                    <mat-hint>E-Mail</mat-hint>
+                  </mat-form-field>
+                </p>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+  </div>
+</div>

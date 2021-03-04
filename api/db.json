@@ -3,17 +3,17 @@
     {
       "id": 1,
       "username": "dp",
-      "status" : "admin"
+      "status": "admin"
     },
     {
       "id": 2,
       "username": "mp",
-      "status" : ""
+      "status": ""
     },
     {
       "id": 3,
       "username": "ag",
-      "status" : "admin"
+      "status": "admin"
     },
     {
       "id": 4,
@@ -21,7 +21,7 @@
     },
     {
       "id": 5,
-      "username": "ed"
+      "username": "es"
     },
     {
       "id": 6,
@@ -33,19 +33,31 @@
       "id": 1,
       "pic": "https://www.tierchenwelt.de/images/stories/fotos/babys/afrikanisches_elefanten_baby_xl.jpg",
       "firstname": "Diana",
-      "lastname": "Polinski"
+      "lastname": "Polinski",
+      "geb": "27.07.1991",
+      "strasse": "Kerckhoffstr",
+      "hausnr": "119",
+      "email": "dp@gmx.de",
+      "tele": "01575061219"
     },
     {
       "id": 2,
       "pic": "https://ais.rtl.de/masters/361442",
       "firstname": "Michael",
-      "lastname": "Polinski"
+      "lastname": "Polinski",
+      "geb": "03.11.1987",
+      "strasse": "Kerckhoffstr",
+      "hausnr": "119",
+      "email": "mp@gmx.de",
+      "tele": "015750121212"
     },
     {
       "id": 3,
       "pic": "https://img.ohmymag.de/article/480/tier/unbekannte-und-seltene-tierbabys-ein-susser-kleiner-tapir_1798dae48bf6796f148ad0d1c033b5ea879bb02c.jpg",
       "firstname": "Alina",
-      "lastname": "Glatzel"
+      "lastname": "Glatzel",
+      "strasse": "Bunsenstr",
+      "hausnr": "42"
     },
     {
       "id": 4,
@@ -104,7 +116,7 @@
   ],
   "notenuebersicht": [
     {
-      "id": "2",
+      "id": "1",
       "klasur": [
         {
           "kurs": "Web",
@@ -122,5 +134,3 @@
     }
   ]
 }
-
-

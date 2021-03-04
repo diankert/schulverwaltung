@@ -21,7 +21,7 @@ export class ShowUserComponent implements OnInit {
       if (id) {
         this.schuelerData.findSchueler(id).subscribe(foundSchueler => {
           if (!foundSchueler) {
-            console.log("WIESO?")
+            console.log("id? ", id)
           } else {
             this.schueler = foundSchueler;
             console.log(this.schueler);

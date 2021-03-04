@@ -1,31 +1,56 @@
-<form
-  [formGroup]="schuelerAnlegenFormGroup"
-  class="d-flex flex-column"
-  (ngSubmit)="onSubmit()">
-  <mat-form-field class="example-full-width">
-    <mat-label>Vorname</mat-label>
-    <input matInput formControlName="vorname">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Nachname</mat-label>
-    <input matInput formControlName="nachname">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Straße</mat-label>
-    <input matInput formControlName="strasse">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Hausnummer</mat-label>
-    <input matInput formControlName="hausnr">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Telefonnummer</mat-label>
-    <input matInput formControlName="tele">
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>E-Mail</mat-label>
-    <input matInput  formControlName="email">
-  </mat-form-field>
-  <button mat-raised-button color="primary">Anlegen</button>
-</form>
+<div class="container-fluid h-100 p-3" style="border: 1px solid #606060">
+  <h3>
+    Teilnehmer anlegen!
+  </h3>
+  <div class="row p-5 h-100 d-flex justify-content-center">
+    <div class="col-9 h-100">
+      <div class="p-3" style="background-color: #ffffff">
+
+        <form
+          [formGroup]="schuelerAnlegenFormGroup"
+          class="d-flex flex-column"
+          (ngSubmit)="onSubmit()">
+          <mat-form-field class="example-full-width">
+            <mat-label>Vorname</mat-label>
+            <input matInput formControlName="vorname">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nachname</mat-label>
+            <input matInput formControlName="nachname">
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Geburtsdatum</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="geburtsdatum">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Straße</mat-label>
+            <input matInput formControlName="strasse">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Hausnummer</mat-label>
+            <input matInput formControlName="hausnummer">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>plz</mat-label>
+            <input matInput formControlName="plz">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Telefonnummer</mat-label>
+            <input matInput formControlName="telefon">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>E-Mail</mat-label>
+            <input matInput formControlName="email">
+          </mat-form-field>
+        </form>
+        <div class="d-flex justify-content-end p-3">
+        <button mat-raised-button color="primary">Anlegen</button>
+      </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 

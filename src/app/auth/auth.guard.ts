@@ -21,7 +21,9 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | boolean | UrlTree {
     if (!this.id) {
-      return this.router.createUrlTree(['/login']);
+      this.userService.idChanged.next("1");
+      return true;
+      // return this.router.createUrlTree(['/login']);
     } else {
       return true;
     }

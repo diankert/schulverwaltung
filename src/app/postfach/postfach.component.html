@@ -1,11 +1,7 @@
-<!--<div class="containerr d-flex flex-row align-content-center ">-->
-<!--  <div class="container-fluid  " style="background-color: lightsteelblue">-->
-<!--    <div class="row justify-content-center p-5">-->
-<!--      <div class="col-lg-4 p-5 col-md-12 vh-100 w-25  leftside" style="background-color: whitesmoke">-->
-<!--        <app-show-user></app-show-user>-->
-<!--      </div>-->
-<!--      <div class="col-lg-6 p-4 ml-5 col-md-12  rightside" style="background-color: whitesmoke">-->
-
+<div class="p-3">
+  <h3>
+    Postfach
+  </h3>
             <table mat-table [dataSource]="postfachUebersicht">
               <ng-container matColumnDef="betreff">
                 <th mat-header-cell *matHeaderCellDef> Betreff</th>
@@ -22,8 +18,4 @@
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
               <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
             </table>
-
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+</div>
