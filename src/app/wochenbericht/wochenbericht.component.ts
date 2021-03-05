@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatAccordion} from '@angular/material/expansion';
 import {FormControl, FormGroup} from '@angular/forms';
+import {CalendarConfig, DayC} from 'material-calendar';
 
 @Component({
   selector: 'app-wochenbericht',
@@ -11,6 +12,7 @@ export class WochenberichtComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
   step = 0;
   WochenberichtFormGroup: FormGroup;
+  panelOpenState = false;
 
   ngOnInit(): void {
     this.WochenberichtFormGroup = new FormGroup({
@@ -44,4 +46,5 @@ export class WochenberichtComponent implements OnInit {
     //   console.log('data: ', data)
     // });
   }
+
 }

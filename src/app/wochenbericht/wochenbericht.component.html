@@ -43,7 +43,7 @@
 
               <mat-form-field>
                 <mat-label> Z.B. Einführung in SQL</mat-label>
-                <input matInput formControlName="eintrag">
+                <input matInput>
               </mat-form-field>
 
               <mat-action-row>
@@ -53,7 +53,28 @@
             </mat-expansion-panel>
           </form>
         </mat-accordion>
+
+        <div class="pt-3">
+          <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <mat-icon>filter_none</mat-icon>
+                  Alle Wochenberichte
+                </mat-panel-title>
+                <mat-panel-description>
+                  Diana Polinski
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <app-all-wochenberichte></app-all-wochenberichte>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+
+

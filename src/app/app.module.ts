@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
@@ -38,7 +38,6 @@ import {EinKursComponent} from './ein-kurs/ein-kurs.component';
 import {MeineDatenComponent} from './meine-daten/meine-daten.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { AllWochenberichteComponent } from './all-wochenberichte/all-wochenberichte.component';
-
 
 @NgModule({
   declarations: [
@@ -84,7 +83,7 @@ import { AllWochenberichteComponent } from './all-wochenberichte/all-wochenberic
     MatListModule,
     ReactiveFormsModule,
     MatNativeDateModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
 
 
 ],
