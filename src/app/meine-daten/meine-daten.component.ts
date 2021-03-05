@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SchuelerDataService, StudentData} from '../schueler-data.service';
 import {UserService} from '../auth/user.service';
 import {FormControl, FormGroup} from '@angular/forms';
+import {MeineDatenService} from './meine-daten.service';
 
 @Component({
   selector: 'app-meine-daten',
@@ -14,34 +15,59 @@ export class MeineDatenComponent implements OnInit {
   schulerDatenBearbeitenFormGroup: FormGroup;
 
   constructor(private schuelerData: SchuelerDataService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private meinedatenService: MeineDatenService) {
+  }
 
   ngOnInit(): void {
     this.userService.idChanged.subscribe(id => {
       this.id = id ? id : null;
-    })
-    this.schuelerData.findSchueler(this.id).subscribe(foundSchueler => {
-      if (!foundSchueler) {
-        console.log("WIESO?")
-      } else {
-        this.schueler = foundSchueler;
-        console.log(this.schueler);
+
+      if (id) {
+        this.schuelerData.findSchueler(id).subscribe(foundSchueler => {
+          if (!foundSchueler) {
+            console.log('WIESO?')
+          } else {
+            this.schueler = foundSchueler;
+            this.schulerDatenBearbeitenFormGroup = this.getUpdatedFormGroup(foundSchueler);
+          }
+        });
       }
     });
-    this.schulerDatenBearbeitenFormGroup = new FormGroup({
-      "vorname": new FormControl('Hans'),
-      "nachname": new FormControl('Meiser'),
-      "geburtsdatum": new FormControl(new Date('1987-11-03')),
-      "strasse": new FormControl('Brunnenweg'),
-      "hausnummer": new FormControl('21a'),
-      "email": new FormControl('h.meiser@meister-meiser.de'),
-      "telefon": new FormControl('02086931272'),
-      "stadt": new FormControl('Essen'),
-      "plz": new FormControl('45144')
+
+    this.schulerDatenBearbeitenFormGroup = this.getUpdatedFormGroup();
+  }
+
+  getUpdatedFormGroup(schueler?: StudentData): FormGroup {
+    return new FormGroup({
+      'vorname': new FormControl(schueler?.vorname),
+      'nachname': new FormControl(schueler?.nachname),
+      'geburtsdatum': new FormControl(schueler?.geburtsdatum),
+      'strasse': new FormControl(schueler?.strasse),
+      'hausnummer': new FormControl(schueler?.hausnummer),
+      'email': new FormControl(schueler?.email),
+      'telefon': new FormControl(schueler?.telefon),
+      'stadt': new FormControl(schueler?.stadt),
+      'plz': new FormControl(schueler?.plz)
     });
   }
 
   onSubmit() {
-
+    const updateschuelerEins = {
+      id: this.id,
+      vorname: this.schulerDatenBearbeitenFormGroup.controls.vorname.value,
+      nachname: this.schulerDatenBearbeitenFormGroup.controls.nachname.value,
+      geburtsdatum: this.schulerDatenBearbeitenFormGroup.controls.geburtsdatum.value,
+      strasse: this.schulerDatenBearbeitenFormGroup.controls.strasse.value,
+      hausnummer: this.schulerDatenBearbeitenFormGroup.controls.hausnummer.value,
+      telefon: this.schulerDatenBearbeitenFormGroup.controls.telefon.value,
+      stadt: this.schulerDatenBearbeitenFormGroup.controls.stadt.value,
+      plz: this.schulerDatenBearbeitenFormGroup.controls.plz.value,
+      email: this.schulerDatenBearbeitenFormGroup.controls.email.value,
+    };
+    this.meinedatenService.updateSchueler(updateschuelerEins).subscribe(data => {
+      console.log('data: ', data)
+      console.log('Updateschuelereins: ', updateschuelerEins)
+    });
   }
 }

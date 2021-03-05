@@ -7,7 +7,6 @@ import {Observable} from 'rxjs';
 
 export class SchueleranlegenService {
   baseURL: string = "/api/teilnehmer/create";
-  // baseURL: string = "/api/teilnehmer/create";
   constructor(private http: HttpClient) { }
 
   // getSchuelerData(): Observable<StudentData[]> {
@@ -17,7 +16,7 @@ export class SchueleranlegenService {
 
   addschueler(teilnehm:StudentData): Observable<StudentData> {
     console.log('Teilnehmer: ' , teilnehm)
-    return this.http.post<StudentData>(this.baseURL + 'teilnehmer', teilnehm)
+    return this.http.post<StudentData>(this.baseURL, teilnehm)
   }
 
 }

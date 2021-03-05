@@ -12,8 +12,6 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class SchueleranglegenComponent implements OnInit {
   schuelerAnlegenFormGroup: FormGroup;
-
-
   schueler: StudentData;
 
   constructor(private schuelerAnlegenServie: SchueleranlegenService,
