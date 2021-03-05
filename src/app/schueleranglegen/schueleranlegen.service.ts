@@ -6,18 +6,18 @@ import {Observable} from 'rxjs';
 @Injectable({providedIn:'root'})
 
 export class SchueleranlegenService {
-  baseURL: string = "http://localhost:3000/";
+  baseURL: string = "/api/teilnehmer/create";
+  // baseURL: string = "/api/teilnehmer/create";
   constructor(private http: HttpClient) { }
 
-  getSchuelerData(): Observable<StudentData[]> {
-    console.log('getSchuelerData '+this.baseURL + 'teilnehmer')
-    return this.http.get<StudentData[]>(this.baseURL + 'teilnehmer')
-  }
+  // getSchuelerData(): Observable<StudentData[]> {
+  //   console.log('getSchuelerData '+this.baseURL + 'teilnehmer')
+  //   return this.http.get<StudentData[]>(this.baseURL + 'teilnehmer')
+  // }
 
-  addschueler(schueler:StudentData): Observable<StudentData> {
-
-    return this.http.post<StudentData>(this.baseURL + 'teilnehmer',
-      schueler)
+  addschueler(teilnehm:StudentData): Observable<StudentData> {
+    console.log('Teilnehmer: ' , teilnehm)
+    return this.http.post<StudentData>(this.baseURL + 'teilnehmer', teilnehm)
   }
 
 }

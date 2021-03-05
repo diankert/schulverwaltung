@@ -37,16 +37,17 @@ export class SchueleranglegenComponent implements OnInit {
       const schuelerEins = {
         vorname: this.schuelerAnlegenFormGroup.controls.vorname.value,
         nachname: this.schuelerAnlegenFormGroup.controls.nachname.value,
-        geburtsdatum: this.schuelerAnlegenFormGroup.controls.geb.value,
+        geburtsdatum: this.schuelerAnlegenFormGroup.controls.geburtsdatum.value,
         strasse: this.schuelerAnlegenFormGroup.controls.strasse.value,
-        hausnummer: this.schuelerAnlegenFormGroup.controls.hausnr.value,
-        telefon: this.schuelerAnlegenFormGroup.controls.tele.value,
+        hausnummer: this.schuelerAnlegenFormGroup.controls.hausnummer.value,
+        telefon: this.schuelerAnlegenFormGroup.controls.telefon.value,
         stadt: this.schuelerAnlegenFormGroup.controls.stadt.value,
         plz: this.schuelerAnlegenFormGroup.controls.plz.value,
         email: this.schuelerAnlegenFormGroup.controls.email.value,
       };
       this.schuelerAnlegenServie.addschueler(schuelerEins).subscribe(data => {
         console.log('data: ', data)
+        console.log('schuelereins: ', schuelerEins)
       });
     }
   }

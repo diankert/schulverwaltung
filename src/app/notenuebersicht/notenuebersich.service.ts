@@ -17,6 +17,7 @@ export class NotenuebersichService {
   }
 
   getNotenuebersicht(pruefungId: string): Observable<NotenUebersicht> {
-    return this.http.get<NotenUebersicht>('api/pruefung/get&?id=' + pruefungId);
+    // return this.http.get<NotenUebersicht>('api/pruefung/get&?id=' + pruefungId);
+    return this.http.get<NotenUebersicht>('api/notenuebersicht/' + pruefungId);
   }
 }
