@@ -38,6 +38,11 @@ import {EinKursComponent} from './ein-kurs/ein-kurs.component';
 import {MeineDatenComponent} from './meine-daten/meine-daten.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { AllWochenberichteComponent } from './all-wochenberichte/all-wochenberichte.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+
+registerLocaleData(localeDe);
 
 @NgModule({
   declarations: [
@@ -56,7 +61,8 @@ import { AllWochenberichteComponent } from './all-wochenberichte/all-wochenberic
     SchueleranglegenComponent,
     EinKursComponent,
     MeineDatenComponent,
-    AllWochenberichteComponent
+    AllWochenberichteComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +93,9 @@ import { AllWochenberichteComponent } from './all-wochenberichte/all-wochenberic
 
 
 ],
-  providers: [],
+  providers: [
+    {provide: LOCALE_ID, useValue: 'de'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

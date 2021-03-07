@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div *ngFor="let week of monthData.weeks" class="row">
+    <div *ngFor="let dayWrapper of week" class="col-1 m-4">
+<!--      <mat-card>{{day | date: 'EEEE, dd'}}</mat-card>-->
+<!--      <mat-card [ngStyle]="{'background-color':day.getDay() === 6 || day.getDay() === 0 ? 'red' : 'white' }">{{day | date: 'EEEE, dd.MM.yyyy'}}</mat-card>-->
+      <mat-card [ngClass]="{
+      'weekend': dayWrapper.isWeekend,
+      'is-disabled': dayWrapper.isDisabled
+      }">{{dayWrapper.date | date: 'EEEE, dd.MM.yyyy'}}</mat-card>
+    </div>
+  </div>
+</div>
+
