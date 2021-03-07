@@ -1,13 +1,27 @@
-<div class="container-fluid">
-  <div *ngFor="let week of monthData.weeks" class="row">
-    <div *ngFor="let dayWrapper of week" class="col-1 m-4">
-<!--      <mat-card>{{day | date: 'EEEE, dd'}}</mat-card>-->
-<!--      <mat-card [ngStyle]="{'background-color':day.getDay() === 6 || day.getDay() === 0 ? 'red' : 'white' }">{{day | date: 'EEEE, dd.MM.yyyy'}}</mat-card>-->
-      <mat-card [ngClass]="{
-      'weekend': dayWrapper.isWeekend,
-      'is-disabled': dayWrapper.isDisabled
-      }">{{dayWrapper.date | date: 'EEEE, dd.MM.yyyy'}}</mat-card>
+<mat-card class="d-flex justify-content-center">
+  <div class="container-fluid">
+    <div class="row">
+      <div *ngFor="let day of daysOfTheWeek" class="col-1 p-0">
+        <mat-card class="calendar-header">
+          <div class="d-flex justify-content-center">
+            {{day}}
+          </div>
+        </mat-card>
+      </div>
+    </div>
+    <div *ngFor="let week of monthData.weeks" class="row">
+      <div *ngFor="let dayWrapper of week" class="col-1 p-0">
+        <mat-card [ngStyle]="{'height': '100px'}" [ngClass]="{
+      'weekend': dayWrapper.isWeekend && !dayWrapper.isDisabled,
+      'is-disabled': dayWrapper.isDisabled,
+      'ordinary': !dayWrapper.isWeekend && !dayWrapper.isDisabled
+      }">
+          <div class="d-flex justify-content-center h-100">
+            <p class="align-self-center"> {{dayWrapper.date | date: 'd'}}</p>
+          </div>
+        </mat-card>
+      </div>
     </div>
   </div>
-</div>
+</mat-card>
 

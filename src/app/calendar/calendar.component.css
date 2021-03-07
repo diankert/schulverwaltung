@@ -1,7 +1,29 @@
 .weekend {
-  background-color: red;
+  background-color: #bababa;
+  font-size: medium;
+  color: #4e4e4e;
+  font-weight: bold;
+  opacity: 0.5;
 }
 
 .is-disabled {
-  background-color: blue;
+  background-color: #4e4e4e;
+  font-size: medium;
+  color: white;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.ordinary {
+  font-size: medium;
+  color: #4e4e4e;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.calendar-header {
+  background-color: #72898f;
+  font-size: medium;
+  font-weight: bold;
+  color: whitesmoke;
 }

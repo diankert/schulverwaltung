@@ -20,6 +20,7 @@ export class DateWrapper {
 })
 export class CalendarComponent implements OnInit {
   monthData: MonthData;
+  daysOfTheWeek = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
 
   constructor() { }
 
