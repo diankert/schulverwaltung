@@ -21,52 +21,91 @@ export class DateWrapper {
 export class CalendarComponent implements OnInit {
   monthData: MonthData;
   daysOfTheWeek = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
+  currentDate: Date;
 
   constructor() { }
 
   ngOnInit(): void {
-    const now = new Date('2021-03-07');
-    const daysInMonth = this.getNumberOfDaysForMonth(now)
-    const dayData: DateWrapper[] = [];
-
-    const lastMonthDaysInMonth = this.getNumberOfDaysForMonth(new Date(now.getFullYear(), now.getMonth() - 1, 1))
+    const currentDate = new Date();
+    const allDatesToShow: DateWrapper[] = [];
 
     // "Leertage" aus Vormonat berechnen
-    let daysToInsertLastMonth = 0;
-    while(daysToInsertLastMonth < now.getDay()) {
-      daysToInsertLastMonth++;
-    }
+    let daysToInsertLastMonth = this.calculateDaysToInsertLastMonth(currentDate);
 
     // "Leertage" aus Vormonat einfügen
-    for (let i = 0; i < daysToInsertLastMonth; i++) {
-      const newDay = new Date(now.getFullYear(), now.getMonth() - 1, lastMonthDaysInMonth - daysToInsertLastMonth + i + 1);
-      dayData[i] = new DateWrapper(newDay, newDay.getDay() === 6 || newDay.getDay() === 0, true);
-    }
+    this.insertDaysFromLastMonth(daysToInsertLastMonth, currentDate, allDatesToShow);
 
     // Tage einfügen
-    for (let i = 0 + daysToInsertLastMonth; i < daysInMonth + daysToInsertLastMonth; i++) {
-      const newDay = new Date(now.getFullYear(), now.getMonth(), i + 1 - daysToInsertLastMonth);
-      dayData[i] = new DateWrapper(newDay, newDay.getDay() === 6 || newDay.getDay() === 0, false);
-    }
+    this.insertDaysFromCurrentMonth(daysToInsertLastMonth, currentDate, allDatesToShow);
 
     // "Leertage" aus Nachfolgemonat berechnen
-    const lastDayOfThisMonth = dayData[dayData.length-1];
-    const daysToInsertNextMonth = 7 - lastDayOfThisMonth.date.getDay();
+    const daysToInsertNextMonth = this.calculateDaysToInsertNextMonth(allDatesToShow[allDatesToShow.length-1]);
 
     // "Leertage" aus Nachfolgemonat einfügen
-    for (let i = 0; i < daysToInsertNextMonth; i++) {
-      const newDay = new Date(now.getFullYear(), now.getMonth() + 1, i + 1);
-      dayData.push(new DateWrapper(newDay, newDay.getDay() === 6 || newDay.getDay() === 0, true));
-    }
+    this.insertDaysFromNextMonth(daysToInsertNextMonth, currentDate, allDatesToShow);
 
+    // MonthData aus den Tages zusammenbauen
     this.monthData = new MonthData();
-    while (dayData.length) {
-      this.monthData.addWeek(dayData.splice(0, 7))
+    while (allDatesToShow.length) {
+      this.monthData.addWeek(allDatesToShow.splice(0, 7))
     }
-    console.log(this.monthData);
+
+    this.currentDate = currentDate;
   }
 
-  private getNumberOfDaysForMonth(now: Date) {
-    return new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+  private getNumberOfDaysForMonth(currentDate: Date): number {
+    return new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
   }
+
+  private calculateDaysToInsertLastMonth(currentDate: Date): number {
+    let daysToInsert = 0;
+    while(daysToInsert < currentDate.getDay()) {
+      daysToInsert++;
+    }
+    return daysToInsert;
+  }
+
+  private insertDaysFromLastMonth(numberOfDaysToInsert: number, currentDate: Date, dataToInsertInto: DateWrapper[]): void {
+    const firstDayOfLastMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
+    const numberOfDaysInLastMonth = this.getNumberOfDaysForMonth(firstDayOfLastMonth)
+    for (let i = 0; i < numberOfDaysToInsert; i++) {
+      const dateToInsert = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, numberOfDaysInLastMonth - numberOfDaysToInsert + i + 1);
+      dataToInsertInto[i] = new DateWrapper(dateToInsert, this.isWeekend(dateToInsert), true);
+    }
+  }
+
+  private insertDaysFromCurrentMonth(daysToInsertFromLastMonth: number, currentDate: Date, dataToInsertInto: DateWrapper[]): void {
+    const numberOfDaysInCurrentMonth = this.getNumberOfDaysForMonth(currentDate);
+    for (let i = 0 + daysToInsertFromLastMonth; i < numberOfDaysInCurrentMonth + daysToInsertFromLastMonth; i++) {
+      const dateToInsert = new Date(currentDate.getFullYear(), currentDate.getMonth(), i + 1 - daysToInsertFromLastMonth);
+      dataToInsertInto[i] = new DateWrapper(dateToInsert, this.isWeekend(dateToInsert), false);
+    }
+  }
+
+  private calculateDaysToInsertNextMonth(lastDayOfCurrentMonth: DateWrapper): number {
+    const numberOfDaysToInsert = 7 - lastDayOfCurrentMonth.date.getDay();
+    return numberOfDaysToInsert;
+  }
+
+  private insertDaysFromNextMonth(daysToInsertFromNextMonth: number, currentDate: Date, dataToInsertInto: DateWrapper[]): void {
+    for (let i = 0; i < daysToInsertFromNextMonth; i++) {
+      const dateToInsert = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, i + 1);
+      dataToInsertInto.push(new DateWrapper(dateToInsert, this.isWeekend(dateToInsert), true));
+    }
+  }
+
+  private isWeekend(newDay: Date) {
+    return newDay.getDay() === 6 || newDay.getDay() === 0;
+  }
+
+  onPreviousMonth(): void {
+
+  }
+
+  onNextMonth(): void {
+
+  }
+
+
+
 }

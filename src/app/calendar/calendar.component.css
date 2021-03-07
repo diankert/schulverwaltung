@@ -27,3 +27,7 @@
   font-weight: bold;
   color: whitesmoke;
 }
+
+.clickable {
+  cursor: pointer;
+}
