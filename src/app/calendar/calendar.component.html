@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
         <mat-icon (click)="onPreviousMonth()" class="clickable">chevron_left</mat-icon>
-        <h4>{{ currentDate | date: 'MMM YYYY'}}</h4>
+        <h4>{{ currentMonthToDisplay.currentDate | date: 'MMM YYYY'}}</h4>
         <mat-icon (click)="onNextMonth()" class="clickable">chevron_right</mat-icon>
     </div>
     <div class="row">
@@ -14,7 +14,7 @@
         </mat-card>
       </div>
     </div>
-    <div *ngFor="let week of monthData.weeks" class="row">
+    <div *ngFor="let week of currentMonthToDisplay.weeks" class="row">
       <div *ngFor="let dayWrapper of week" class="col-1 p-0">
         <mat-card
           [ngStyle]="{'height': '100px'}"
