@@ -1,38 +1,3 @@
-<!--<mat-card class="d-flex justify-content-center">-->
-<!--  <div class="container-fluid">-->
-<!--    <div class="row">-->
-<!--      <mat-icon (click)="onPreviousMonth()" class="clickable">chevron_left</mat-icon>-->
-<!--      <h4>{{ currentMonthToDisplay.currentDate | date: 'MMM YYYY'}}</h4>-->
-<!--      <mat-icon (click)="onNextMonth()" class="clickable">chevron_right</mat-icon>-->
-<!--    </div>-->
-<!--    <div class="row">-->
-<!--      <div *ngFor="let day of daysOfTheWeek" class="col-1 p-0">-->
-<!--        <mat-card class="calendar-header">-->
-<!--          <div class="d-flex justify-content-center">-->
-<!--            {{day}}-->
-<!--          </div>-->
-<!--        </mat-card>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div *ngFor="let week of currentMonthToDisplay.weeks" class="row">-->
-<!--      <div *ngFor="let dayWrapper of week" class="col-1 p-0">-->
-<!--        <mat-card-->
-<!--          [ngStyle]="{'height': '100px'}"-->
-<!--          [ngClass]="{-->
-<!--            'weekend': dayWrapper.isWeekend && !dayWrapper.isDisabled,-->
-<!--            'is-disabled': dayWrapper.isDisabled,-->
-<!--            'ordinary': !dayWrapper.isWeekend && !dayWrapper.isDisabled-->
-<!--          }">-->
-<!--          <div class="d-flex justify-content-center h-100">-->
-<!--            <p class="align-self-center"> {{dayWrapper.date | date: 'd'}}</p>-->
-<!--          </div>-->
-<!--        </mat-card>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</mat-card>-->
-
-
 <div class="container">
   <div class="row">
     <div class="col-sm-9">

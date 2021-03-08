@@ -24,7 +24,6 @@ export class ShowUserComponent implements OnInit {
             console.log("id? ", id)
           } else {
             this.schueler = foundSchueler;
-            console.log(this.schueler);
           }
         });
       }

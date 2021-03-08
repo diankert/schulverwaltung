@@ -7,15 +7,15 @@ import {StudentData} from '../schueler-data.service';
   providedIn: 'root'
 })
 export class WochenberichtService {
-  baseURL: string = "http://localhost:8000/";
+  baseURL: string = "/api/wochenbericht/list";
 
   constructor(private http: HttpClient) {
   }
 
-  // getSchuelerData(): Observable<StudentData[]> {
-  //   console.log('getSchuelerData '+this.baseURL + ' teilnehmer')
-  //   return this.http.get<StudentData[]>(this.baseURL + 'teilnehmer')
-  // }
+  getSchuelerData(): Observable<StudentData[]> {
+    console.log('getSchuelerData '+this.baseURL + ' teilnehmer')
+    return this.http.get<StudentData[]>(this.baseURL + 'teilnehmer')
+  }
 
   // addWochenbericht(wochenbericht: Wochenbericht): Observable<StudentData> {
 //

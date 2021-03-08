@@ -2,7 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {NotenuebersichService} from './notenuebersich.service';
 import {UserService} from '../auth/user.service';
 
-export interface Klausur {
+export interface Pruefung {
   id?: string;
   creation_date?: string;
   last_modification_date?: string;
@@ -23,23 +23,17 @@ export class NotenuebersichtComponent implements OnInit {
   displayedColumns: string[] = ['bezeichnung', 'thema', 'max_punkte', 'datum'];
   panelOpenState: boolean;
   giveDate = new Date();
-  klausur: Klausur;
+  pruefungsUebersicht: Pruefung[] = [];
 
   constructor(private notenuebersichtService: NotenuebersichService,
-              private userService: UserService) { }
+              private userService: UserService) {}
 
   ngOnInit(): void {
     this.userService.idChanged.subscribe(id => {
       if (id) {
-        this.notenuebersichtService.getNotenuebersicht(id)
-          .subscribe(klausur => {
-            if (!klausur) {
-              console.error('FEHLER! ALARM!');
-            } else {
-              this.klausur = klausur
-              console.log('NOTENÜBERSICHT: ',klausur)
-            }
-          });
+        this.notenuebersichtService.getPruefungVonSchueler(id).subscribe(pruefungen => {
+          this.pruefungsUebersicht = pruefungen;
+        });
       }
     })
 

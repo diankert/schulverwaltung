@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {Pruefung} from './notenuebersicht/notenuebersicht.component';
+import {Observable} from 'rxjs';
 
 export interface StudentData {
   id?: string;
@@ -13,6 +15,7 @@ export interface StudentData {
   telefon: string;
   plz: string;
   stadt: string;
+  pruefungen?: Pruefung[];
 };
 
 
@@ -24,7 +27,8 @@ export class SchuelerDataService {
   constructor(private http: HttpClient) { }
 
   findSchueler(id: string) {
-    console.log('FINDE SCHÜLER', id)
     return this.http.get<StudentData>('api/teilnehmer/get/?id='+ id);
   }
+
+
 }
