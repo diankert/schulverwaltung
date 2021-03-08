@@ -1,14 +1,17 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Kurs} from '../kursuebersicht/kursuebersicht.component';
-import {NotenUebersicht, NotenuebersichService} from './notenuebersich.service';
+import {NotenuebersichService} from './notenuebersich.service';
 import {UserService} from '../auth/user.service';
 
-export interface Klasur {
+export interface Klausur {
+  id?: string;
+  creation_date?: string;
+  last_modification_date?: string;
+  deleted?: string;
+  deletion_date?: string;
   bezeichnung: string;
   thema: string;
-  maxPunkte: string;
+  max_punkte: string;
   datum: string;
-  pruefungsart?: string;
 }
 
 @Component({
@@ -17,11 +20,10 @@ export interface Klasur {
   styleUrls: ['./notenuebersicht.component.css']
 })
 export class NotenuebersichtComponent implements OnInit {
-  // displayedColumns: string[] = ['kurs', 'dozent', 'datum', 'dokument'];
-  displayedColumns: string[] = ['bezeichnung', 'thema', 'maxPunkte', 'datum'];
+  displayedColumns: string[] = ['bezeichnung', 'thema', 'max_punkte', 'datum'];
   panelOpenState: boolean;
   giveDate = new Date();
-  notenUebersicht: Klasur[] = [];
+  klausur: Klausur;
 
   constructor(private notenuebersichtService: NotenuebersichService,
               private userService: UserService) { }
@@ -30,11 +32,12 @@ export class NotenuebersichtComponent implements OnInit {
     this.userService.idChanged.subscribe(id => {
       if (id) {
         this.notenuebersichtService.getNotenuebersicht(id)
-          .subscribe(notenUebersicht => {
-            if (!notenUebersicht) {
+          .subscribe(klausur => {
+            if (!klausur) {
               console.error('FEHLER! ALARM!');
             } else {
-              this.notenUebersicht = notenUebersicht.klasur
+              this.klausur = klausur
+              console.log('NOTENÜBERSICHT: ',klausur)
             }
           });
       }

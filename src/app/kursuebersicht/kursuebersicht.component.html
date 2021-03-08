@@ -2,31 +2,33 @@
   <h3>
     Kursübersicht
   </h3>
-<table mat-table [dataSource]="kursUebersicht">
+<!--<table mat-table [dataSource]="kursUebersicht">-->
 
-  <ng-container matColumnDef="kurs">
-    <th mat-header-cell *matHeaderCellDef>Kurs</th>
-    <td mat-cell *matCellDef="let kursUebersicht"> {{kursUebersicht.kurs}} </td>
-  </ng-container>
-  <ng-container matColumnDef="dozent">
-    <th mat-header-cell *matHeaderCellDef>Dozent</th>
-    <td mat-cell *matCellDef="let kursUebersicht"> {{kursUebersicht.dozent}} </td>
-  </ng-container>
-  <ng-container matColumnDef="start">
-    <th mat-header-cell *matHeaderCellDef>Start</th>
-    <td mat-cell *matCellDef="let kursUebersicht"> {{kursUebersicht.start}} </td>
-  </ng-container>
-  <ng-container matColumnDef="ende">
-    <th mat-header-cell *matHeaderCellDef>Ende</th>
-    <td mat-cell *matCellDef="let kursUebersicht"> {{kursUebersicht.ende}} </td>
-  </ng-container>
+<!--  <ng-container matColumnDef="kurs">-->
+<!--    <th mat-header-cell *matHeaderCellDef>Kurs</th>-->
+<!--    <td mat-cell *matCellDef="let kursUebersicht"> {{kursUebersicht.kurs}} </td>-->
+<!--  </ng-container>-->
+<!--  <ng-container matColumnDef="dozent">-->
+<!--    <th mat-header-cell *matHeaderCellDef>Dozent</th>-->
+<!--    <td mat-cell *matCellDef="let kursUebersicht"> {{kursUebersicht.dozent}} </td>-->
+<!--  </ng-container>-->
+<!--  <ng-container matColumnDef="start">-->
+<!--    <th mat-header-cell *matHeaderCellDef>Start</th>-->
+<!--    <td mat-cell *matCellDef="let kursUebersicht"> {{kursUebersicht.start}} </td>-->
+<!--  </ng-container>-->
 <!--  <ng-container matColumnDef="ende">-->
-<!--  <th mat-header-cell *matHeaderCellDef>Raum</th>-->
-<!--  <td mat-cell *matCellDef="let kursUebersicht"> {{kursUebersicht.ende}} </td>-->
-<!--</ng-container>-->
+<!--    <th mat-header-cell *matHeaderCellDef>Ende</th>-->
+<!--    <td mat-cell *matCellDef="let kursUebersicht"> {{kursUebersicht.ende}} </td>-->
+<!--  </ng-container>-->
+<!--&lt;!&ndash;  <ng-container matColumnDef="ende">&ndash;&gt;-->
+<!--&lt;!&ndash;  <th mat-header-cell *matHeaderCellDef>Raum</th>&ndash;&gt;-->
+<!--&lt;!&ndash;  <td mat-cell *matCellDef="let kursUebersicht"> {{kursUebersicht.ende}} </td>&ndash;&gt;-->
+<!--&lt;!&ndash;</ng-container>&ndash;&gt;-->
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
-</table>
+<!--  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
+<!--  <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>-->
+<!--</table>-->
 
-</div>
+<!--</div>-->
+<app-calendar></app-calendar>
+  </div>

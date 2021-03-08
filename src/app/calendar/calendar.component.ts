@@ -11,8 +11,9 @@ import {MonthData} from './month-data.class';
 export class CalendarComponent implements OnInit {
   currentMonthToDisplay: MonthData;
   daysOfTheWeek = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
-
-  constructor(private calendarService: CalendarService) { }
+  cardHide: boolean = true;
+  constructor(private calendarService: CalendarService) {
+  }
 
   ngOnInit(): void {
     const day = new Date().getDay();
@@ -28,4 +29,7 @@ export class CalendarComponent implements OnInit {
     this.currentMonthToDisplay = this.calendarService.goOneMonthForward();
   }
 
+  hideCard() {
+    this.cardHide = false;
+  }
 }
