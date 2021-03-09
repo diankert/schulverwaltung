@@ -3,7 +3,7 @@
     <div class="col-9 h-100">
       <div class="p-3 h-100" style="background-color: #ffffff">
         <mat-accordion class="example-headers-align">
-          <form [formGroup]="WochenberichtFormGroup"
+          <form [formGroup]="wochenberichtFormGroup"
                 class="d-flex flex-column"
                 (ngSubmit)="onSubmit()">
             <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
@@ -15,13 +15,13 @@
               </mat-expansion-panel-header>
 
               <mat-form-field>
-                <mat-label>Name</mat-label>
-                <input matInput formControlName="name">
+                <mat-label>Voname</mat-label>
+                <input matInput formControlName="vorname" readonly>
               </mat-form-field>
 
               <mat-form-field>
-                <mat-label>KURS</mat-label>
-                <input matInput formControlName="kurs">
+                <mat-label>Nachname</mat-label>
+                <input matInput formControlName="nachname" readonly>
               </mat-form-field>
 
               <mat-action-row>
@@ -37,9 +37,11 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
 
-              <input matInput [matDatepicker]="picker" formControlName="datum">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <mat-form-field>
+                <mat-label></mat-label>
+                <input type="date" matInput formControlName="datum">
+              </mat-form-field>
+
 
               <mat-form-field>
                 <mat-label> Z.B. Einführung in SQL</mat-label>

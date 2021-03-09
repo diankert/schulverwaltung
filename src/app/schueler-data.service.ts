@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Pruefung} from './notenuebersicht/notenuebersicht.component';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {Wochenbericht} from './wochenbericht/wochenbericht.component';
 
 export interface StudentData {
   id?: string;
@@ -28,7 +29,7 @@ export class SchuelerDataService {
   constructor(private http: HttpClient) { }
 
   findSchueler(id: string) {
-    return this.http.get<StudentData>('api/teilnehmer/get/?id='+ id);
+    return this.http.get<StudentData>('api/teilnehmer/get/?id='+ id+'&showrelated=true');
   }
 
 }

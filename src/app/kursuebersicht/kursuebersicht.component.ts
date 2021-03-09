@@ -11,7 +11,7 @@ export interface Kurs {
   start: string;
   ende: string;
   kosten_pro_teilnehmer?: string;
-  kursbezeichnung_id: string;
+  bezeichnung: string;
   fachrichtung_id?: string;
   status_id?: string;
 }
@@ -22,7 +22,7 @@ export interface Kurs {
   styleUrls: ['./kursuebersicht.component.css']
 })
 export class KursuebersichtComponent implements OnInit {
-  displayedColumns: string[] = ['start', 'ende', 'kursbezeichnung_id','status_id'];
+  displayedColumns: string[] = ['bezeichnung', 'start', 'ende'];
   panelOpenState: boolean;
   giveDate = new Date();
   kursUebersicht: Kurs[] = [];
@@ -38,7 +38,7 @@ export class KursuebersichtComponent implements OnInit {
             if (!kursUebersicht) {
               console.error('FEHLER! ALARM!');
             } else {
-              this.kursUebersicht = kursUebersicht.kurse
+              this.kursUebersicht = kursUebersicht
               console.log('Kursübersicht ', kursUebersicht)
             }
           });

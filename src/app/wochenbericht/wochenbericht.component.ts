@@ -2,6 +2,9 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatAccordion} from '@angular/material/expansion';
 import {FormControl, FormGroup} from '@angular/forms';
 import {CalendarConfig, DayC} from 'material-calendar';
+import {SchuelerDataService, StudentData} from '../schueler-data.service';
+import {Kurs} from '../kursuebersicht/kursuebersicht.component';
+import {UserService} from '../auth/user.service';
 
 export interface Wochenbericht {
   id?: string;
@@ -22,14 +25,38 @@ export interface Wochenbericht {
 export class WochenberichtComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
   step = 0;
-  WochenberichtFormGroup: FormGroup;
+  wochenberichtFormGroup: FormGroup;
   panelOpenState = false;
+  kurs: Kurs;
+  schueler: StudentData;
+  id: string;
+  giveDate: Date;
 
   ngOnInit(): void {
-    this.WochenberichtFormGroup = new FormGroup({
-      "datum": new FormControl(new Date()),
-      "name": new FormControl('Meiser'),
-      "kurs": new FormControl('FI13'),
+    this.userService.idChanged.subscribe(id => {
+      this.id = id ? id : null;
+
+      if (id) {
+        this.schuelerData.findSchueler(id).subscribe(foundSchueler => {
+          if (!foundSchueler) {
+            console.log('WIESO?')
+          } else {
+            this.schueler = foundSchueler;
+            this.wochenberichtFormGroup = this.getWochenberichtFormGroup(foundSchueler);
+          }
+        });
+      }
+    });
+
+    this.wochenberichtFormGroup = this.getWochenberichtFormGroup();
+  }
+
+  getWochenberichtFormGroup(schueler?: StudentData): FormGroup {
+    return new FormGroup({
+      'datum': new FormControl(),
+      'vorname': new FormControl(schueler?.vorname),
+      'nachname': new FormControl(schueler?.nachname),
+      'eintrag': new FormControl(schueler?.geburtsdatum)
     });
   }
 
@@ -44,14 +71,15 @@ export class WochenberichtComponent implements OnInit {
   prevStep() {
     this.step--;
   }
-  constructor() { }
+  constructor(private schuelerData: SchuelerDataService,
+              private userService: UserService,) { }
 
   onSubmit() {
     const wochenbericht = {
-      datum: this.WochenberichtFormGroup.controls.datum.value,
-      name: this.WochenberichtFormGroup.controls.name.value,
-      kurs: this.WochenberichtFormGroup.controls.kurs.value,
-      eintrag: this.WochenberichtFormGroup.controls.eintrag.value
+      datum: this.wochenberichtFormGroup.controls.datum.value,
+      nachname: this.wochenberichtFormGroup.controls.nachname.value,
+      vorname: this.wochenberichtFormGroup.controls.vorname.value,
+      eintrag: this.wochenberichtFormGroup.controls.eintrag.value
     };
     // this.WochenberichtFormGroup.addWochenbercht(wochenbericht).subscribe(data => {
     //   console.log('data: ', data)

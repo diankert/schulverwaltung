@@ -5,3 +5,10 @@
 .flexExpand {
   flex: 1 1 auto;
 }
+
+.mat-card-avatar{
+  height: 50px;
+  width: 50px;
+
+
+}

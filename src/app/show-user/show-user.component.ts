@@ -15,7 +15,7 @@ export class ShowUserComponent implements OnInit {
   schuelerBild: Bild;
   constructor(private schuelerData: SchuelerDataService,
               private userService: UserService,
-              private bilderServie: BilderUserService) {}
+              private bilderService: BilderUserService) {}
 
   ngOnInit(): void {
     this.userService.idChanged.subscribe(id => {
@@ -33,12 +33,11 @@ export class ShowUserComponent implements OnInit {
     this.userService.idChanged.subscribe(id => {
       this.id = id;
       if (id) {
-        this.bilderServie.findBilder(id).subscribe(foundBild => {
+        this.bilderService.findBilder(id).subscribe(foundBild => {
           if (!foundBild) {
             console.log('id? ', id)
           } else {
             this.schuelerBild = foundBild;
-            console.log('THIS.SCHUELERBILD',this.schuelerBild)
           }
         });
       }

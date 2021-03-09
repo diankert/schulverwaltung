@@ -25,7 +25,7 @@ export class NotenuebersichService {
 
   getPruefungVonSchueler(id: string): Observable<Pruefung[]> {
     return this.http
-      .get<StudentData>('api/teilnehmer/get/?id='+ id)
+      .get<StudentData>('api/teilnehmer/get/?id='+ id +'&showrelated=true')
       .pipe(map(studentData => studentData.pruefungen))
   }
 
