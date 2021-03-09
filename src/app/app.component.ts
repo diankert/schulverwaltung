@@ -1,8 +1,8 @@
 import {Component, Injectable} from '@angular/core';
 import {UserService} from './auth/user.service';
-import {SchuelerDataService, StudentData} from './schueler-data.service';
+import {SchuelerDataService, StudentData} from './services/schueler-data.service';
 import {BehaviorSubject} from 'rxjs';
-import {Bild, BilderUserService} from './bilder-user.service';
+import {Bild, BilderUserService} from './services/bilder-user.service';
 
 @Component({
   selector: 'app-root',

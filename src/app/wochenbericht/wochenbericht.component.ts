@@ -2,8 +2,8 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatAccordion} from '@angular/material/expansion';
 import {FormControl, FormGroup} from '@angular/forms';
 import {CalendarConfig, DayC} from 'material-calendar';
-import {SchuelerDataService, StudentData} from '../schueler-data.service';
-import {Kurs} from '../kursuebersicht/kursuebersicht.component';
+import {SchuelerDataService, StudentData} from '../services/schueler-data.service';
+import {Kurs} from '../kursplan/kursplan.component';
 import {UserService} from '../auth/user.service';
 
 export interface Wochenbericht {

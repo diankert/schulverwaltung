@@ -11,12 +11,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {AppRoutingModule} from './app-routing.module';
-import {HelloComponent} from './hello/hello.component';
-import {MainComponent} from './main/main.component';
+import {StartSeiteComponent} from './startseite/start-seite.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatCardModule} from '@angular/material/card';
 import {MatMenuModule} from '@angular/material/menu';
-import {ShowUserComponent} from './show-user/show-user.component';
+import {BenutzerAnzeigen} from './startseite/benutzer-anzeigen/benutzer-anzeigen.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {RouterModule} from '@angular/router';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -26,20 +25,18 @@ import {PostfachComponent} from './postfach/postfach.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {NotenuebersichtComponent} from './notenuebersicht/notenuebersicht.component';
-import {KursuebersichtComponent} from './kursuebersicht/kursuebersicht.component';
-import {UserComponent} from './user/user.component';
-import {AdminansichtComponent} from './adminansicht/adminansicht.component';
+import {KursplanComponent} from './kursplan/kursplan.component';
 import {IonicModule} from '@ionic/angular';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {WochenberichtComponent} from './wochenbericht/wochenbericht.component';
-import {SchueleranglegenComponent} from './schueleranglegen/schueleranglegen.component';
-import {EinKursComponent} from './ein-kurs/ein-kurs.component';
-import {MeineDatenComponent} from './meine-daten/meine-daten.component';
+import {SchueleranlegenComponent} from './schueleranlegen/schueleranlegen.component';
+import {EinKursComponent} from './startseite/ein-kurs/ein-kurs.component';
+import {MeineDatenComponent} from './startseite/meine-daten/meine-daten.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import { AllWochenberichteComponent } from './all-wochenberichte/all-wochenberichte.component';
-import { CalendarComponent } from './calendar/calendar.component';
-import { registerLocaleData } from '@angular/common';
+import {AlleWochenberichteComponent} from './wochenbericht/alle-wochenberichte/alle-wochenberichte.component';
+import {CalendarComponent} from './shared/calendar/calendar.component';
+import {registerLocaleData} from '@angular/common';
 import localeDe from '@angular/common/locales/de';
 
 registerLocaleData(localeDe);
@@ -49,19 +46,16 @@ registerLocaleData(localeDe);
     AppComponent,
     HeaderComponent,
     LoginPageComponent,
-    HelloComponent,
-    MainComponent,
-    ShowUserComponent,
+    StartSeiteComponent,
+    BenutzerAnzeigen,
     PostfachComponent,
     NotenuebersichtComponent,
-    KursuebersichtComponent,
-    UserComponent,
-    AdminansichtComponent,
+    KursplanComponent,
     WochenberichtComponent,
-    SchueleranglegenComponent,
+    SchueleranlegenComponent,
     EinKursComponent,
     MeineDatenComponent,
-    AllWochenberichteComponent,
+    AlleWochenberichteComponent,
     CalendarComponent
   ],
   imports: [

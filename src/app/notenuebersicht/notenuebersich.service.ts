@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Pruefung} from './notenuebersicht.component';
-import {SchuelerDataService, StudentData} from '../schueler-data.service';
+import {SchuelerDataService, StudentData} from '../services/schueler-data.service';
 import {map} from 'rxjs/operators';
 
 

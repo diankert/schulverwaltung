@@ -26,7 +26,7 @@ export class LoginPageComponent implements OnInit {
         // {
         //   this.router.navigate( ['/', 'adminansicht'] );
         // }
-        this.router.navigate( ['/', 'hallo'] );
+        this.router.navigate( ['/', 'start'] );
       }
     });
   }

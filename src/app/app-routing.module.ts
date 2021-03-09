@@ -2,15 +2,12 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginPageComponent} from './auth/login-page/login-page.component';
 import {AuthGuard} from './auth/auth.guard';
-import {MainComponent} from './main/main.component';
-import {KursuebersichtComponent} from './kursuebersicht/kursuebersicht.component';
+import {KursplanComponent} from './kursplan/kursplan.component';
 import {PostfachComponent} from './postfach/postfach.component';
-import {ShowUserComponent} from './show-user/show-user.component';
-import {AdminansichtComponent} from './adminansicht/adminansicht.component';
-import {HelloComponent} from './hello/hello.component';
+import {StartSeiteComponent} from './startseite/start-seite.component';
 import {NotenuebersichtComponent} from './notenuebersicht/notenuebersicht.component';
 import {WochenberichtComponent} from './wochenbericht/wochenbericht.component';
-import {SchueleranglegenComponent} from './schueleranglegen/schueleranglegen.component';
+import {SchueleranlegenComponent} from './schueleranlegen/schueleranlegen.component';
 
 const routes: Routes = [
   {
@@ -23,13 +20,8 @@ const routes: Routes = [
     component: LoginPageComponent,
   },
   {
-    path: 'main',
-    component: MainComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'kursuebersicht',
-    component: KursuebersichtComponent,
+    path: 'kursplan',
+    component: KursplanComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -43,13 +35,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'showUser',
-    component: ShowUserComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'hallo',
-    component: HelloComponent,
+    path: 'start',
+    component: StartSeiteComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -59,7 +46,7 @@ const routes: Routes = [
   },
   {
     path: 'schueleranlegen',
-    component: SchueleranglegenComponent,
+    component: SchueleranlegenComponent,
     canActivate: [AuthGuard]
   }
 
