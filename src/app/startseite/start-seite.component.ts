@@ -1,6 +1,6 @@
 import {Component, Injectable, OnInit} from '@angular/core';
 import {UserService} from '../auth/user.service';
-import {SchuelerDataService, StudentData} from '../services/schueler-data.service';
+import {TeilnehmerDataService, TeilnehmerData} from '../services/teilnehmer-data.service';
 
 
 @Component({
@@ -10,16 +10,16 @@ import {SchuelerDataService, StudentData} from '../services/schueler-data.servic
 })
 export class StartSeiteComponent implements OnInit {
   id: string;
-  schueler: StudentData;
+  schueler: TeilnehmerData;
 
-  constructor(private schuelerData: SchuelerDataService,
+  constructor(private schuelerData: TeilnehmerDataService,
               private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.idChanged.subscribe(id => {
       this.id = id ? id : null;
     })
-    this.schuelerData.findSchueler(this.id).subscribe(foundSchueler => {
+    this.schuelerData.findTeilnehmer(this.id).subscribe(foundSchueler => {
       if (!foundSchueler) {
         console.log("WIESO?")
       } else {

@@ -5,9 +5,9 @@ import {AuthGuard} from './auth/auth.guard';
 import {KursplanComponent} from './kursplan/kursplan.component';
 import {PostfachComponent} from './postfach/postfach.component';
 import {StartSeiteComponent} from './startseite/start-seite.component';
-import {NotenuebersichtComponent} from './notenuebersicht/notenuebersicht.component';
+import {PruefungsuebersichtComponent} from './pruefungsuebersicht/pruefungsuebersicht.component';
 import {WochenberichtComponent} from './wochenbericht/wochenbericht.component';
-import {SchueleranlegenComponent} from './schueleranlegen/schueleranlegen.component';
+import {TeilnehmerAnlegenComponent} from './teilnehmer-anlegen/teilnehmer-anlegen.component';
 
 const routes: Routes = [
   {
@@ -25,8 +25,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'notenuebersicht',
-    component: NotenuebersichtComponent,
+    path: 'pruefungsuebersicht',
+    component: PruefungsuebersichtComponent,
     canActivate: [AuthGuard]
   },
   {
@@ -45,8 +45,8 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'schueleranlegen',
-    component: SchueleranlegenComponent,
+    path: 'teilnehmeranlegen',
+    component: TeilnehmerAnlegenComponent,
     canActivate: [AuthGuard]
   }
 

@@ -17,29 +17,26 @@ export interface Kurs {
 }
 
 @Component({
-  selector: 'app-kursuebersicht',
+  selector: 'app-kursplan',
   templateUrl: './kursplan.component.html',
   styleUrls: ['./kursplan.component.css']
 })
 export class KursplanComponent implements OnInit {
   displayedColumns: string[] = ['bezeichnung', 'start', 'ende'];
-  panelOpenState: boolean;
-  giveDate = new Date();
-  kursUebersicht: Kurs[] = [];
+  kursPlan: Kurs[] = [];
 
-  constructor(private kursuebersichtService: KursplanService,
+  constructor(private kursplanService: KursplanService,
               private userService: UserService) { }
 
   ngOnInit(): void {
     this.userService.idChanged.subscribe(id => {
       if (id) {
-        this.kursuebersichtService.getKursuebersicht(id)
-          .subscribe(kursUebersicht => {
-            if (!kursUebersicht) {
+        this.kursplanService.getKursplan()
+          .subscribe(kursPlan => {
+            if (!kursPlan) {
               console.error('FEHLER! ALARM!');
             } else {
-              this.kursUebersicht = kursUebersicht
-              console.log('Kursübersicht ', kursUebersicht)
+              this.kursPlan = kursPlan
             }
           });
       }

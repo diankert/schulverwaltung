@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {SchuelerDataService, StudentData} from '../../services/schueler-data.service';
+import {TeilnehmerData, TeilnehmerDataService} from '../../services/teilnehmer-data.service';
 import {UserService} from '../../auth/user.service';
 import {FormControl, FormGroup} from '@angular/forms';
-import {MeineDatenService} from './meine-daten.service';
 
 @Component({
   selector: 'app-meine-daten',
@@ -11,12 +10,11 @@ import {MeineDatenService} from './meine-daten.service';
 })
 export class MeineDatenComponent implements OnInit {
   id: string;
-  schueler: StudentData;
-  schulerDatenBearbeitenFormGroup: FormGroup;
+  teilnehmer: TeilnehmerData;
+  teilnehmerDatenBearbeitenFormGroup: FormGroup;
 
-  constructor(private schuelerData: SchuelerDataService,
-              private userService: UserService,
-              private meinedatenService: MeineDatenService) {
+  constructor(private teilnehmerDataService: TeilnehmerDataService,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -24,50 +22,50 @@ export class MeineDatenComponent implements OnInit {
       this.id = id ? id : null;
 
       if (id) {
-        this.schuelerData.findSchueler(id).subscribe(foundSchueler => {
-          if (!foundSchueler) {
+        this.teilnehmerDataService.findTeilnehmer(id).subscribe(foundTeilnehmer => {
+          if (!foundTeilnehmer) {
             console.log('WIESO?')
           } else {
-            this.schueler = foundSchueler;
-            this.schulerDatenBearbeitenFormGroup = this.getUpdatedFormGroup(foundSchueler);
+            this.teilnehmer = foundTeilnehmer;
+            this.teilnehmerDatenBearbeitenFormGroup = this.getUpdatedFormGroup(foundTeilnehmer);
           }
         });
       }
     });
 
-    this.schulerDatenBearbeitenFormGroup = this.getUpdatedFormGroup();
+    this.teilnehmerDatenBearbeitenFormGroup = this.getUpdatedFormGroup();
   }
 
-  getUpdatedFormGroup(schueler?: StudentData): FormGroup {
+  getUpdatedFormGroup(teilnehmer?: TeilnehmerData): FormGroup {
     return new FormGroup({
-      'vorname': new FormControl(schueler?.vorname),
-      'nachname': new FormControl(schueler?.nachname),
-      'geburtsdatum': new FormControl(schueler?.geburtsdatum),
-      'strasse': new FormControl(schueler?.strasse),
-      'hausnummer': new FormControl(schueler?.hausnummer),
-      'email': new FormControl(schueler?.email),
-      'telefon': new FormControl(schueler?.telefon),
-      'stadt': new FormControl(schueler?.stadt),
-      'plz': new FormControl(schueler?.plz)
+      'vorname': new FormControl(teilnehmer?.vorname),
+      'nachname': new FormControl(teilnehmer?.nachname),
+      'geburtsdatum': new FormControl(teilnehmer?.geburtsdatum),
+      'strasse': new FormControl(teilnehmer?.strasse),
+      'hausnummer': new FormControl(teilnehmer?.hausnummer),
+      'email': new FormControl(teilnehmer?.email),
+      'telefon': new FormControl(teilnehmer?.telefon),
+      'stadt': new FormControl(teilnehmer?.stadt),
+      'plz': new FormControl(teilnehmer?.plz)
     });
   }
 
   onSubmit() {
-    const updateschuelerEins = {
+    const teilnehmerToUpdate = {
       id: this.id,
-      vorname: this.schulerDatenBearbeitenFormGroup.controls.vorname.value,
-      nachname: this.schulerDatenBearbeitenFormGroup.controls.nachname.value,
-      geburtsdatum: this.schulerDatenBearbeitenFormGroup.controls.geburtsdatum.value,
-      strasse: this.schulerDatenBearbeitenFormGroup.controls.strasse.value,
-      hausnummer: this.schulerDatenBearbeitenFormGroup.controls.hausnummer.value,
-      telefon: this.schulerDatenBearbeitenFormGroup.controls.telefon.value,
-      stadt: this.schulerDatenBearbeitenFormGroup.controls.stadt.value,
-      plz: this.schulerDatenBearbeitenFormGroup.controls.plz.value,
-      email: this.schulerDatenBearbeitenFormGroup.controls.email.value,
+      vorname: this.teilnehmerDatenBearbeitenFormGroup.controls.vorname.value,
+      nachname: this.teilnehmerDatenBearbeitenFormGroup.controls.nachname.value,
+      geburtsdatum: this.teilnehmerDatenBearbeitenFormGroup.controls.geburtsdatum.value,
+      strasse: this.teilnehmerDatenBearbeitenFormGroup.controls.strasse.value,
+      hausnummer: this.teilnehmerDatenBearbeitenFormGroup.controls.hausnummer.value,
+      telefon: this.teilnehmerDatenBearbeitenFormGroup.controls.telefon.value,
+      stadt: this.teilnehmerDatenBearbeitenFormGroup.controls.stadt.value,
+      plz: this.teilnehmerDatenBearbeitenFormGroup.controls.plz.value,
+      email: this.teilnehmerDatenBearbeitenFormGroup.controls.email.value,
     };
-    this.meinedatenService.updateSchueler(updateschuelerEins).subscribe(data => {
+    this.teilnehmerDataService.updateTeilnehmer(teilnehmerToUpdate).subscribe(data => {
       console.log('data: ', data)
-      console.log('Updateschuelereins: ', updateschuelerEins)
+      console.log('Updateschuelereins: ', teilnehmerToUpdate)
     });
   }
 }

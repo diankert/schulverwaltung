@@ -1,5 +1,5 @@
 import {Component, Injectable, OnInit} from '@angular/core';
-import {SchuelerDataService, StudentData} from '../../services/schueler-data.service';
+import {TeilnehmerDataService, TeilnehmerData} from '../../services/teilnehmer-data.service';
 import {UserService} from '../../auth/user.service';
 import {Bild, BilderUserService} from '../../services/bilder-user.service';
 
@@ -11,9 +11,9 @@ import {Bild, BilderUserService} from '../../services/bilder-user.service';
 })
 export class BenutzerAnzeigen implements OnInit {
   id: string;
-  schueler: StudentData;
+  schueler: TeilnehmerData;
   schuelerBild: Bild;
-  constructor(private schuelerData: SchuelerDataService,
+  constructor(private schuelerData: TeilnehmerDataService,
               private userService: UserService,
               private bilderService: BilderUserService) {}
 
@@ -21,19 +21,14 @@ export class BenutzerAnzeigen implements OnInit {
     this.userService.idChanged.subscribe(id => {
       this.id = id;
       if (id) {
-        this.schuelerData.findSchueler(id).subscribe(foundSchueler => {
+        this.schuelerData.findTeilnehmer(id).subscribe(foundSchueler => {
           if (!foundSchueler) {
             console.log("id? ", id)
           } else {
             this.schueler = foundSchueler;
           }
         });
-      }
-    });
-    this.userService.idChanged.subscribe(id => {
-      this.id = id;
-      if (id) {
-        this.bilderService.findBilder(id).subscribe(foundBild => {
+        this.bilderService.findBild(id).subscribe(foundBild => {
           if (!foundBild) {
             console.log('id? ', id)
           } else {

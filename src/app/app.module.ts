@@ -24,13 +24,13 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {PostfachComponent} from './postfach/postfach.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {NotenuebersichtComponent} from './notenuebersicht/notenuebersicht.component';
+import {PruefungsuebersichtComponent} from './pruefungsuebersicht/pruefungsuebersicht.component';
 import {KursplanComponent} from './kursplan/kursplan.component';
 import {IonicModule} from '@ionic/angular';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {WochenberichtComponent} from './wochenbericht/wochenbericht.component';
-import {SchueleranlegenComponent} from './schueleranlegen/schueleranlegen.component';
+import {TeilnehmerAnlegenComponent} from './teilnehmer-anlegen/teilnehmer-anlegen.component';
 import {EinKursComponent} from './startseite/ein-kurs/ein-kurs.component';
 import {MeineDatenComponent} from './startseite/meine-daten/meine-daten.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
@@ -49,10 +49,10 @@ registerLocaleData(localeDe);
     StartSeiteComponent,
     BenutzerAnzeigen,
     PostfachComponent,
-    NotenuebersichtComponent,
+    PruefungsuebersichtComponent,
     KursplanComponent,
     WochenberichtComponent,
-    SchueleranlegenComponent,
+    TeilnehmerAnlegenComponent,
     EinKursComponent,
     MeineDatenComponent,
     AlleWochenberichteComponent,

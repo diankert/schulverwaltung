@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {MatAccordion} from '@angular/material/expansion';
 import {FormControl, FormGroup} from '@angular/forms';
 import {CalendarConfig, DayC} from 'material-calendar';
-import {SchuelerDataService, StudentData} from '../services/schueler-data.service';
+import {TeilnehmerDataService, TeilnehmerData} from '../services/teilnehmer-data.service';
 import {Kurs} from '../kursplan/kursplan.component';
 import {UserService} from '../auth/user.service';
 
@@ -28,7 +28,7 @@ export class WochenberichtComponent implements OnInit {
   wochenberichtFormGroup: FormGroup;
   panelOpenState = false;
   kurs: Kurs;
-  schueler: StudentData;
+  schueler: TeilnehmerData;
   id: string;
   giveDate: Date;
 
@@ -37,7 +37,7 @@ export class WochenberichtComponent implements OnInit {
       this.id = id ? id : null;
 
       if (id) {
-        this.schuelerData.findSchueler(id).subscribe(foundSchueler => {
+        this.schuelerData.findTeilnehmer(id).subscribe(foundSchueler => {
           if (!foundSchueler) {
             console.log('WIESO?')
           } else {
@@ -51,7 +51,7 @@ export class WochenberichtComponent implements OnInit {
     this.wochenberichtFormGroup = this.getWochenberichtFormGroup();
   }
 
-  getWochenberichtFormGroup(schueler?: StudentData): FormGroup {
+  getWochenberichtFormGroup(schueler?: TeilnehmerData): FormGroup {
     return new FormGroup({
       'datum': new FormControl(),
       'vorname': new FormControl(schueler?.vorname),
@@ -71,7 +71,7 @@ export class WochenberichtComponent implements OnInit {
   prevStep() {
     this.step--;
   }
-  constructor(private schuelerData: SchuelerDataService,
+  constructor(private schuelerData: TeilnehmerDataService,
               private userService: UserService,) { }
 
   onSubmit() {
