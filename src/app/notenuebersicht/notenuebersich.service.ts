@@ -19,8 +19,8 @@ export class NotenuebersichService {
   constructor(private http: HttpClient) {
   }
 
-  getNotenuebersicht(pruefungId: string): Observable<PruefungUebersicht> {
-    return this.http.get<PruefungUebersicht>('api/pruefung/get?id=' + pruefungId);
+  getAllNotenuebersicht(): Observable<PruefungUebersicht> {
+    return this.http.get<PruefungUebersicht>('api/pruefung/list');
   }
 
   getPruefungVonSchueler(id: string): Observable<Pruefung[]> {
@@ -28,6 +28,5 @@ export class NotenuebersichService {
       .get<StudentData>('api/teilnehmer/get/?id='+ id)
       .pipe(map(studentData => studentData.pruefungen))
   }
-
 
 }

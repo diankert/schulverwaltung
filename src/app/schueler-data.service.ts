@@ -2,10 +2,11 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Pruefung} from './notenuebersicht/notenuebersicht.component';
 import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
 
 export interface StudentData {
   id?: string;
-  pic?: string;
+  pic?:string;
   vorname: string;
   nachname: string;
   geburtsdatum: string;
@@ -29,6 +30,5 @@ export class SchuelerDataService {
   findSchueler(id: string) {
     return this.http.get<StudentData>('api/teilnehmer/get/?id='+ id);
   }
-
 
 }

@@ -34,6 +34,15 @@ export class NotenuebersichtComponent implements OnInit {
         this.notenuebersichtService.getPruefungVonSchueler(id).subscribe(pruefungen => {
           this.pruefungsUebersicht = pruefungen;
         });
+        // this.notenuebersichtService.getAllNotenuebersicht(id)
+        //   .subscribe(pruefungsUebersicht => {
+        //     if (!pruefungsUebersicht) {
+        //       console.error('FEHLER! ALARM!');
+        //     } else {
+        //       this.pruefungsUebersicht = pruefungsUebersicht.pruefung
+        //       console.log('Prüfungsübersicht: ',this.pruefungsUebersicht)
+        //     }
+        //   });
       }
     })
 

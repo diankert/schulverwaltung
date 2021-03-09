@@ -4,8 +4,8 @@ import {Kurs} from './kursuebersicht.component';
 import {HttpClient} from '@angular/common/http';
 
 export interface Kursuebersicht {
-  id: string,
-  kurse: Kurs[]
+  id: string;
+  kurse: Kurs[];
 }
 
 @Injectable({
@@ -15,7 +15,7 @@ export class KursuebersichtService {
 
   constructor(private http: HttpClient) { }
 
-  getKursuebersicht(userId: string): Observable<Kursuebersicht> {
-    return this.http.get<Kursuebersicht>('api/kursuebersicht/'+userId);
+  getKursuebersicht(kursId: string): Observable<Kursuebersicht> {
+    return this.http.get<Kursuebersicht>('/api/kursuebersicht/get/?id='+ kursId);
   }
 }

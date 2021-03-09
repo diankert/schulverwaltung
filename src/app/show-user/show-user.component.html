@@ -1,14 +1,15 @@
 
 <mat-card class="example-card">
   <mat-card-header>
-    <img mat-card-avatar [src]=schueler?.pic  alt="Photo of a Student">
+    <img mat-card-avatar [src]=schuelerBild?.dateinname  alt="Photo of a Student">
     <mat-card-title>{{schueler?.vorname}}</mat-card-title>
     <mat-card-title>{{schueler?.nachname}}</mat-card-title>
   </mat-card-header>
-  <img mat-card-image class="mat-card-image" [src]=schueler?.pic  alt="Photo of a Student">
+  <img mat-card-image class="mat-card-image" [src]=schuelerBild?.dateinname  alt="Photo of a Student">
   <mat-card-content>
   </mat-card-content>
       <strong>{{schueler?.vorname}} </strong> <strong>{{schueler?.nachname}}</strong>
 </mat-card>
+
 
 

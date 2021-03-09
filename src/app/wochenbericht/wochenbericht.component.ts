@@ -3,6 +3,17 @@ import {MatAccordion} from '@angular/material/expansion';
 import {FormControl, FormGroup} from '@angular/forms';
 import {CalendarConfig, DayC} from 'material-calendar';
 
+export interface Wochenbericht {
+  id?: string;
+  creation_date?: string;
+  last_modification_date?: string;
+  deleted?: string;
+  deletion_date?: string;
+  bezeichnung: string;
+  thema: string;
+  max_punkte: string;
+  datum: string;
+}
 @Component({
   selector: 'app-wochenbericht',
   templateUrl: './wochenbericht.component.html',

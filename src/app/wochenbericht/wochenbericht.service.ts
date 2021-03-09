@@ -2,6 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {StudentData} from '../schueler-data.service';
+import {Pruefung} from '../notenuebersicht/notenuebersicht.component';
+import {map} from 'rxjs/operators';
+import {Wochenbericht} from './wochenbericht.component';
+
+export interface WochenberichtUebersicht {
+  id: string;
+  wochenberichte: Wochenbericht[];
+}
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +25,4 @@ export class WochenberichtService {
     return this.http.get<StudentData[]>(this.baseURL + 'teilnehmer')
   }
 
-  // addWochenbericht(wochenbericht: Wochenbericht): Observable<StudentData> {
-//
-//     return this.http.post<Wochenbericht>(this.baseURL + 'wochenbericht',
-//       wochenbericht)
-//   }
 }

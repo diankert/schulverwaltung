@@ -17,7 +17,6 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit(): void {
     const day = new Date().getDay();
-    console.log(day)
     this.currentMonthToDisplay = this.calendarService.createMonthData(new Date());
   }
 
