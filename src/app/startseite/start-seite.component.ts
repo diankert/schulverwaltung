@@ -21,10 +21,9 @@ export class StartSeiteComponent implements OnInit {
     })
     this.schuelerData.findTeilnehmer(this.id).subscribe(foundSchueler => {
       if (!foundSchueler) {
-        console.log("WIESO?")
+        console.log("Foundschueler KEINENSCHUELER GEFUNDEN ", foundSchueler)
       } else {
         this.schueler = foundSchueler;
-        console.log(this.schueler);
       }
     });}
 

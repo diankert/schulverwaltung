@@ -4,7 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 
 export interface LoginData {
-  id: string;
+  teilnehmer_id: string;
   username: string;
   status?: string;
 };
@@ -21,7 +21,7 @@ export class UserService {
   findUser(name: string): Observable<LoginData[]> {
     // return this.http.get<LoginData[]>('/api/loginData?username='+name);
     return of([{
-      id: "1",
+      teilnehmer_id: "1",
       username: "dp"
     }])
   }

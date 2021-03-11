@@ -11,6 +11,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 export class TeilnehmerAnlegenComponent implements OnInit {
   teilnehmerAnlegenFormGroup: FormGroup;
   teilnehmer: TeilnehmerData;
+  disabled: false;
 
   constructor(private teilnehmerDataService: TeilnehmerDataService) { }
 

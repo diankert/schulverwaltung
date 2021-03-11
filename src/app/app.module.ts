@@ -38,6 +38,10 @@ import {AlleWochenberichteComponent} from './wochenbericht/alle-wochenberichte/a
 import {CalendarComponent} from './shared/calendar/calendar.component';
 import {registerLocaleData} from '@angular/common';
 import localeDe from '@angular/common/locales/de';
+import { WochenberichtVorlageComponent } from './wochenbericht-vorlage/wochenbericht-vorlage.component';
+import { WochenberichtAlternativComponent } from './wochenbericht-alternativ/wochenbericht-alternativ.component';
+import { WochenberichtAnlegenComponent } from './wochenbericht-anlegen/wochenbericht-anlegen.component';
+
 
 registerLocaleData(localeDe);
 
@@ -56,7 +60,10 @@ registerLocaleData(localeDe);
     EinKursComponent,
     MeineDatenComponent,
     AlleWochenberichteComponent,
-    CalendarComponent
+    CalendarComponent,
+    WochenberichtVorlageComponent,
+    WochenberichtAlternativComponent,
+    WochenberichtAnlegenComponent
   ],
   imports: [
     BrowserModule,
@@ -84,6 +91,7 @@ registerLocaleData(localeDe);
     ReactiveFormsModule,
     MatNativeDateModule,
     MatButtonToggleModule,
+
 
 
 ],

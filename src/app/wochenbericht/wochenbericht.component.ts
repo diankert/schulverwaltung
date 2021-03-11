@@ -5,6 +5,7 @@ import {CalendarConfig, DayC} from 'material-calendar';
 import {TeilnehmerDataService, TeilnehmerData} from '../services/teilnehmer-data.service';
 import {Kurs} from '../kursplan/kursplan.component';
 import {UserService} from '../auth/user.service';
+import {WochenberichtService} from './wochenbericht.service';
 
 export interface Wochenbericht {
   id?: string;
@@ -27,10 +28,9 @@ export class WochenberichtComponent implements OnInit {
   step = 0;
   wochenberichtFormGroup: FormGroup;
   panelOpenState = false;
-  kurs: Kurs;
   schueler: TeilnehmerData;
   id: string;
-  giveDate: Date;
+
 
   ngOnInit(): void {
     this.userService.idChanged.subscribe(id => {
@@ -49,6 +49,7 @@ export class WochenberichtComponent implements OnInit {
     });
 
     this.wochenberichtFormGroup = this.getWochenberichtFormGroup();
+
   }
 
   getWochenberichtFormGroup(schueler?: TeilnehmerData): FormGroup {
@@ -72,7 +73,8 @@ export class WochenberichtComponent implements OnInit {
     this.step--;
   }
   constructor(private schuelerData: TeilnehmerDataService,
-              private userService: UserService,) { }
+              private userService: UserService,
+              private wochenberichtService: WochenberichtService) { }
 
   onSubmit() {
     const wochenbericht = {
@@ -81,9 +83,7 @@ export class WochenberichtComponent implements OnInit {
       vorname: this.wochenberichtFormGroup.controls.vorname.value,
       eintrag: this.wochenberichtFormGroup.controls.eintrag.value
     };
-    // this.WochenberichtFormGroup.addWochenbercht(wochenbericht).subscribe(data => {
-    //   console.log('data: ', data)
-    // });
+    // this.wochenberichtService.addWochenbericht(wochenbericht).subscribe();
   }
 
 }

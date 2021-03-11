@@ -8,6 +8,7 @@ import {StartSeiteComponent} from './startseite/start-seite.component';
 import {PruefungsuebersichtComponent} from './pruefungsuebersicht/pruefungsuebersicht.component';
 import {WochenberichtComponent} from './wochenbericht/wochenbericht.component';
 import {TeilnehmerAnlegenComponent} from './teilnehmer-anlegen/teilnehmer-anlegen.component';
+import {WochenberichtVorlageComponent} from './wochenbericht-vorlage/wochenbericht-vorlage.component';
 
 const routes: Routes = [
   {
@@ -48,7 +49,13 @@ const routes: Routes = [
     path: 'teilnehmeranlegen',
     component: TeilnehmerAnlegenComponent,
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'wochenberichtvorlage',
+    component: WochenberichtVorlageComponent,
+    canActivate: [AuthGuard]
+  },
+
 
   ];
 

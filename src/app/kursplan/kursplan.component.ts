@@ -8,7 +8,7 @@ export interface Kurs {
   last_modification_date?: string;
   deleted?: string;
   deletion_date?: string;
-  start: string;
+  start: Date;
   ende: string;
   kosten_pro_teilnehmer?: string;
   bezeichnung: string;
@@ -36,7 +36,20 @@ export class KursplanComponent implements OnInit {
             if (!kursPlan) {
               console.error('FEHLER! ALARM!');
             } else {
-              this.kursPlan = kursPlan
+              this.kursPlan = kursPlan;
+              const filteredKursPlan = []
+              for (const kurs of kursPlan) {
+                const startKurs = new Date(kurs.start);
+                console.log("START KURS: ", startKurs.getMonth())
+                const endeKurs = new Date(kurs.ende);
+                console.log("ENDE KURS: ", endeKurs.getMonth())
+                if (startKurs.getMonth() <= 2 && endeKurs.getMonth() >= 2) {
+                  console.log('BEHALTEN WIR!')
+                  filteredKursPlan.push({...kurs});
+                }
+              }
+              console.log(filteredKursPlan)
+              console.log(kursPlan)
             }
           });
       }

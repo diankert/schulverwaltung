@@ -24,7 +24,7 @@ export class MeineDatenComponent implements OnInit {
       if (id) {
         this.teilnehmerDataService.findTeilnehmer(id).subscribe(foundTeilnehmer => {
           if (!foundTeilnehmer) {
-            console.log('WIESO?')
+            console.log('teilnehmer NICHT GEFUNDEN ', foundTeilnehmer)
           } else {
             this.teilnehmer = foundTeilnehmer;
             this.teilnehmerDatenBearbeitenFormGroup = this.getUpdatedFormGroup(foundTeilnehmer);

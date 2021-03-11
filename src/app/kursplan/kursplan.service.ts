@@ -13,4 +13,8 @@ export class KursplanService {
   getKursplan(): Observable<Kurs[]> {
     return this.http.get<Kurs[]>('/api/module/list');
   }
+
+  getEinKursplan(): Observable<Kurs[]>{
+    return this.http.get<Kurs[]>('/api/module/get/?id=1');
+  }
 }
