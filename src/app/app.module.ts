@@ -41,6 +41,10 @@ import localeDe from '@angular/common/locales/de';
 import { WochenberichtVorlageComponent } from './wochenbericht-vorlage/wochenbericht-vorlage.component';
 import { WochenberichtAlternativComponent } from './wochenbericht-alternativ/wochenbericht-alternativ.component';
 import { WochenberichtAnlegenComponent } from './wochenbericht-anlegen/wochenbericht-anlegen.component';
+import  {DozentenanlegenComponent} from './dozentenanlegen/dozentenanlegen.component';
+import {CheckbocktreeComponent} from './checkboxtree/checkbocktree.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatTreeModule} from '@angular/material/tree';
 
 
 registerLocaleData(localeDe);
@@ -63,7 +67,10 @@ registerLocaleData(localeDe);
     CalendarComponent,
     WochenberichtVorlageComponent,
     WochenberichtAlternativComponent,
-    WochenberichtAnlegenComponent
+    WochenberichtAnlegenComponent,
+    DozentenanlegenComponent,
+    CheckbocktreeComponent
+
   ],
   imports: [
     BrowserModule,
@@ -91,10 +98,11 @@ registerLocaleData(localeDe);
     ReactiveFormsModule,
     MatNativeDateModule,
     MatButtonToggleModule,
+    MatCheckboxModule,
+    MatTreeModule,
 
 
-
-],
+  ],
   providers: [
     {provide: LOCALE_ID, useValue: 'de'}
   ],

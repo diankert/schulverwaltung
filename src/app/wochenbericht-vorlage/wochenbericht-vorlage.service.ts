@@ -21,7 +21,7 @@ export interface Inhalt {
   deletion_date?: Date;
   zeilennummer?: string;
   inhalt: string;
-  wb_tag_id: Tag;
+  wb_tag_id: string;
 }
 
 export interface Tag {
@@ -74,8 +74,8 @@ export class WochenberichtVorlageService {
 
 
   // "zeilennummer":"1", "inhalt":"ganz viel Inhalt", "wb_tag_id":"1"}
-  // addInhalt(teilnehmer: TeilnehmerData): Observable<TeilnehmerData> {
-  //   return this.http.post<TeilnehmerData>(' /api/wochenberichts_inhalt/create', teilnehmer)
-//   }
+  addInhalt(neuenInhaltAnlegen: Inhalt): Observable<Inhalt> {
+    return this.http.post<Inhalt>(' /api/wochenberichts_inhalt/create', neuenInhaltAnlegen)
+  }
 }
 
