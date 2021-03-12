@@ -45,6 +45,9 @@ import  {DozentenanlegenComponent} from './dozentenanlegen/dozentenanlegen.compo
 import {CheckbocktreeComponent} from './checkboxtree/checkbocktree.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTreeModule} from '@angular/material/tree';
+import { WochenberichteVonUserComponent } from './wochenberichte-von-user/wochenberichte-von-user.component';
+import {AdminbereichComponent} from './adminbereich/adminbereich.component';
+
 
 
 registerLocaleData(localeDe);
@@ -69,7 +72,9 @@ registerLocaleData(localeDe);
     WochenberichtAlternativComponent,
     WochenberichtAnlegenComponent,
     DozentenanlegenComponent,
-    CheckbocktreeComponent
+    CheckbocktreeComponent,
+    WochenberichteVonUserComponent,
+    AdminbereichComponent
 
   ],
   imports: [

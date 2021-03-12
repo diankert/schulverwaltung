@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import {TeilnehmerData, TeilnehmerDataService} from '../services/teilnehmer-data.service';
+import {TeilnehmerData} from '../services/teilnehmer-data.service';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {UserService} from '../auth/user.service';
+import {map} from 'rxjs/operators';
 
 export interface Wochenbericht {
   id?: string;
@@ -10,7 +11,7 @@ export interface Wochenbericht {
   last_modification_date?: Date;
   deleted?: Date;
   deletion_date?: Date;
-  teilnehmer_id: TeilnehmerData;
+  teilnehmer_id?: string;
 }
 
 export interface Inhalt {
@@ -40,9 +41,6 @@ export interface Tag {
 })
 export class WochenberichtVorlageService {
   private teilnehmer_id: string;
-  private datum:Date;
-  private thema: string;
-  private wochenberichtid: Wochenbericht;
 
 
 
@@ -51,7 +49,17 @@ export class WochenberichtVorlageService {
     this.userService.idChanged.subscribe(id=>{
       this.teilnehmer_id = id;
     })
+
   }
+
+  getAllWochenberichteVonUser(id: string): Observable<Wochenbericht[]>{
+    return this.http
+      .get<TeilnehmerData>('api/teilnehmer/get/?id='+ id +'&showrelated=true')
+      .pipe(map(studentData => studentData.wochenberichte))
+  }
+
+
+
 
   //{"teilnehmer_id":"1"}
   addWochenbericht(): Observable<Wochenbericht> {
@@ -76,6 +84,12 @@ export class WochenberichtVorlageService {
   // "zeilennummer":"1", "inhalt":"ganz viel Inhalt", "wb_tag_id":"1"}
   addInhalt(neuenInhaltAnlegen: Inhalt): Observable<Inhalt> {
     return this.http.post<Inhalt>(' /api/wochenberichts_inhalt/create', neuenInhaltAnlegen)
+    // return this.http.post<Inhalt>(' /api/wochenberichts_inhalt/create',
+    //   {...neuenInhaltAnlegen,
+    //         zeilennummer: "0"})
   }
+
+
+
 }
 

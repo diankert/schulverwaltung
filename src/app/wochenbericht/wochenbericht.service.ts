@@ -12,12 +12,12 @@ export class WochenberichtService {
   constructor(private http: HttpClient) {
   }
 
-  getAlleWochenberichte() : Observable<TeilnehmerData[]> {
-      return this.http.get<TeilnehmerData[]>(this.baseURL);
-    }
-
-
-  addWochenbericht(teilnehmer: TeilnehmerData): Observable<TeilnehmerData> {
-    return this.http.post<TeilnehmerData>(' /api/wochenberichts_tag/create', teilnehmer)
-  }
+  // getAlleWochenberichte() : Observable<TeilnehmerData[]> {
+  //     return this.http.get<TeilnehmerData[]>(this.baseURL);
+  //   }
+  //
+  //
+  // addWochenbericht(teilnehmer: TeilnehmerData): Observable<TeilnehmerData> {
+  //   return this.http.post<TeilnehmerData>(' /api/wochenberichts_tag/create', teilnehmer)
+  // }
 }

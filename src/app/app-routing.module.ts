@@ -10,6 +10,8 @@ import {WochenberichtComponent} from './wochenbericht/wochenbericht.component';
 import {TeilnehmerAnlegenComponent} from './teilnehmer-anlegen/teilnehmer-anlegen.component';
 import {WochenberichtVorlageComponent} from './wochenbericht-vorlage/wochenbericht-vorlage.component';
 import {DozentenanlegenComponent} from './dozentenanlegen/dozentenanlegen.component';
+import {WochenberichteVonUserComponent} from './wochenberichte-von-user/wochenberichte-von-user.component';
+import {AdminbereichComponent} from './adminbereich/adminbereich.component';
 
 const routes: Routes = [
   {
@@ -59,6 +61,16 @@ const routes: Routes = [
   {
     path: 'dozentenanlegen',
     component: DozentenanlegenComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'allewochenberichtevomuser',
+    component: WochenberichteVonUserComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'listenansicht',
+    component: AdminbereichComponent,
     canActivate: [AuthGuard]
   }
 

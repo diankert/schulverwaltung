@@ -33,6 +33,7 @@ export class AppComponent {
             console.log('id? ', id)
           } else {
             this.schuelerBild = foundBild;
+            console.log(this.schuelerBild)
           }
         });
       }

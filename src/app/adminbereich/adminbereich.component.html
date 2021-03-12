@@ -1,0 +1,100 @@
+
+<div class="container-fluid h-100 p-3" style="border: 1px solid #606060">
+  <h3>
+    Adminbereich
+  </h3>
+  <div class="row p-5 h-100 d-flex justify-content-center">
+    <div class="col-9 h-100">
+      <div class="p-3" style="background-color: #ffffff">
+        <mat-tab-group >
+          <mat-tab label="Dozenten" >
+
+            <div class="d-flex justify-content-center">
+              <table mat-table [dataSource]="dozentlist">
+
+                <ng-container matColumnDef="vorname">
+                  <th mat-header-cell *matHeaderCellDef>Vorname</th>
+                  <td mat-cell *matCellDef="let dozentlist"> {{dozentlist.vorname}} </td>
+                </ng-container>
+                <ng-container matColumnDef="nachname">
+                  <th mat-header-cell *matHeaderCellDef>Nachname</th>
+                  <td mat-cell *matCellDef="let dozentlist"> {{dozentlist.nachname}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
+              </table>
+            </div>
+
+          </mat-tab>
+
+          <mat-tab label="Teilnehmer">
+
+            <div class="d-flex justify-content-center">
+              <table mat-table [dataSource]="teilnehmerlist">
+
+                <ng-container matColumnDef="vorname">
+                  <th mat-header-cell *matHeaderCellDef>Vorname</th>
+                  <td mat-cell *matCellDef="let teilnehmerlist"> {{teilnehmerlist.vorname}} </td>
+                </ng-container>
+                <ng-container matColumnDef="nachname">
+                  <th mat-header-cell *matHeaderCellDef>Nachname</th>
+                  <td mat-cell *matCellDef="let teilnehmerlist"> {{teilnehmerlist.nachname}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
+              </table>
+            </div>
+
+          </mat-tab>
+
+          <mat-tab label="Verwaltung">
+
+            <div class="d-flex justify-content-center">
+              <table mat-table [dataSource]="verwaltunglist">
+
+                <ng-container matColumnDef="vorname">
+                  <th mat-header-cell *matHeaderCellDef>Vorname</th>
+                  <td mat-cell *matCellDef="let verwaltunglist"> {{verwaltunglist.vorname}} </td>
+                </ng-container>
+                <ng-container matColumnDef="nachname">
+                  <th mat-header-cell *matHeaderCellDef>Nachname</th>
+                  <td mat-cell *matCellDef="let verwaltunglist"> {{verwaltunglist.nachname}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
+              </table>
+            </div>
+
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--
+<div class="p-3">
+<h3>
+  Kursplan
+</h3>
+<div class="d-flex justify-content-center">
+  <table mat-table [dataSource]="dozentlist">
+
+    <ng-container matColumnDef="vorname">
+      <th mat-header-cell *matHeaderCellDef>Vorname</th>
+      <td mat-cell *matCellDef="let dozentlist"> {{dozentlist.vorname}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nachname">
+      <th mat-header-cell *matHeaderCellDef>Nachname</th>
+      <td mat-cell *matCellDef="let dozentlist"> {{dozentlist.nachname}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>
+  </table>
+</div>
+</div>
+-->

@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Pruefung} from '../pruefungsuebersicht/pruefungsuebersicht.service';
 import {Observable} from 'rxjs';
+import {Wochenbericht} from '../wochenbericht-vorlage/wochenbericht-vorlage.service';
 
 export interface TeilnehmerData {
   id?: string;
@@ -16,6 +17,7 @@ export interface TeilnehmerData {
   plz: string;
   stadt: string;
   pruefungen?: Pruefung[];
+  wochenberichte?: Wochenbericht[];
 };
 
 @Injectable({

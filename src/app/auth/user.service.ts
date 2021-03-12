@@ -21,7 +21,7 @@ export class UserService {
   findUser(name: string): Observable<LoginData[]> {
     // return this.http.get<LoginData[]>('/api/loginData?username='+name);
     return of([{
-      teilnehmer_id: "4",
+      teilnehmer_id: "1",
       username: "dp"
     }])
   }

@@ -37,8 +37,8 @@ export class WochenberichtAnlegenComponent implements OnInit {
     });
 
     this.wochenberichtInhaltAnlegenFormGroup = new FormGroup({
+      // "zeilennummer": new FormControl('0'),
       "inhalt": new FormControl('Einführung in SQL, Select,Where'),
-      "zeilennummer": new FormControl('1')
     });
   }
   setStep(index: number) {
@@ -84,9 +84,9 @@ export class WochenberichtAnlegenComponent implements OnInit {
 
   wochenberichtInhalt() {
     const neuenInhalt = {
-      zeilennummer: this.wochenberichtInhaltAnlegenFormGroup.controls.zeilennummer.value,
+      zeilennummer: "0",
       inhalt: this.wochenberichtInhaltAnlegenFormGroup.controls.inhalt.value,
-      wb_tag_id: this.erstellterTag.id,
+      wb_tag_id: this.erstellterTag.id
     };
     console.log(neuenInhalt)
     this.wochenberichtService.addInhalt(neuenInhalt).subscribe(item =>{
