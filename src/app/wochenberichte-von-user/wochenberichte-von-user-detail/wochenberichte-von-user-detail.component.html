@@ -1,0 +1,5 @@
+<mat-card [ngClass]="{'selected': selected}" (click)="onItemSelect()">
+  <div class="d-flex justify-content-center">
+    <p>{{wochenbericht.id}} - {{wochenbericht.deletion_date | date}} - {{wochenbericht.teilnehmer_id}}</p>
+  </div>
+</mat-card>

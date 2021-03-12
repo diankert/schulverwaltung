@@ -58,7 +58,9 @@ export class WochenberichtVorlageService {
       .pipe(map(studentData => studentData.wochenberichte))
   }
 
-
+getWochenberichtMitId(id: string): Observable<Wochenbericht>{
+  return this.http.get<Wochenbericht>('api/wochenbericht/get/?id='+ id +'&showrelated=true')
+}
 
 
   //{"teilnehmer_id":"1"}

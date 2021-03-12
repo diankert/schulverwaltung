@@ -47,6 +47,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTreeModule} from '@angular/material/tree';
 import { WochenberichteVonUserComponent } from './wochenberichte-von-user/wochenberichte-von-user.component';
 import {AdminbereichComponent} from './adminbereich/adminbereich.component';
+import { WochenberichteVonUserDetailComponent } from './wochenberichte-von-user/wochenberichte-von-user-detail/wochenberichte-von-user-detail.component';
+import { WochenberichteVonUserCreateComponent } from './wochenberichte-von-user/wochenberichte-von-user-create/wochenberichte-von-user-create.component';
+import { WochenberichteVonUserEditComponent } from './wochenberichte-von-user/wochenberichte-von-user-edit/wochenberichte-von-user-edit.component';
 
 
 
@@ -74,7 +77,10 @@ registerLocaleData(localeDe);
     DozentenanlegenComponent,
     CheckbocktreeComponent,
     WochenberichteVonUserComponent,
-    AdminbereichComponent
+    AdminbereichComponent,
+    WochenberichteVonUserDetailComponent,
+    WochenberichteVonUserCreateComponent,
+    WochenberichteVonUserEditComponent
 
   ],
   imports: [

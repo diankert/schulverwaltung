@@ -1,41 +1,28 @@
 <!--<div class="d-flex justify-content-center flex-column pt-5">-->
-  <mat-card class="d-flex justify-content-center">
-    <button mat-menu-item  >
-      <mat-icon> border_color</mat-icon>
-      <span>Bearbeiten</span>
-    </button>
+<mat-card class="d-flex justify-content-center">
+  <button mat-menu-item (click)="onCreate()">
+    <mat-icon>queue</mat-icon>
+    <span>Anlegen</span>
+  </button>
 
-    <button mat-menu-item  >
-      <mat-icon>queue</mat-icon>
-      <span>Anlegen</span>
-    </button>
-    <button mat-menu-item  >
-      <mat-icon>delete</mat-icon>
-      <span>Löschen</span>
-    </button>
+  <button mat-menu-item [disabled]="!selectedWochenbericht" (click)="onEdit()">
+    <mat-icon> border_color</mat-icon>
+    <span>Bearbeiten</span>
+  </button>
 
-  </mat-card>
-  <mat-card class="w-75">
-    <div class="d-flex justify-content-center flex-column">
-      <mat-card *ngFor="let wochenbericht of wocheneberichtUser | slice:0:10; let i = index" (click)="onItemSelect(wochenbericht.id)">
-        <p>{{wochenbericht.id}} - {{wochenbericht.deletion_date}} - {{wochenbericht.teilnehmer_id}}</p>
-      </mat-card>
-<!--    <table class="table" mat-table [dataSource]="wocheneberichtUser">-->
-<!--      <ng-container matColumnDef="id">-->
-<!--        <th mat-header-cell *matHeaderCellDef>ID WOCHENBERICHT</th>-->
-<!--        <td mat-cell *matCellDef="let wocheneberichtUser" > {{wocheneberichtUser.id}} </td>-->
-<!--      </ng-container>-->
-<!--      <ng-container matColumnDef="deletion_date">-->
-<!--        <th mat-header-cell *matHeaderCellDef>deletion_date</th>-->
-<!--        <td mat-cell *matCellDef="let wocheneberichtUser"> {{wocheneberichtUser.deletion_date}} </td>-->
-<!--      </ng-container>-->
-<!--      <ng-container matColumnDef="teilnehmer_id">-->
-<!--        <th mat-header-cell *matHeaderCellDef>TEILNEHMER ID</th>-->
-<!--        <td mat-cell *matCellDef="let wocheneberichtUser"> {{wocheneberichtUser.teilnehmer_id}} </td>-->
-<!--      </ng-container>-->
-<!--      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>-->
-<!--      <tr mat-row *matRowDef="let myRowData; columns: displayedColumns"></tr>-->
-<!--    </table>-->
+
+  <button mat-menu-item [disabled]="!selectedWochenbericht">
+    <mat-icon>delete</mat-icon>
+    <span>Löschen</span>
+  </button>
+
+</mat-card>
+<mat-card class="w-75">
+  <div class="d-flex justify-content-center flex-column">
+    <app-wochenberichte-von-user-detail
+      *ngFor="let wochenbericht of wocheneberichtUser | slice:0:10"
+      [wochenbericht]="wochenbericht">
+    </app-wochenberichte-von-user-detail>
   </div>
 </mat-card>
 <!--</div>-->

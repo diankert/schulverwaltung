@@ -12,6 +12,8 @@ import {WochenberichtVorlageComponent} from './wochenbericht-vorlage/wochenberic
 import {DozentenanlegenComponent} from './dozentenanlegen/dozentenanlegen.component';
 import {WochenberichteVonUserComponent} from './wochenberichte-von-user/wochenberichte-von-user.component';
 import {AdminbereichComponent} from './adminbereich/adminbereich.component';
+import {WochenberichteVonUserCreateComponent} from './wochenberichte-von-user/wochenberichte-von-user-create/wochenberichte-von-user-create.component';
+import {WochenberichteVonUserEditComponent} from './wochenberichte-von-user/wochenberichte-von-user-edit/wochenberichte-von-user-edit.component';
 
 const routes: Routes = [
   {
@@ -66,6 +68,16 @@ const routes: Routes = [
   {
     path: 'allewochenberichtevomuser',
     component: WochenberichteVonUserComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'allewochenberichtevomuser/create',
+    component: WochenberichteVonUserCreateComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'allewochenberichtevomuser/edit/:id',
+    component: WochenberichteVonUserEditComponent,
     canActivate: [AuthGuard]
   },
   {
