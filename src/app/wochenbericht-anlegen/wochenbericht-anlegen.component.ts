@@ -19,10 +19,10 @@ export class WochenberichtAnlegenComponent implements OnInit {
   wochenberichtTagAnlegenFormGroup: FormGroup
   wochenberichtInhaltAnlegenFormGroup: FormGroup
   disabled: false;
-  step = 0;
   erstellterWochenbericht: Wochenbericht;
   erstellterTag: Tag;
   erstellterInhalt: Inhalt;
+  step = 0;
 
   constructor(private wochenberichtService: WochenberichtVorlageService) { }
 
@@ -40,17 +40,6 @@ export class WochenberichtAnlegenComponent implements OnInit {
       // "zeilennummer": new FormControl('0'),
       "inhalt": new FormControl('Einführung in SQL, Select,Where'),
     });
-  }
-  setStep(index: number) {
-    this.step = index;
-  }
-
-  nextStep() {
-    this.step++;
-  }
-
-  prevStep() {
-    this.step--;
   }
 
   wochenberichtAnlegen() {
@@ -96,5 +85,17 @@ export class WochenberichtAnlegenComponent implements OnInit {
     });
   }
 
+
+  setStep(index: number) {
+    this.step = index;
+  }
+
+  nextStep() {
+    this.step++;
+  }
+
+  prevStep() {
+    this.step--;
+  }
 
 }

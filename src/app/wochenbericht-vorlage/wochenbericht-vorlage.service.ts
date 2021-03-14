@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {TeilnehmerData} from '../services/teilnehmer-data.service';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {UserService} from '../auth/user.service';
-import {map} from 'rxjs/operators';
+import {filter, map, tap} from 'rxjs/operators';
 
 export interface Wochenbericht {
   id?: string;
@@ -43,24 +43,23 @@ export class WochenberichtVorlageService {
   private teilnehmer_id: string;
 
 
-
   constructor(private http: HttpClient,
               private userService: UserService) {
-    this.userService.idChanged.subscribe(id=>{
+    this.userService.idChanged.subscribe(id => {
       this.teilnehmer_id = id;
     })
 
   }
 
-  getAllWochenberichteVonUser(id: string): Observable<Wochenbericht[]>{
+  getAllWochenberichteVonUser(id: string): Observable<Wochenbericht[]> {
     return this.http
-      .get<TeilnehmerData>('api/teilnehmer/get/?id='+ id +'&showrelated=true')
+      .get<TeilnehmerData>('api/teilnehmer/get/?id=' + id + '&showrelated=true')
       .pipe(map(studentData => studentData.wochenberichte))
   }
 
-getWochenberichtMitId(id: string): Observable<Wochenbericht>{
-  return this.http.get<Wochenbericht>('api/wochenbericht/get/?id='+ id +'&showrelated=true')
-}
+  getWochenberichtMitId(id: string): Observable<Wochenbericht> {
+    return this.http.get<Wochenbericht>('api/wochenbericht/get/?id=' + id + '&showrelated=true')
+  }
 
 
   //{"teilnehmer_id":"1"}
@@ -82,6 +81,17 @@ getWochenberichtMitId(id: string): Observable<Wochenbericht>{
     return this.http.post<Tag>('/api/wochenberichts_tag/create', neuenTagAnlegen);
   }
 
+  getTageFuerWochenbericht(id: string): Observable<Tag[]> {
+    return this.http.get<Tag[]>('/api/wochenberichts_tag/list').pipe(map(tage => tage.filter(tag => tag.wb_id === id)));
+    // return of(
+    //   [
+    //     {
+    //
+    //     }
+    //   ]
+    // );
+  }
+
 
   // "zeilennummer":"1", "inhalt":"ganz viel Inhalt", "wb_tag_id":"1"}
   addInhalt(neuenInhaltAnlegen: Inhalt): Observable<Inhalt> {
@@ -90,7 +100,6 @@ getWochenberichtMitId(id: string): Observable<Wochenbericht>{
     //   {...neuenInhaltAnlegen,
     //         zeilennummer: "0"})
   }
-
 
 
 }
