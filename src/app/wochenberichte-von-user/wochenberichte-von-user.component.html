@@ -12,7 +12,7 @@
       </button>
 
 
-      <button mat-menu-item [disabled]="!selectedWochenbericht">
+      <button mat-menu-item [disabled]="!selectedWochenbericht" (click)="onDelete(selectedWochenbericht)">
         <mat-icon>delete</mat-icon>
         <span>Löschen</span>
       </button>

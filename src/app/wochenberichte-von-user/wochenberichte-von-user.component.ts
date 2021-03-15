@@ -44,4 +44,17 @@ export class WochenberichteVonUserComponent implements OnInit {
     this.router.navigate(['allewochenberichtevomuser', 'edit', this.selectedWochenbericht.id]);
     this.wochenberichtVonUserService.selectionChanged.next(null);
   }
+
+  onDelete(wochenbericht: Wochenbericht) {
+    this.wochenberichtService.deleteWochenbericht(wochenbericht.id).subscribe(() =>{
+      const newArray: Wochenbericht[] = [];
+      for (const alterWochenbericht of this.wocheneberichtUser) {
+        if (alterWochenbericht.id != wochenbericht.id) {
+          newArray.push({...alterWochenbericht});
+        }
+      }
+      this.wocheneberichtUser = [...newArray];
+    });
+    console.log('tag to delete: ', wochenbericht)
+  }
 }

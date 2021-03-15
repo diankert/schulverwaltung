@@ -1,7 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {FormControl, FormGroup} from '@angular/forms';
-import {Wochenbericht, WochenberichtVorlageService} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
+import {
+  Tag,
+  Wochenbericht,
+  WochenberichtVorlageService
+} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
 
 @Component({
   selector: 'app-wochenberichte-von-user-create',
@@ -11,8 +15,9 @@ import {Wochenbericht, WochenberichtVorlageService} from '../../wochenbericht-vo
 export class WochenberichteVonUserCreateComponent implements OnInit {
   wochenberichtTagAnlegenFormGroup: FormGroup
   erstellterWochenbericht: Wochenbericht;
+  wochenbericht: Wochenbericht[] = [];
   constructor(private location: Location,
-              private wochenberichtService: WochenberichtVorlageService) { }
+              private wochenberichtVorlageService: WochenberichtVorlageService) { }
 
   ngOnInit(): void {
     this.wochenberichtTagAnlegenFormGroup = new FormGroup({
@@ -31,11 +36,24 @@ export class WochenberichteVonUserCreateComponent implements OnInit {
       id: this.wochenberichtTagAnlegenFormGroup.controls.id.value
     };
     console.log(neuerWochenbericht)
-    this.wochenberichtService.addWochenbericht().subscribe(item =>{
+    this.wochenberichtVorlageService.addWochenbericht().subscribe(item =>{
       this.erstellterWochenbericht = item;
       console.log('ITEM',item.id)
       console.log('ITEM',this.erstellterWochenbericht)
     });
     this.location.back()
   }
+
+  // onDelete(wochenbericht: Wochenbericht) {
+  //   this.wochenberichtVorlageService.deleteWochenbericht(wochenbericht.id).subscribe(() =>{
+  //     const newArray: Wochenbericht[] = [];
+  //     for (const alterWochenbericht of this.wochenbericht) {
+  //       if (alterWochenbericht.id != wochenbericht.id) {
+  //         newArray.push({...alterWochenbericht});
+  //       }
+  //     }
+  //     this.wochenbericht = [...newArray];
+  //   });
+  //   console.log('tag to delete: ', wochenbericht)
+  // }
 }

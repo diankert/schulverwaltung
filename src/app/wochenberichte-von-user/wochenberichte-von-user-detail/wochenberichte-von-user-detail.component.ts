@@ -1,5 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Tag, Wochenbericht} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
+import {
+  Tag,
+  Wochenbericht,
+  WochenberichtVorlageService
+} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
 import {WochenberichteVonUserService} from '../wochenberichte-von-user.service';
 
 @Component({
@@ -10,8 +14,10 @@ import {WochenberichteVonUserService} from '../wochenberichte-von-user.service';
 export class WochenberichteVonUserDetailComponent implements OnInit {
   @Input() wochenbericht: Wochenbericht;
   selected = false;
+  wochenberichte: Wochenbericht[] = [];
 
-  constructor(private wochenberichteVonUserService: WochenberichteVonUserService) { }
+  constructor(private wochenberichteVonUserService: WochenberichteVonUserService,
+              private wochenberichtService:WochenberichtVorlageService) { }
 
   ngOnInit(): void {
     this.wochenberichteVonUserService.selectionChanged.subscribe(newSelection => {
@@ -22,4 +28,5 @@ export class WochenberichteVonUserDetailComponent implements OnInit {
   onItemSelect(): void {
     this.wochenberichteVonUserService.setSelection(this.selected ? null : this.wochenbericht);
   }
+
 }

@@ -75,4 +75,8 @@ export class WochenberichteVonUserEditComponent implements OnInit {
     });
     // console.log('tag to delete: ', tag)
   }
+
+  showTag(tag: Tag) {
+    
+  }
 }
