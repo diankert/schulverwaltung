@@ -1,5 +1,6 @@
-<mat-card  [ngClass]="{'selected': selected}" (click)="onItemSelect()">
+<mat-card class="p-0" [ngClass]="{'selected': selected}" (click)="onItemSelect()">
   <div style="font-size: medium">
-   <p> Wochenbericht der Kalenderwoche {{wochenbericht?.creation_date | date : 'w'}} {{wochenbericht.deletion_date | date}} - {{wochenbericht.creation_date | date}}</p>
+   <p> Wochenbericht der KW {{wochenbericht?.creation_date | date : 'w'}} </p>
+    <mat-card-subtitle>{{wochenbericht.deletion_date | date}} - {{wochenbericht.creation_date | date}}</mat-card-subtitle>
   </div>
 </mat-card>

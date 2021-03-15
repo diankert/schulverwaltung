@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {
+  Inhalt,
   Tag,
   Wochenbericht,
   WochenberichtVorlageService
 } from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
 import {ActivatedRoute} from '@angular/router';
-import {Location} from '@angular/common'
+import {formatDate, Location} from '@angular/common'
 import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
@@ -20,9 +21,11 @@ export class WochenberichteVonUserEditComponent implements OnInit {
   erstellterTag: Tag;
   wbID: string;
   tage: Tag[] = [];
+
   constructor(private activatedRoute: ActivatedRoute,
               private location: Location,
-              private wochenberichtVorlageService: WochenberichtVorlageService) { }
+              private wochenberichtVorlageService: WochenberichtVorlageService) {
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(route => {
@@ -30,14 +33,13 @@ export class WochenberichteVonUserEditComponent implements OnInit {
         this.wochenbericht = wochenbericht;
       });
       this.wochenberichtVorlageService.getTageFuerWochenbericht(route.id).subscribe(tage => {
-        console.log('tage: ',tage);
         this.tage = tage
         this.wbID = route.id
       })
     })
     this.wochenberichtTagAnlegenFormGroup = new FormGroup({
-      "datum": new FormControl('2021-11-11'),
-      "thema": new FormControl('SQL')
+      'datum': new FormControl(),
+      'thema': new FormControl('SQL')
     });
   }
 
@@ -45,27 +47,32 @@ export class WochenberichteVonUserEditComponent implements OnInit {
     this.location.back()
   }
 
-  // onSave(): void {
-  //   this.location.back()
-  // }
-
-  setStep(index: number) {
-    this.step = index;
-  }
-
-
   onSave() {
+    const rawDate: Date = this.wochenberichtTagAnlegenFormGroup.controls.datum.value;
+    const isoDate: string = formatDate(rawDate, 'YYYY-MM-dd', 'de')
     const neuenTagAnlegen: Tag = {
-      datum: this.wochenberichtTagAnlegenFormGroup.controls.datum.value,
+      datum: isoDate,
       thema: this.wochenberichtTagAnlegenFormGroup.controls.thema.value,
       wb_id: this.wbID
     };
-    console.log('neuenTaganlagen: ',neuenTagAnlegen)
-    console.log(neuenTagAnlegen)
-    this.wochenberichtVorlageService.addTag(neuenTagAnlegen).subscribe(item =>{
-      this.erstellterTag = item;
-      console.log('ITEM',item.id)
-      console.log('ITEM',this.erstellterTag)
+    // console.log('neuenTaganlagen: ',neuenTagAnlegen)
+
+      this.wochenberichtVorlageService.addTag(neuenTagAnlegen).subscribe(item => {
+        this.erstellterTag = item;
+        this.tage.push({...item})
+      });
+  }
+
+  onDelete(tag: Tag) {
+    this.wochenberichtVorlageService.deleteTag(tag.id).subscribe(() =>{
+      const newArray: Tag[] = [];
+      for (const alterTag of this.tage) {
+        if (alterTag.id != tag.id) {
+          newArray.push({...alterTag});
+        }
+      }
+      this.tage = [...newArray];
     });
+    // console.log('tag to delete: ', tag)
   }
 }

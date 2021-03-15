@@ -31,7 +31,7 @@ export interface Tag {
   last_modification_date?: Date;
   deleted?: Date;
   deletion_date?: Date;
-  datum: Date;
+  datum: string;
   thema: string;
   wb_id: string;
 }
@@ -62,7 +62,6 @@ export class WochenberichtVorlageService {
   }
 
 
-  //{"teilnehmer_id":"1"}
   addWochenbericht(): Observable<Wochenbericht> {
     console.log('idpups: ', this.teilnehmer_id)
     return this.http.post<Wochenbericht>('/api/wochenbericht/create', {
@@ -71,36 +70,28 @@ export class WochenberichtVorlageService {
   }
 
 
-  // {"datum":"2020-01-01", "thema":"mein neues thema", "wb_id":"1"}
   addTag(neuenTagAnlegen: Tag): Observable<Tag> {
-    // return this.http.post<Tag>('/api/wochenberichts_tag/create', {
-    //   'datum':neuenTagAnlegen.datum,
-    //   'thema':neuenTagAnlegen.thema,
-    //   'wb_id':neuenTagAnlegen.wb_id
-    // } )
+
     return this.http.post<Tag>('/api/wochenberichts_tag/create', neuenTagAnlegen);
   }
 
   getTageFuerWochenbericht(id: string): Observable<Tag[]> {
     return this.http.get<Tag[]>('/api/wochenberichts_tag/list').pipe(map(tage => tage.filter(tag => tag.wb_id === id)));
-    // return of(
-    //   [
-    //     {
-    //
-    //     }
-    //   ]
-    // );
+
   }
 
 
-  // "zeilennummer":"1", "inhalt":"ganz viel Inhalt", "wb_tag_id":"1"}
   addInhalt(neuenInhaltAnlegen: Inhalt): Observable<Inhalt> {
     return this.http.post<Inhalt>(' /api/wochenberichts_inhalt/create', neuenInhaltAnlegen)
-    // return this.http.post<Inhalt>(' /api/wochenberichts_inhalt/create',
-    //   {...neuenInhaltAnlegen,
-    //         zeilennummer: "0"})
+
   }
 
+  deleteWochenbericht(id:string){
+    return this.http.delete<Wochenbericht>(' /api/wochenbericht/delete?id='+ id)
+  }
 
+  deleteTag(id:string){
+    return this.http.delete<Wochenbericht>('/api/wochenberichts_tag/delete?id='+ id)
+  }
 }
 

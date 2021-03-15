@@ -26,14 +26,12 @@ export class WochenberichtVonUserInhaltComponent implements OnInit {
     this.activatedRoute.params.subscribe(route => {
 
       this.wochenberichtVorlageService.getTageFuerWochenbericht(route.id).subscribe(tage => {
-        console.log('tage: ', tage);
+        // console.log('tage: ', tage);
         this.tage = tage
         this.wb_tagID = route.id
-        console.log('this wb_tagID: ', this.wb_tagID)
       })
     })
     this.wochenberichtInhaltAnlegenFormGroup = new FormGroup({
-      // "zeilennummer": new FormControl('0'),
       'inhalt': new FormControl('Einführung in SQL, Select,Where'),
     });
   }
@@ -51,8 +49,8 @@ export class WochenberichtVonUserInhaltComponent implements OnInit {
     console.log(neuenInhalt)
     this.wochenberichtVorlageService.addInhalt(neuenInhalt).subscribe(item => {
       this.erstellterInhalt = item;
-      console.log('ITEM', item.id)
-      console.log('ITEM', this.erstellterInhalt)
+      // console.log('ITEM', item.id)
+      // console.log('ITEM', this.erstellterInhalt)
     });
   }
 

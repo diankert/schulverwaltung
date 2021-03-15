@@ -1,4 +1,4 @@
-<h3>Meine Id: {{ wochenbericht?.id }}</h3>
+<!--<h3>Meine Id: {{ wochenbericht?.id }}</h3>-->
 <form [formGroup]="wochenberichtTagAnlegenFormGroup">
   <div class="d-flex justify-content-center pt-5">
     <mat-card class="w-75">
@@ -6,17 +6,17 @@
 
       <mat-form-field class="mr-5">
         <mat-label>Date</mat-label>
-        <input formControlName="datum" matInput [matDatepicker]="picker" (focus)="picker.open()" readonly>
+        <input formControlName="datum"  matInput [matDatepicker]="picker" (focus)="picker.open()" >
       </mat-form-field>
       <mat-datepicker #picker></mat-datepicker>
-
       <mat-form-field>
+
         <mat-label>Thema anlegen</mat-label>
         <input formControlName="thema" minlength="1" maxlength="30" matInput/>
       </mat-form-field>
       <div class="d-flex justify-content-end flex-row">
 
-        <button mat-menu-item (click)="onSave()">
+        <button mat-menu-item [disabled]="tage.length >= 5" (click)="onSave()">
           <mat-icon>border_color</mat-icon>
           <span>Speichern</span>
         </button>
@@ -32,8 +32,18 @@
 <app-wochenbericht-von-user-inhalt></app-wochenbericht-von-user-inhalt>
 <div class="d-flex justify-content-center">
   <div class="w-75 pt-5">
-    <mat-card><h1>Angelegte Tage für Wochenbericht KW {{wochenbericht?.creation_date | date : 'w'}}</h1>
-    <mat-card *ngFor="let tag of tage">{{tag?.datum | date}} {{tag?.thema}}</mat-card>
+    <mat-card><h1> Angelegte Tage für Wochenbericht KW {{wochenbericht?.creation_date | date : 'w'}}</h1>
+      <mat-card-subtitle>Bereits {{tage.length}} Einträge vorhanden</mat-card-subtitle>
+
+    <mat-card  *ngFor="let tag of tage">
+      <div class="d-flex justify-content-between align-items-center">
+      <p class="mb-0">{{tag?.datum | date}} {{tag?.thema}}</p>
+      <button mat-icon-button (click)="onDelete(tag)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      </div>
+    </mat-card>
+
     </mat-card>
   </div>
 </div>
