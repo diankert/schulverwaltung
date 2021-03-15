@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CalendarService} from './calendar.service';
 import {MonthData} from './month-data.class';
-import {Kurs} from '../../kursplan/kursplan.component';
+import {Kurs, Kursinhalt} from '../../kursplan/kursplan.component';
 import {KursplanService} from '../../kursplan/kursplan.service';
 
 
@@ -15,6 +15,7 @@ export class CalendarComponent implements OnInit {
   daysOfTheWeek = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
   cardHide: boolean = true;
   kursPlan: Kurs[] = [];
+  kursInhalt: Kursinhalt[] = [];
 
   constructor(private calendarService: CalendarService,
               private kursplanService: KursplanService) {
@@ -32,6 +33,14 @@ export class CalendarComponent implements OnInit {
           this.kursPlan = kursPlan;
         }
       });
+    this.kursplanService.getKursInhalt().subscribe(kursInhalt =>{
+      if(!kursInhalt){
+        console.log('KEIN KURSINHALT')
+      } else{
+        this.kursInhalt = kursInhalt;
+        console.log('Kursinhalt im calender',this.kursInhalt)
+      }
+    });
   }
 
 

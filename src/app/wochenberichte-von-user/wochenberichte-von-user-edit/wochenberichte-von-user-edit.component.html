@@ -27,6 +27,13 @@
         </button>
       </div>
     </mat-card>
-    <mat-card *ngFor="let tag of tage"></mat-card>
-  </div>
+    </div>
 </form>
+<app-wochenbericht-von-user-inhalt></app-wochenbericht-von-user-inhalt>
+<div class="d-flex justify-content-center">
+  <div class="w-75 pt-5">
+    <mat-card><h1>Angelegte Tage für Wochenbericht KW {{wochenbericht?.creation_date | date : 'w'}}</h1>
+    <mat-card *ngFor="let tag of tage">{{tag?.datum | date}} {{tag?.thema}}</mat-card>
+    </mat-card>
+  </div>
+</div>

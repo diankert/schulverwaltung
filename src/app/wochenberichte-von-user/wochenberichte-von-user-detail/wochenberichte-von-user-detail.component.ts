@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Wochenbericht} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
+import {Tag, Wochenbericht} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
 import {WochenberichteVonUserService} from '../wochenberichte-von-user.service';
 
 @Component({

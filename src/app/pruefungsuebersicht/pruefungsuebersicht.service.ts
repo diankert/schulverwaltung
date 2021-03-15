@@ -10,10 +10,11 @@ export interface Pruefung {
   last_modification_date?: string;
   deleted?: string;
   deletion_date?: string;
-  bezeichnung: string;
-  thema: string;
-  max_punkte: string;
-  datum: string;
+  bezeichnung?: string;
+  thema?: string;
+  max_punkte?: string;
+  datum?: string;
+  // pruefungsart_id: string;
 }
 
 @Injectable({

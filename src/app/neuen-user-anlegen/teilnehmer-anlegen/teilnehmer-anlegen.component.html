@@ -1,12 +1,9 @@
-<div class="container-fluid h-100 p-3" style="border: 1px solid #606060">
-  <h3>
-    Dozenten anlegen!
-  </h3>
+<div class="container-fluid h-100 p-3">
   <div class="row p-5 h-100 d-flex justify-content-center">
     <div class="col-9 h-100">
       <div class="p-3" style="background-color: #ffffff">
         <form
-          [formGroup]="dozentenAnlegenFormGroup"
+          [formGroup]="teilnehmerAnlegenFormGroup"
           class="d-flex flex-column"
           (ngSubmit)="onSubmit()">
           <mat-form-field class="example-full-width">
@@ -32,7 +29,7 @@
             <input matInput formControlName="hausnummer">
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <mat-label>Plz</mat-label>
+            <mat-label>plz</mat-label>
             <input matInput formControlName="plz">
           </mat-form-field>
           <mat-form-field class="example-full-width">
@@ -43,14 +40,8 @@
             <mat-label>E-Mail</mat-label>
             <input matInput formControlName="email">
           </mat-form-field>
-         <!-- Checkbox für die Qualifikationen -->
-
-          <mat-label>Qualifikation</mat-label>
-
-          <app-checkbocktree></app-checkbocktree>
         </form>
-
-        <div class="d-flex justify-content-end p-3">
+        <div class="d-flex justify-content-end pt-5">
         <button mat-raised-button color="primary" (click)="onSubmit()">Anlegen</button>
       </div>
         </div>

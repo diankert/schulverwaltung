@@ -7,13 +7,14 @@ import {PostfachComponent} from './postfach/postfach.component';
 import {StartSeiteComponent} from './startseite/start-seite.component';
 import {PruefungsuebersichtComponent} from './pruefungsuebersicht/pruefungsuebersicht.component';
 import {WochenberichtComponent} from './wochenbericht/wochenbericht.component';
-import {TeilnehmerAnlegenComponent} from './teilnehmer-anlegen/teilnehmer-anlegen.component';
+import {TeilnehmerAnlegenComponent} from './neuen-user-anlegen/teilnehmer-anlegen/teilnehmer-anlegen.component';
 import {WochenberichtVorlageComponent} from './wochenbericht-vorlage/wochenbericht-vorlage.component';
-import {DozentenanlegenComponent} from './dozentenanlegen/dozentenanlegen.component';
+import {DozentenanlegenComponent} from './neuen-user-anlegen/dozentenanlegen/dozentenanlegen.component';
 import {WochenberichteVonUserComponent} from './wochenberichte-von-user/wochenberichte-von-user.component';
 import {AdminbereichComponent} from './adminbereich/adminbereich.component';
 import {WochenberichteVonUserCreateComponent} from './wochenberichte-von-user/wochenberichte-von-user-create/wochenberichte-von-user-create.component';
 import {WochenberichteVonUserEditComponent} from './wochenberichte-von-user/wochenberichte-von-user-edit/wochenberichte-von-user-edit.component';
+import {NeuenUserAnlegenComponent} from './neuen-user-anlegen/neuen-user-anlegen.component';
 
 const routes: Routes = [
   {
@@ -51,18 +52,13 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'teilnehmeranlegen',
-    component: TeilnehmerAnlegenComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'wochenberichtvorlage',
     component: WochenberichtVorlageComponent,
     canActivate: [AuthGuard]
   },
   {
-    path: 'dozentenanlegen',
-    component: DozentenanlegenComponent,
+    path: 'neuenuseranlegen',
+    component: NeuenUserAnlegenComponent,
     canActivate: [AuthGuard]
   },
   {

@@ -19,6 +19,7 @@ export class PruefungsuebersichtComponent implements OnInit {
       if (id) {
         this.notenuebersichtService.getPruefungVonSchueler(id).subscribe(pruefungen => {
           this.pruefungsUebersicht = pruefungen;
+          console.log('prüfung: ', this.pruefungsUebersicht)
         });
       }
     })

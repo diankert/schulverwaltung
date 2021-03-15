@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
-import {Kurs} from './kursplan.component';
+import {Kurs, Kursinhalt} from './kursplan.component';
 import {HttpClient} from '@angular/common/http';
 
 @Injectable({
@@ -18,4 +18,7 @@ export class KursplanService {
     return this.http.get<Kurs[]>('/api/module/get/?id=1');
   }
 
+  getKursInhalt(): Observable<Kursinhalt[]> {
+    return this.http.get<Kursinhalt[]>('/api/modulinhalt/list');
+  }
 }

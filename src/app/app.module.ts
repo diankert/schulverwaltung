@@ -30,7 +30,7 @@ import {IonicModule} from '@ionic/angular';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {WochenberichtComponent} from './wochenbericht/wochenbericht.component';
-import {TeilnehmerAnlegenComponent} from './teilnehmer-anlegen/teilnehmer-anlegen.component';
+import {TeilnehmerAnlegenComponent} from './neuen-user-anlegen/teilnehmer-anlegen/teilnehmer-anlegen.component';
 import {EinKursComponent} from './startseite/ein-kurs/ein-kurs.component';
 import {MeineDatenComponent} from './startseite/meine-daten/meine-daten.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
@@ -41,7 +41,7 @@ import localeDe from '@angular/common/locales/de';
 import { WochenberichtVorlageComponent } from './wochenbericht-vorlage/wochenbericht-vorlage.component';
 import { WochenberichtAlternativComponent } from './wochenbericht-alternativ/wochenbericht-alternativ.component';
 import { WochenberichtAnlegenComponent } from './wochenbericht-anlegen/wochenbericht-anlegen.component';
-import  {DozentenanlegenComponent} from './dozentenanlegen/dozentenanlegen.component';
+import  {DozentenanlegenComponent} from './neuen-user-anlegen/dozentenanlegen/dozentenanlegen.component';
 import {CheckbocktreeComponent} from './checkboxtree/checkbocktree.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTreeModule} from '@angular/material/tree';
@@ -50,6 +50,8 @@ import {AdminbereichComponent} from './adminbereich/adminbereich.component';
 import { WochenberichteVonUserDetailComponent } from './wochenberichte-von-user/wochenberichte-von-user-detail/wochenberichte-von-user-detail.component';
 import { WochenberichteVonUserCreateComponent } from './wochenberichte-von-user/wochenberichte-von-user-create/wochenberichte-von-user-create.component';
 import { WochenberichteVonUserEditComponent } from './wochenberichte-von-user/wochenberichte-von-user-edit/wochenberichte-von-user-edit.component';
+import { NeuenUserAnlegenComponent } from './neuen-user-anlegen/neuen-user-anlegen.component';
+import { WochenberichtVonUserInhaltComponent } from './wochenberichte-von-user/wochenbericht-von-user-inhalt/wochenbericht-von-user-inhalt.component';
 
 
 
@@ -80,8 +82,9 @@ registerLocaleData(localeDe);
     AdminbereichComponent,
     WochenberichteVonUserDetailComponent,
     WochenberichteVonUserCreateComponent,
-    WochenberichteVonUserEditComponent
-
+    WochenberichteVonUserEditComponent,
+    NeuenUserAnlegenComponent,
+    WochenberichtVonUserInhaltComponent,
   ],
   imports: [
     BrowserModule,

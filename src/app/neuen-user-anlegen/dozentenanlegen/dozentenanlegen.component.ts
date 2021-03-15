@@ -21,12 +21,12 @@ export class DozentenanlegenComponent implements OnInit {
 
       // Default Werte
 
-      vorname: new FormControl('Hans'),
-      nachname: new FormControl('Meiser'),
-      geburtsdatum: new FormControl(new Date('1987-11-03')),
-      strasse: new FormControl('Brunnenweg'),
-      hausnummer: new FormControl('21a'),
-      email: new FormControl('h.meiser@meister-meiser.de'),
+      vorname: new FormControl('Klaus'),
+      nachname: new FormControl('Pütt'),
+      geburtsdatum: new FormControl(new Date('1979-11-03')),
+      strasse: new FormControl('Rotfichtenweg'),
+      hausnummer: new FormControl('121'),
+      email: new FormControl('klausi.mausi@meister.de'),
       telefon: new FormControl('02086931272'),
       stadt: new FormControl('Essen'),
       plz: new FormControl('45144'),

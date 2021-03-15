@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {TeilnehmerData, TeilnehmerDataService} from '../services/teilnehmer-data.service';
+import {TeilnehmerData, TeilnehmerDataService} from '../../services/teilnehmer-data.service';
 import {FormControl, FormGroup} from '@angular/forms';
 
 
@@ -42,6 +42,7 @@ export class TeilnehmerAnlegenComponent implements OnInit {
         email: this.teilnehmerAnlegenFormGroup.controls.email.value,
       };
       this.teilnehmerDataService.addTeilnehmer(neuerTeilnehmer).subscribe();
+      console.log('NEUER TEILNEHMER, ',neuerTeilnehmer)
     }
   }
 

@@ -79,12 +79,9 @@ export class AdminbereichComponent implements OnInit {
           this.dozentlist = dozentlist;
           for (const dozent of dozentlist) {
             const vornamedozent = new String(dozent.vorname);
-            //console.log("Vorname: ", vornamedozent)
             const nachnamedozent = new String(dozent.nachname);
-            //console.log("Nachname: ", nachnamedozent)
           }
         }
-        //console.log(dozentlist)
       });
 
     /* Teilnehmer */
@@ -97,13 +94,9 @@ export class AdminbereichComponent implements OnInit {
           console.log(teilnehmerlist)
           for (const teilnehmer of teilnehmerlist) {
             const vornameteilnehmer = new String(teilnehmer.vorname);
-            //console.log("Vorname: ", vornameteilnehmer)
             const nachnameteilnehmer = new String(teilnehmer.nachname);
-            //console.log("Nachname: ", nachnameteilnehmer)
           }
         }
-        console.log("Teilnehmer")
-        console.log(teilnehmerlist)
       });
 
     /* Verwaltung */
@@ -115,12 +108,9 @@ export class AdminbereichComponent implements OnInit {
           this.verwaltunglist = verwaltunglist;
           for (const verwaltung of verwaltunglist) {
             const vornameverwaltung = new String(verwaltung.vorname);
-            //console.log("Vorname: ", vornameverwaltung)
             const nachnameverwaltung = new String(verwaltung.nachname);
-            //console.log("Nachname: ", nachnameverwaltung)
           }
         }
-        //console.log(verwaltunglist)
       });
   }
 }

@@ -16,7 +16,7 @@ export class WochenberichteVonUserCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.wochenberichtTagAnlegenFormGroup = new FormGroup({
-      "id": new FormControl('1')
+      "id": new FormControl()
     });
   }
 
@@ -24,11 +24,8 @@ export class WochenberichteVonUserCreateComponent implements OnInit {
     this.location.back()
   }
 
-  onSave(): void {
-    this.location.back()
-  }
 
-  wochenberichtAnlegen() {
+  onSave() {
 
     const neuerWochenbericht = {
       id: this.wochenberichtTagAnlegenFormGroup.controls.id.value
@@ -39,5 +36,6 @@ export class WochenberichteVonUserCreateComponent implements OnInit {
       console.log('ITEM',item.id)
       console.log('ITEM',this.erstellterWochenbericht)
     });
+    this.location.back()
   }
 }
