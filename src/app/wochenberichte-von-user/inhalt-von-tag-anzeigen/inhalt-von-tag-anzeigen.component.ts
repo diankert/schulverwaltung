@@ -41,13 +41,6 @@ export class InhaltVonTagAnzeigenComponent implements OnInit, OnDestroy {
       // console.log('THIS TEST: ', this.test)
     });
 
-    // this.activatedRoute.params.subscribe(route => {
-    //   this.wochenberichtVorlageService.getTageFuerWochenbericht(route.id).subscribe(tage => {
-    //      console.log('tage: ', tage);
-    //     this.tage = tage
-    //     this.wb_tagID = route.id
-    //   })
-    // })
     this.wochenberichtInhaltAnlegenFormGroup = new FormGroup({
       'inhalt': new FormControl('Einführung in SQL, Select,Where'),
     });

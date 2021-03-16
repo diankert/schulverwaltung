@@ -1,18 +1,18 @@
 <div class=" d-flex justify-content-center">
   <div class="c d-flex justify-content-center flex-column pt-5">
-    <mat-card class="d-flex justify-content-center">
-      <button mat-menu-item (click)="onCreate()">
+    <mat-card class="d-flex justify-content-between">
+      <button class="pr-5" mat-raised-button color="primary" (click)="onCreate()">
         <mat-icon>queue</mat-icon>
         <span>Anlegen</span>
       </button>
 
-      <button mat-menu-item [disabled]="!selectedWochenbericht" (click)="onEdit()">
+      <button  class="pr-5" mat-raised-button color="primary" [disabled]="!selectedWochenbericht" (click)="onEdit()">
         <mat-icon> border_color</mat-icon>
         <span>Bearbeiten</span>
       </button>
 
 
-      <button mat-menu-item [disabled]="!selectedWochenbericht" (click)="onDelete(selectedWochenbericht)">
+      <button class="pr-5" mat-raised-button color="primary" [disabled]="!selectedWochenbericht" (click)="onDelete(selectedWochenbericht)">
         <mat-icon>delete</mat-icon>
         <span>Löschen</span>
       </button>
@@ -21,10 +21,20 @@
     <mat-card>
       <div class="d-flex flex-column ">
         <app-wochenberichte-von-user-detail
-          *ngFor="let wochenbericht of wocheneberichtUser | slice:0:10"
+          *ngFor="let wochenbericht of wocheneberichtUser | slice:0:20"
           [wochenbericht]="wochenbericht">
         </app-wochenberichte-von-user-detail>
       </div>
+<!--      <div class="d-flex justify-content-end">-->
+<!--      <mat-icon (click)="vorherigeWochenberichte()" class="clickable">chevron_left</mat-icon>-->
+<!--      <mat-icon (click)="naechstenWochenberichte()" class="clickable">chevron_right</mat-icon>-->
+<!--      </div>-->
+      <mat-paginator
+                     [pageSize] = "pageSize"
+                     [pageSizeOptions] = "pageSizeOptions"
+                     (page) = "pageEvent = $event">
+      </mat-paginator>
+
     </mat-card>
   </div>
 </div>

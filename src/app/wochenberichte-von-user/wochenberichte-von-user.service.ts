@@ -9,7 +9,8 @@ export class WochenberichteVonUserService {
   selection: Wochenbericht;
   selectionChanged = new BehaviorSubject<Wochenbericht>(null);
 
-  constructor() { }
+  constructor() {}
+
 
   setSelection(wochenbericht: Wochenbericht) {
     this.selection = wochenbericht;

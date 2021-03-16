@@ -54,6 +54,7 @@ import { NeuenUserAnlegenComponent } from './neuen-user-anlegen/neuen-user-anleg
 import { WochenberichtVonUserInhaltComponent } from './wochenberichte-von-user/wochenbericht-von-user-inhalt/wochenbericht-von-user-inhalt.component';
 import { InhaltVonTagAnzeigenComponent } from './wochenberichte-von-user/inhalt-von-tag-anzeigen/inhalt-von-tag-anzeigen.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 
@@ -89,38 +90,39 @@ registerLocaleData(localeDe);
     WochenberichtVonUserInhaltComponent,
     InhaltVonTagAnzeigenComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatOptionModule,
-    MatButtonModule,
-    FormsModule,
-    MatInputModule,
-    AppRoutingModule,
-    MatBadgeModule,
-    MatCardModule,
-    MatMenuModule,
-    MatDatepickerModule,
-    RouterModule,
-    MatExpansionModule,
-    MatTableModule,
-    MatTabsModule,
-    HttpClientModule,
-    MatProgressSpinnerModule,
-    IonicModule,
-    MatSidenavModule,
-    MatListModule,
-    ReactiveFormsModule,
-    MatNativeDateModule,
-    MatButtonToggleModule,
-    MatCheckboxModule,
-    MatTreeModule,
-    MatDialogModule,
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatOptionModule,
+        MatButtonModule,
+        FormsModule,
+        MatInputModule,
+        AppRoutingModule,
+        MatBadgeModule,
+        MatCardModule,
+        MatMenuModule,
+        MatDatepickerModule,
+        RouterModule,
+        MatExpansionModule,
+        MatTableModule,
+        MatTabsModule,
+        HttpClientModule,
+        MatProgressSpinnerModule,
+        IonicModule,
+        MatSidenavModule,
+        MatListModule,
+        ReactiveFormsModule,
+        MatNativeDateModule,
+        MatButtonToggleModule,
+        MatCheckboxModule,
+        MatTreeModule,
+        MatDialogModule,
+        MatPaginatorModule,
 
 
-  ],
+    ],
   providers: [
     {provide: LOCALE_ID, useValue: 'de'}
   ],

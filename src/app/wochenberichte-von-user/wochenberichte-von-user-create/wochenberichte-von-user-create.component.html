@@ -11,14 +11,14 @@
         <input matInput/>
       </mat-form-field>
       <div class="d-flex justify-content-end flex-row">
-        <button mat-menu-item (click)="onSave()">
-          <mat-icon>border_color</mat-icon>
-          <span>Speichern</span>
+        <button class=" mt-5" mat-raised-button color="primary" (click)="onSave()">
+          <mat-icon>save_alt</mat-icon>
+          <span> Speichern</span>
         </button>
 
-        <button mat-menu-item (click)="onCancel()">
-          <mat-icon>delete</mat-icon>
-          <span>Abbrechen</span>
+        <button class="ml-2 mt-5" mat-raised-button color="primary"(click)="onCancel()">
+          <mat-icon>clear</mat-icon>
+          <span> Abbrechen</span>
         </button>
       </div>
     </mat-card>

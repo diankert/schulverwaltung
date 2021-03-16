@@ -1,9 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {
-  Tag,
-  Wochenbericht,
-  WochenberichtVorlageService
-} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
+import {Wochenbericht} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
 import {WochenberichteVonUserService} from '../wochenberichte-von-user.service';
 
 @Component({
@@ -16,8 +12,7 @@ export class WochenberichteVonUserDetailComponent implements OnInit {
   selected = false;
   wochenberichte: Wochenbericht[] = [];
 
-  constructor(private wochenberichteVonUserService: WochenberichteVonUserService,
-              private wochenberichtService:WochenberichtVorlageService) { }
+  constructor(private wochenberichteVonUserService: WochenberichteVonUserService) { }
 
   ngOnInit(): void {
     this.wochenberichteVonUserService.selectionChanged.subscribe(newSelection => {
