@@ -15,7 +15,7 @@ export class WochenberichtVonUserInhaltComponent implements OnInit {
   tage: Tag[] = [];
   wb_tagID: string;
   step = 0;
-  erstellterTag: Tag;
+  // erstellterTag: Tag;
 
   constructor(private wochenberichtVorlageService: WochenberichtVorlageService,
               private activatedRoute: ActivatedRoute,
@@ -24,7 +24,6 @@ export class WochenberichtVonUserInhaltComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(route => {
-
       this.wochenberichtVorlageService.getTageFuerWochenbericht(route.id).subscribe(tage => {
         // console.log('tage: ', tage);
         this.tage = tage
@@ -54,7 +53,4 @@ export class WochenberichtVonUserInhaltComponent implements OnInit {
     });
   }
 
-  setStep(index: number) {
-    this.step = index;
-  }
 }

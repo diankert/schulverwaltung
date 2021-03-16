@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Tages Inhalt eintragen</h1>
+<form [formGroup]="wochenberichtInhaltAnlegenFormGroup">
+  <div class="d-flex justify-content-center pt-5">
+      <mat-form-field class="" appearance="fill">
+        <mat-label>Textarea</mat-label>
+        <textarea formControlName="inhalt" minlength="5" maxlength="300" matInput></textarea>
+      </mat-form-field>
+  </div>
+</form>
+<ul>
+<li *ngFor="let eintrag of inhalt">{{eintrag?.inhalt}}</li>
+</ul>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close  (click)="onSave()">Speichern</button>
+  <button mat-button mat-dialog-close>Abbrechen</button>
+<!--  <button mat-menu-item (click)="onSave()">-->
+<!--    <mat-icon>border_color</mat-icon>-->
+<!--    <span>Speichern</span>-->
+<!--  </button>-->
+<!--  <button mat-menu-item (click)="onCancel()">-->
+<!--    <mat-icon>delete</mat-icon>-->
+<!--    <span>Abbrechen</span>-->
+<!--  </button>-->
+</mat-dialog-actions>

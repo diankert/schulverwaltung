@@ -1,6 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Injectable, Input, OnInit, Output} from '@angular/core';
 import {
-  Inhalt,
   Tag,
   Wochenbericht,
   WochenberichtVorlageService
@@ -8,6 +7,11 @@ import {
 import {ActivatedRoute} from '@angular/router';
 import {formatDate, Location} from '@angular/common'
 import {FormControl, FormGroup} from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import {InhaltVonTagAnzeigenComponent} from '../inhalt-von-tag-anzeigen/inhalt-von-tag-anzeigen.component';
+import {InhaltVonTagAnzeigenService} from '../inhalt-von-tag-anzeigen/inhalt-von-tag-anzeigen.service';
+
+@Injectable()
 
 @Component({
   selector: 'app-wochenberichte-von-user-edit',
@@ -21,10 +25,12 @@ export class WochenberichteVonUserEditComponent implements OnInit {
   erstellterTag: Tag;
   wbID: string;
   tage: Tag[] = [];
-
+  tagID:string;
   constructor(private activatedRoute: ActivatedRoute,
               private location: Location,
-              private wochenberichtVorlageService: WochenberichtVorlageService) {
+              private wochenberichtVorlageService: WochenberichtVorlageService,
+              public dialog: MatDialog,
+              private inhaltService: InhaltVonTagAnzeigenService) {
   }
 
   ngOnInit(): void {
@@ -57,14 +63,14 @@ export class WochenberichteVonUserEditComponent implements OnInit {
     };
     // console.log('neuenTaganlagen: ',neuenTagAnlegen)
 
-      this.wochenberichtVorlageService.addTag(neuenTagAnlegen).subscribe(item => {
-        this.erstellterTag = item;
-        this.tage.push({...item})
-      });
+    this.wochenberichtVorlageService.addTag(neuenTagAnlegen).subscribe(item => {
+      this.erstellterTag = item;
+      this.tage.push({...item})
+    });
   }
 
   onDelete(tag: Tag) {
-    this.wochenberichtVorlageService.deleteTag(tag.id).subscribe(() =>{
+    this.wochenberichtVorlageService.deleteTag(tag.id).subscribe(() => {
       const newArray: Tag[] = [];
       for (const alterTag of this.tage) {
         if (alterTag.id != tag.id) {
@@ -76,7 +82,18 @@ export class WochenberichteVonUserEditComponent implements OnInit {
     // console.log('tag to delete: ', tag)
   }
 
-  showTag(tag: Tag) {
-    
+  openDialog(tag: Tag) {
+    console.log('tag clicked: ', tag);
+    this.wochenberichtVorlageService.getInhaltFuerTag(tag.id).subscribe(inhalt => {
+      this.tagID = tag.id;
+      this.inhaltService.tag = tag;
+      console.log('THIS TAG ID : ', this.tagID)
+      this.inhaltService.inhaltZumAnzeigen.next(inhalt);
+      const dialogRef = this.dialog.open(InhaltVonTagAnzeigenComponent);
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(`Dialog result: ${result}`);
+      });
+    })
   }
+
 }

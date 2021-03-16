@@ -52,6 +52,8 @@ import { WochenberichteVonUserCreateComponent } from './wochenberichte-von-user/
 import { WochenberichteVonUserEditComponent } from './wochenberichte-von-user/wochenberichte-von-user-edit/wochenberichte-von-user-edit.component';
 import { NeuenUserAnlegenComponent } from './neuen-user-anlegen/neuen-user-anlegen.component';
 import { WochenberichtVonUserInhaltComponent } from './wochenberichte-von-user/wochenbericht-von-user-inhalt/wochenbericht-von-user-inhalt.component';
+import { InhaltVonTagAnzeigenComponent } from './wochenberichte-von-user/inhalt-von-tag-anzeigen/inhalt-von-tag-anzeigen.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -85,6 +87,7 @@ registerLocaleData(localeDe);
     WochenberichteVonUserEditComponent,
     NeuenUserAnlegenComponent,
     WochenberichtVonUserInhaltComponent,
+    InhaltVonTagAnzeigenComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,6 +117,7 @@ registerLocaleData(localeDe);
     MatButtonToggleModule,
     MatCheckboxModule,
     MatTreeModule,
+    MatDialogModule,
 
 
   ],

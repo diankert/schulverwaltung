@@ -80,10 +80,16 @@ export class WochenberichtVorlageService {
 
   }
 
-
   addInhalt(neuenInhaltAnlegen: Inhalt): Observable<Inhalt> {
     return this.http.post<Inhalt>(' /api/wochenberichts_inhalt/create', neuenInhaltAnlegen)
+  }
 
+  getInhaltFuerTag(id: string): Observable<Inhalt[]> {
+    return this.http.get<Inhalt[]>('/api/wochenberichts_inhalt/list').pipe(map(tage => tage.filter(tag => tag.wb_tag_id === id)));
+  }
+
+  getInhalt(id: string): Observable<Inhalt[]> {
+    return this.http.get<Inhalt[]>('/api/wochenberichts_inhalt/get?id=' + id);
   }
 
   deleteWochenbericht(id:string){
