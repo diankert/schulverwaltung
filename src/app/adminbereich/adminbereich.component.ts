@@ -91,7 +91,6 @@ export class AdminbereichComponent implements OnInit {
           console.error('FEHLER! ALARM!');
         } else {
           this.teilnehmerlist = teilnehmerlist;
-          console.log(teilnehmerlist)
           for (const teilnehmer of teilnehmerlist) {
             const vornameteilnehmer = new String(teilnehmer.vorname);
             const nachnameteilnehmer = new String(teilnehmer.nachname);

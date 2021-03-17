@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Wochenbericht, WochenberichtVorlageService
-} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
+} from '../wochenbericht-vorlage.service';
 
 @Component({
   selector: 'app-wochenberichte-von-user-create',

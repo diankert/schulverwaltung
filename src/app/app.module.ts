@@ -21,7 +21,6 @@ import {RouterModule} from '@angular/router';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTableModule} from '@angular/material/table';
 import {MatTabsModule} from '@angular/material/tabs';
-import {PostfachComponent} from './postfach/postfach.component';
 import {HttpClientModule} from '@angular/common/http';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {PruefungsuebersichtComponent} from './pruefungsuebersicht/pruefungsuebersicht.component';
@@ -29,18 +28,13 @@ import {KursplanComponent} from './kursplan/kursplan.component';
 import {IonicModule} from '@ionic/angular';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
-import {WochenberichtComponent} from './wochenbericht/wochenbericht.component';
 import {TeilnehmerAnlegenComponent} from './neuen-user-anlegen/teilnehmer-anlegen/teilnehmer-anlegen.component';
 import {EinKursComponent} from './startseite/ein-kurs/ein-kurs.component';
 import {MeineDatenComponent} from './startseite/meine-daten/meine-daten.component';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
-import {AlleWochenberichteComponent} from './wochenbericht/alle-wochenberichte/alle-wochenberichte.component';
 import {CalendarComponent} from './shared/calendar/calendar.component';
 import {registerLocaleData} from '@angular/common';
 import localeDe from '@angular/common/locales/de';
-import { WochenberichtVorlageComponent } from './wochenbericht-vorlage/wochenbericht-vorlage.component';
-import { WochenberichtAlternativComponent } from './wochenbericht-alternativ/wochenbericht-alternativ.component';
-import { WochenberichtAnlegenComponent } from './wochenbericht-anlegen/wochenbericht-anlegen.component';
 import  {DozentenanlegenComponent} from './neuen-user-anlegen/dozentenanlegen/dozentenanlegen.component';
 import {CheckbocktreeComponent} from './checkboxtree/checkbocktree.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -67,18 +61,12 @@ registerLocaleData(localeDe);
     LoginPageComponent,
     StartSeiteComponent,
     BenutzerAnzeigen,
-    PostfachComponent,
     PruefungsuebersichtComponent,
     KursplanComponent,
-    WochenberichtComponent,
     TeilnehmerAnlegenComponent,
     EinKursComponent,
     MeineDatenComponent,
-    AlleWochenberichteComponent,
     CalendarComponent,
-    WochenberichtVorlageComponent,
-    WochenberichtAlternativComponent,
-    WochenberichtAnlegenComponent,
     DozentenanlegenComponent,
     CheckbocktreeComponent,
     WochenberichteVonUserComponent,

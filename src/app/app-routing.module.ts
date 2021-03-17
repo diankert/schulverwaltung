@@ -3,13 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {LoginPageComponent} from './auth/login-page/login-page.component';
 import {AuthGuard} from './auth/auth.guard';
 import {KursplanComponent} from './kursplan/kursplan.component';
-import {PostfachComponent} from './postfach/postfach.component';
 import {StartSeiteComponent} from './startseite/start-seite.component';
 import {PruefungsuebersichtComponent} from './pruefungsuebersicht/pruefungsuebersicht.component';
-import {WochenberichtComponent} from './wochenbericht/wochenbericht.component';
-import {TeilnehmerAnlegenComponent} from './neuen-user-anlegen/teilnehmer-anlegen/teilnehmer-anlegen.component';
-import {WochenberichtVorlageComponent} from './wochenbericht-vorlage/wochenbericht-vorlage.component';
-import {DozentenanlegenComponent} from './neuen-user-anlegen/dozentenanlegen/dozentenanlegen.component';
 import {WochenberichteVonUserComponent} from './wochenberichte-von-user/wochenberichte-von-user.component';
 import {AdminbereichComponent} from './adminbereich/adminbereich.component';
 import {WochenberichteVonUserCreateComponent} from './wochenberichte-von-user/wochenberichte-von-user-create/wochenberichte-von-user-create.component';
@@ -37,26 +32,11 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'postfach',
-    component: PostfachComponent,
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'start',
     component: StartSeiteComponent,
     canActivate: [AuthGuard]
   },
-  {
-    path: 'wochenbericht',
-    component: WochenberichtComponent,
-    canActivate: [AuthGuard]
-  },
-  {
-    path: 'wochenberichtvorlage',
-    component: WochenberichtVorlageComponent,
-    canActivate: [AuthGuard]
-  },
-  {
+ {
     path: 'neuenuseranlegen',
     component: NeuenUserAnlegenComponent,
     canActivate: [AuthGuard]

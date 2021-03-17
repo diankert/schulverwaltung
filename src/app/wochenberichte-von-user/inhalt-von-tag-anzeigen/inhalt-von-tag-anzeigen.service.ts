@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import {Inhalt, Tag, Wochenbericht} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
+import {Inhalt, Tag, Wochenbericht} from '../wochenbericht-vorlage.service';
 
 
 @Injectable({

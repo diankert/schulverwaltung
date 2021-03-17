@@ -4,7 +4,7 @@ import {
   Tag,
   Wochenbericht,
   WochenberichtVorlageService
-} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
+} from '../wochenbericht-vorlage.service';
 import {ActivatedRoute} from '@angular/router';
 import {formatDate, Location} from '@angular/common'
 import {FormControl, FormGroup} from '@angular/forms';

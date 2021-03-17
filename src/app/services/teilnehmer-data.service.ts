@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Pruefung} from '../pruefungsuebersicht/pruefungsuebersicht.service';
 import {Observable} from 'rxjs';
-import {Wochenbericht} from '../wochenbericht-vorlage/wochenbericht-vorlage.service';
+import {Wochenbericht} from '../wochenberichte-von-user/wochenbericht-vorlage.service';
 
 export interface TeilnehmerData {
   id?: string;

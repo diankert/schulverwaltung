@@ -4,7 +4,7 @@ import {
   Tag,
   Wochenbericht,
   WochenberichtVorlageService
-} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
+} from '../wochenbericht-vorlage.service';
 import {InhaltVonTagAnzeigenService} from './inhalt-von-tag-anzeigen.service';
 import {Subscription} from 'rxjs';
 import {FormControl, FormGroup} from '@angular/forms';

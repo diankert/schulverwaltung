@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {Inhalt, Tag, WochenberichtVorlageService} from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
+import {Inhalt, Tag, WochenberichtVorlageService} from '../wochenbericht-vorlage.service';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
 

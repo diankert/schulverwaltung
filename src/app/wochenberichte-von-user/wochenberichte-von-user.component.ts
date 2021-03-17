@@ -1,6 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../auth/user.service';
-import {Wochenbericht, WochenberichtVorlageService} from '../wochenbericht-vorlage/wochenbericht-vorlage.service';
+import {Wochenbericht, WochenberichtVorlageService} from './wochenbericht-vorlage.service';
 import {WochenberichteVonUserService} from './wochenberichte-von-user.service';
 import {Router} from '@angular/router';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';

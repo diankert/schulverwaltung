@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Wochenbericht} from '../wochenbericht-vorlage/wochenbericht-vorlage.service';
+import {Wochenbericht} from './wochenbericht-vorlage.service';
 import {BehaviorSubject} from 'rxjs';
 
 @Injectable({
