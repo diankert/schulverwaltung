@@ -63,11 +63,12 @@ export class WochenberichteVonUserEditComponent implements OnInit {
       thema: this.wochenberichtTagAnlegenFormGroup.controls.thema.value,
       wb_id: this.wbID
     };
-
     this.wochenberichtVorlageService.addTag(neuenTagAnlegen).subscribe(item => {
       this.erstellterTag = item;
       this.tage.push({...item})
+      this.openDialog(this.erstellterTag, true)
     });
+
   }
 
   onDelete(tag: Tag) {
@@ -83,13 +84,16 @@ export class WochenberichteVonUserEditComponent implements OnInit {
     // console.log('tag to delete: ', tag)
   }
 
-  openDialog(tag: Tag) {
+  openDialog(tag: Tag, isNewTag?: boolean) {
     console.log('tag clicked: ', tag);
     this.wochenberichtVorlageService.getInhaltFuerTag(tag.id).subscribe(inhalt => {
       this.tagID = tag.id;
       this.inhaltService.tag = tag;
       console.log('THIS TAG ID : ', this.tagID)
-      this.inhaltService.inhaltZumAnzeigen.next(inhalt);
+      this.inhaltService.inhaltZumAnzeigen.next({
+        inhalt,
+        isNewTag: !!isNewTag
+      });
       const dialogRef = this.dialog.open(InhaltVonTagAnzeigenComponent);
       dialogRef.afterClosed().subscribe(result => {
         console.log(`Dialog result: ${result}`);

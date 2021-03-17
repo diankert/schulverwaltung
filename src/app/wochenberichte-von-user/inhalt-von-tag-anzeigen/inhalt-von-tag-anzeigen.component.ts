@@ -25,6 +25,10 @@ export class InhaltVonTagAnzeigenComponent implements OnInit, OnDestroy {
   tage: Tag[];
   wochenbericht: Wochenbericht[];
   test: string[];
+  inhaltFurTextfeld: string;
+  aktInhaltID: string;
+  isCreate = false;
+
   constructor(private inhaltService: InhaltVonTagAnzeigenService,
               private wochenberichtVorlageService: WochenberichtVorlageService,
               private activatedRoute: ActivatedRoute,
@@ -32,15 +36,18 @@ export class InhaltVonTagAnzeigenComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
-    this.subscription = this.inhaltService.inhaltZumAnzeigen.subscribe(inhalt => {
-      this.inhalt = inhalt;
-      console.log('anzeige von inhalt: ', this.inhalt)
-      // this.test = inhalt.map(inhalt => inhalt.wb_tag_id)
-      // console.log('THIS TEST: ', this.test)
+    this.subscription = this.inhaltService.inhaltZumAnzeigen.subscribe(inhaltsInfo => {
+      this.inhalt = inhaltsInfo.inhalt;
+      console.log('im dialog. ist das ein neuer tag? ', inhaltsInfo.isNewTag)
+      this.isCreate = inhaltsInfo.isNewTag
+      // console.log('anzeige von inhalt: ', this.inhalt)
+      for(const inhaltZumEintragen of inhaltsInfo.inhalt){
+        this.inhaltFurTextfeld = inhaltZumEintragen.inhalt
+      }
     });
 
     this.wochenberichtInhaltAnlegenFormGroup = new FormGroup({
-      'inhalt': new FormControl('Einführung in SQL, Select,Where'),
+      'inhalt': new FormControl(this.inhaltFurTextfeld),
     });
   }
 
@@ -65,6 +72,25 @@ export class InhaltVonTagAnzeigenComponent implements OnInit, OnDestroy {
       console.log('ITEM', item.id)
       console.log('ITEM', this.erstellterInhalt)
     });
+  }
+
+  onChange() {
+    this.wochenberichtVorlageService.getInhaltFuerTag(this.inhaltService.tag.id).subscribe(antwortInhaltFuerTag => {
+      console.log('THIS INHALTSERVICE TAG ',this.inhaltService.tag)
+      const changeInhalt = {
+        id: antwortInhaltFuerTag[0].id,
+        zeilennummer: '0',
+        inhalt: this.wochenberichtInhaltAnlegenFormGroup.controls.inhalt.value,
+        wb_tag_id: this.inhaltService.tag.id
+      };
+
+      this.wochenberichtVorlageService.updateInhalt(changeInhalt).subscribe(item => {
+        this.erstellterInhalt = item;
+        console.log('ITEM', item.id)
+        console.log('ITEM', this.erstellterInhalt)
+      });
+    })
+
   }
 
 }

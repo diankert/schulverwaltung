@@ -4,6 +4,10 @@ import {Wochenbericht, WochenberichtVorlageService} from './wochenbericht-vorlag
 import {WochenberichteVonUserService} from './wochenberichte-von-user.service';
 import {Router} from '@angular/router';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
+import {FormControl, FormGroup} from '@angular/forms';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogWochenberichtHinzugefuegt} from './wochenberichte-von-user-create/dialog-wochenbericht-hinzugefuegt/dialog-wochenbericht-hinzugefuegt';
+import {DialogWochenberichtGeloscht} from './wochenberichte-von-user-create/dialog-wochenbericht-geloscht/dialog-wochenbericht-geloscht';
 
 @Component({
   selector: 'app-wochenberichte-von-user',
@@ -15,19 +19,37 @@ export class WochenberichteVonUserComponent implements OnInit {
   displayedColumns: string[] = ['id', 'deletion_date', 'teilnehmer_id'];
   selectedWochenbericht: Wochenbericht;
   pageSlice: Wochenbericht[] = [];
+  wochenberichtTagAnlegenFormGroup: FormGroup
+  erstellterWochenbericht: Wochenbericht;
+  wochenbericht: Wochenbericht[] = [];
 
   constructor(private wochenberichtService: WochenberichtVorlageService,
               private userService: UserService,
               private wochenberichtVonUserService: WochenberichteVonUserService,
-              private router: Router) {
+              private router: Router,
+              public dialog: MatDialog) {
   }
 
   ngOnInit(): void {
     this.userService.idChanged.subscribe(id => {
       if (id) {
         this.wochenberichtService.getAllWochenberichteVonUser(id).subscribe(wochenberichte => {
-          // console.log(wochenberichte)
           this.wocheneberichtUser = wochenberichte;
+          let i = 0;
+          wochenberichte.sort((a, b) => {
+            const firstCreationDate = a.creation_date;
+            const secondCreationDate = b.creation_date;
+            if (i == 0) {
+            }
+            i++;
+            if (firstCreationDate < secondCreationDate) {
+              return 1;
+            } else if (firstCreationDate > secondCreationDate) {
+              return -1;
+            } else {
+              return 0;
+            }
+          });
           this.pageSlice = wochenberichte.slice(0, 10);
         });
       }
@@ -35,17 +57,19 @@ export class WochenberichteVonUserComponent implements OnInit {
     this.wochenberichtVonUserService.selectionChanged.subscribe(selectedBericht => {
       this.selectedWochenbericht = selectedBericht;
     })
+    this.wochenberichtTagAnlegenFormGroup = new FormGroup({
+      "id": new FormControl(),
+    });
   }
 
-  onPageChange(event: PageEvent){
+  onPageChange(event: PageEvent) {
     const startIndex = event.pageIndex * event.pageSize;
     let endIndex = startIndex + event.pageSize;
-    if(endIndex > this.wocheneberichtUser.length){
+    if (endIndex > this.wocheneberichtUser.length) {
       endIndex = this.wocheneberichtUser.length;
     }
-    this.pageSlice = this.wocheneberichtUser.slice(startIndex,endIndex);
+    this.pageSlice = this.wocheneberichtUser.slice(startIndex, endIndex);
   }
-
 
 
   onCreate() {
@@ -59,7 +83,7 @@ export class WochenberichteVonUserComponent implements OnInit {
   }
 
   onDelete(wochenbericht: Wochenbericht) {
-    this.wochenberichtService.deleteWochenbericht(wochenbericht.id).subscribe(() =>{
+    this.wochenberichtService.deleteWochenbericht(wochenbericht.id).subscribe(() => {
       const newArray: Wochenbericht[] = [];
       for (const alterWochenbericht of this.wocheneberichtUser) {
         if (alterWochenbericht.id != wochenbericht.id) {
@@ -69,6 +93,29 @@ export class WochenberichteVonUserComponent implements OnInit {
       this.wocheneberichtUser = [...newArray];
     });
     console.log('tag to delete: ', wochenbericht)
+    this.openDialogGeloscht()
+  }
+
+  onSave() {
+
+    const neuerWochenbericht = {
+      id: this.wochenberichtTagAnlegenFormGroup.controls.id.value,
+    };
+    console.log(neuerWochenbericht)
+    this.wochenberichtService.addWochenbericht().subscribe(item =>{
+      this.erstellterWochenbericht = item;
+      console.log('ITEM',item.id)
+      console.log('ITEM',this.erstellterWochenbericht)
+    });
+    this.openDialog()
+  }
+
+  openDialog() {
+    this.dialog.open(DialogWochenberichtHinzugefuegt);
+  }
+
+  openDialogGeloscht() {
+    this.dialog.open(DialogWochenberichtGeloscht);
   }
 
 }

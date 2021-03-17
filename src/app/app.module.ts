@@ -49,6 +49,11 @@ import { WochenberichtVonUserInhaltComponent } from './wochenberichte-von-user/w
 import { InhaltVonTagAnzeigenComponent } from './wochenberichte-von-user/inhalt-von-tag-anzeigen/inhalt-von-tag-anzeigen.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import {TemplateHeaderComponent} from './_template/template-header/template-header.component';
+import { PageListComponent } from './page-list/page-list.component';
+import {DialogWochenberichtHinzugefuegt} from './wochenberichte-von-user/wochenberichte-von-user-create/dialog-wochenbericht-hinzugefuegt/dialog-wochenbericht-hinzugefuegt';
+import {DialogWochenberichtGeloscht} from './wochenberichte-von-user/wochenberichte-von-user-create/dialog-wochenbericht-geloscht/dialog-wochenbericht-geloscht';
+
 
 
 
@@ -77,6 +82,11 @@ registerLocaleData(localeDe);
     NeuenUserAnlegenComponent,
     WochenberichtVonUserInhaltComponent,
     InhaltVonTagAnzeigenComponent,
+    TemplateHeaderComponent,
+    PageListComponent,
+    DialogWochenberichtHinzugefuegt,
+    DialogWochenberichtGeloscht
+
   ],
     imports: [
         BrowserModule,

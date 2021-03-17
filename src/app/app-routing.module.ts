@@ -10,6 +10,7 @@ import {AdminbereichComponent} from './adminbereich/adminbereich.component';
 import {WochenberichteVonUserCreateComponent} from './wochenberichte-von-user/wochenberichte-von-user-create/wochenberichte-von-user-create.component';
 import {WochenberichteVonUserEditComponent} from './wochenberichte-von-user/wochenberichte-von-user-edit/wochenberichte-von-user-edit.component';
 import {NeuenUserAnlegenComponent} from './neuen-user-anlegen/neuen-user-anlegen.component';
+import { PageListComponent } from './page-list/page-list.component';
 
 const routes: Routes = [
   {
@@ -59,6 +60,11 @@ const routes: Routes = [
   {
     path: 'listenansicht',
     component: AdminbereichComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'todolist',
+    component: PageListComponent,
     canActivate: [AuthGuard]
   }
 

@@ -69,6 +69,11 @@ export class WochenberichtVorlageService {
     })
   }
 
+// {"id":"1", "zeilennummer":"1", "inhalt":"ganz viel Inhalt", "wb_tag_id":"1"}
+  updateInhalt(inhalt: Inhalt): Observable<Inhalt> {
+    return this.http.put<Inhalt>('/api/wochenberichts_inhalt/update', inhalt)
+  }
+
 
   addTag(neuenTagAnlegen: Tag): Observable<Tag> {
 

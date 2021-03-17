@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 40.691">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #6ae2d6;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .cls-2 {
+        stroke-width: 5px;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="Gruppe_3" data-name="Gruppe 3" transform="translate(-60 -238.309)">
+    <g id="Rechteck_3" data-name="Rechteck 3" class="cls-1" transform="translate(60 242)">
+      <rect class="cls-3" width="37" height="37" rx="10"/>
+      <rect class="cls-4" x="0.5" y="0.5" width="36" height="36" rx="9.5"/>
+    </g>
+    <path id="Pfad_2" data-name="Pfad 2" class="cls-2" d="M68.664,258.959,80,269.326l12.245-30.075"/>
+  </g>
+</svg>

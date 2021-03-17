@@ -9,6 +9,7 @@ export class WochenberichteVonUserService {
   selection: Wochenbericht;
   selectionChanged = new BehaviorSubject<Wochenbericht>(null);
 
+
   constructor() {}
 
 

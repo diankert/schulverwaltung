@@ -1,23 +1,10 @@
 <form [formGroup]="wochenberichtTagAnlegenFormGroup">
   <div class="d-flex justify-content-center pt-5">
-    <mat-card class="w-75 pl-5 pb-5">
+    <mat-card class="w-75 pb-5">
       <h1 class="pb-5">Wochenbericht anlegen</h1>
       <mat-form-field [hidden]="true" class=" mr-5">
         <mat-label>ID</mat-label>
         <input formControlName="id" matInput/>
-      </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-label>Enter a date range</mat-label>
-        <mat-date-range-input [rangePicker]="picker">
-          <input matStartDate formControlName="start" placeholder="Start date">
-          <input matEndDate formControlName="end" placeholder="End date">
-        </mat-date-range-input>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-
-        <mat-error *ngIf="wochenberichtTagAnlegenFormGroup.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
-        <mat-error *ngIf="wochenberichtTagAnlegenFormGroup.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
       </mat-form-field>
 
       <div class="d-flex justify-content-end flex-row">
@@ -26,7 +13,7 @@
           <span> Speichern</span>
         </button>
 
-        <button class="ml-2 mt-5" mat-raised-button color="primary"(click)="onCancel()">
+        <button class="mt-5" mat-raised-button color="primary"(click)="onCancel()">
           <mat-icon>clear</mat-icon>
           <span> Abbrechen</span>
         </button>

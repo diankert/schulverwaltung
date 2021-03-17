@@ -1,24 +1,25 @@
-  <h1 mat-dialog-title>Tages Inhalt eintragen</h1>
-  <mat-dialog-content class="mat-typography">
+<h1 mat-dialog-title>Tages Inhalt eintragen</h1>
+<mat-dialog-content class="mat-typography">
   <form [formGroup]="wochenberichtInhaltAnlegenFormGroup">
     <div class="d-flex justify-content-center pt-5 pb-4">
       <mat-form-field appearance="fill">
-        <mat-label>Textarea</mat-label>
-        <textarea style="font-size: medium" formControlName="inhalt" rows="5" cols="600" minlength="5" maxlength="300" matInput></textarea>
+        <mat-label>Inhalt</mat-label>
+        <textarea style="font-size: medium" formControlName="inhalt" rows="5" cols="600" minlength="5" maxlength="300"
+                  matInput></textarea>
       </mat-form-field>
     </div>
   </form>
-  <mat-card-subtitle>Bisherige Einträge</mat-card-subtitle>
-  <ul class="pt-1 pb-5" style="font-size: medium">
-    <li *ngFor="let eintrag of inhalt">{{eintrag?.inhalt}}</li>
-  </ul>
-  </mat-dialog-content>
-  <mat-dialog-actions align="end">
-    <button mat-raised-button color="primary" mat-dialog-close (click)="onSave()">
-      <mat-icon>save_alt</mat-icon>
-      Speichern
-    </button>
-    <button mat-raised-button color="primary" mat-dialog-close>
-      <mat-icon>clear</mat-icon>
-      <span> Abbrechen</span></button>
-  </mat-dialog-actions>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button *ngIf="isCreate" mat-raised-button color="primary" mat-dialog-close (click)="onSave()">
+    <mat-icon>save_alt</mat-icon>
+    Speichern
+  </button>
+  <button *ngIf="!isCreate" mat-raised-button color="primary" mat-dialog-close (click)="onChange()">
+    <mat-icon>save_alt</mat-icon>
+    Speichern
+  </button>
+  <button mat-raised-button color="primary" mat-dialog-close>
+    <mat-icon>clear</mat-icon>
+    <span>Abbrechen</span></button>
+</mat-dialog-actions>

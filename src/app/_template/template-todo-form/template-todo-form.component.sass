@@ -1,0 +1,52 @@
+@import '../../../sass/var'
+
+// ##########################################################
+// ##########################################################
+// ##########################################################
+
+.todo-form
+    width: 100%
+    background-color: $prime
+    margin: 0 0 $cube*2 0
+    display: flex
+    flex-flow: row
+    justify-content: space-between        
+    align-items: stretch
+    height: $cube*8
+    .todo-content
+        width: 100%
+        display: flex
+        flex-flow: row
+        justify-content: flex-start
+        align-items: stretch
+        border: 2px solid grey
+        input
+            font-family: $font2
+            font-size: $cube*2
+            padding: $cube*2
+            color: $second
+            background-color: white
+            width: 100%
+            border: none
+            word-break: break-word
+        input::placeholder
+            opacity: 0.5
+            font-style: italic
+            color: $second
+        input:focus
+            outline: none
+    .create
+        color: $white
+        font-family: $font2
+        font-size: $cube*2
+        padding: $cube*2
+        cursor: pointer
+        border-left: solid $cube*0.1 $second
+        background-color: green
+        span
+            height: 100%
+            width: 100%
+            display: flex
+            flex-flow: row
+            justify-content: center
+            align-items: center
