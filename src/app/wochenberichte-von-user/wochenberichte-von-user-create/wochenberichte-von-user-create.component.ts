@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Location} from '@angular/common';
 import {FormControl, FormGroup} from '@angular/forms';
-import {
-  Tag,
-  Wochenbericht,
-  WochenberichtVorlageService
+import {Wochenbericht, WochenberichtVorlageService
 } from '../../wochenbericht-vorlage/wochenbericht-vorlage.service';
 
 @Component({
@@ -21,14 +18,15 @@ export class WochenberichteVonUserCreateComponent implements OnInit {
 
   ngOnInit(): void {
     this.wochenberichtTagAnlegenFormGroup = new FormGroup({
-      "id": new FormControl()
+      "id": new FormControl(),
+      "start": new FormControl(),
+      "end": new FormControl()
     });
   }
 
   onCancel(): void {
     this.location.back()
   }
-
 
   onSave() {
 
@@ -43,7 +41,7 @@ export class WochenberichteVonUserCreateComponent implements OnInit {
     });
     this.location.back()
   }
-
+  //
   // onDelete(wochenbericht: Wochenbericht) {
   //   this.wochenberichtVorlageService.deleteWochenbericht(wochenbericht.id).subscribe(() =>{
   //     const newArray: Wochenbericht[] = [];

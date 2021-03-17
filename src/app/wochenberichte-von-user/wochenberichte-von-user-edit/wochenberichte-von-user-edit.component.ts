@@ -1,5 +1,6 @@
 import {Component, Injectable, Input, OnInit, Output} from '@angular/core';
 import {
+  Inhalt,
   Tag,
   Wochenbericht,
   WochenberichtVorlageService
@@ -26,10 +27,11 @@ export class WochenberichteVonUserEditComponent implements OnInit {
   wbID: string;
   tage: Tag[] = [];
   tagID:string;
+  zumInhalt: Inhalt;
   constructor(private activatedRoute: ActivatedRoute,
               private location: Location,
               private wochenberichtVorlageService: WochenberichtVorlageService,
-              public dialog: MatDialog,
+              public  dialog: MatDialog,
               private inhaltService: InhaltVonTagAnzeigenService) {
   }
 
@@ -44,7 +46,7 @@ export class WochenberichteVonUserEditComponent implements OnInit {
       })
     })
     this.wochenberichtTagAnlegenFormGroup = new FormGroup({
-      'datum': new FormControl(),
+      'datum': new FormControl(new Date() ),
       'thema': new FormControl('SQL')
     });
   }
@@ -61,7 +63,6 @@ export class WochenberichteVonUserEditComponent implements OnInit {
       thema: this.wochenberichtTagAnlegenFormGroup.controls.thema.value,
       wb_id: this.wbID
     };
-    // console.log('neuenTaganlagen: ',neuenTagAnlegen)
 
     this.wochenberichtVorlageService.addTag(neuenTagAnlegen).subscribe(item => {
       this.erstellterTag = item;

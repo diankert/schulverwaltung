@@ -8,8 +8,8 @@ export interface Bild {
   last_modification_date?: string;
   deleted?: string;
   deletion_date?: string;
-  name: string;
-  dateinname: string;
+  name?: string;
+  dateiname?: string;
   teilnehmer_id?: string;
   teilnehmer?: TeilnehmerData[];
 };

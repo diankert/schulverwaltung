@@ -24,8 +24,6 @@ export class InhaltVonTagAnzeigenComponent implements OnInit, OnDestroy {
   erstellterInhalt: Inhalt;
   tage: Tag[];
   wochenbericht: Wochenbericht[];
-  wb_tagID: string;
-  step = 0;
   test: string[];
   constructor(private inhaltService: InhaltVonTagAnzeigenService,
               private wochenberichtVorlageService: WochenberichtVorlageService,

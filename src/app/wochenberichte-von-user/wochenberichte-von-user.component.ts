@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {UserService} from '../auth/user.service';
 import {Wochenbericht, WochenberichtVorlageService} from '../wochenbericht-vorlage/wochenbericht-vorlage.service';
 import {WochenberichteVonUserService} from './wochenberichte-von-user.service';
 import {Router} from '@angular/router';
-import {PageEvent} from '@angular/material/paginator';
+import {MatPaginator, PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-wochenberichte-von-user',
@@ -14,10 +14,8 @@ export class WochenberichteVonUserComponent implements OnInit {
   wocheneberichtUser: Wochenbericht[] = []
   displayedColumns: string[] = ['id', 'deletion_date', 'teilnehmer_id'];
   selectedWochenbericht: Wochenbericht;
-  lengthOfpage = 100;
-  pageSize = 10;
-  pageSizeOptions: number[] = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-  pageEvent: PageEvent;
+  pageSlice: Wochenbericht[] = [];
+
   constructor(private wochenberichtService: WochenberichtVorlageService,
               private userService: UserService,
               private wochenberichtVonUserService: WochenberichteVonUserService,
@@ -28,13 +26,9 @@ export class WochenberichteVonUserComponent implements OnInit {
     this.userService.idChanged.subscribe(id => {
       if (id) {
         this.wochenberichtService.getAllWochenberichteVonUser(id).subscribe(wochenberichte => {
-          console.log(wochenberichte)
+          // console.log(wochenberichte)
           this.wocheneberichtUser = wochenberichte;
-          if(this.wocheneberichtUser.length >= 10)
-          {
-            alert('STOP,ES SIND 10!!')
-          }
-
+          this.pageSlice = wochenberichte.slice(0, 10);
         });
       }
     });
@@ -42,6 +36,17 @@ export class WochenberichteVonUserComponent implements OnInit {
       this.selectedWochenbericht = selectedBericht;
     })
   }
+
+  onPageChange(event: PageEvent){
+    const startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
+    if(endIndex > this.wocheneberichtUser.length){
+      endIndex = this.wocheneberichtUser.length;
+    }
+    this.pageSlice = this.wocheneberichtUser.slice(startIndex,endIndex);
+  }
+
+
 
   onCreate() {
     this.router.navigate(['allewochenberichtevomuser', 'create']);
@@ -66,11 +71,4 @@ export class WochenberichteVonUserComponent implements OnInit {
     console.log('tag to delete: ', wochenbericht)
   }
 
-  naechstenWochenberichte() {
-
-  }
-
-  vorherigeWochenberichte() {
-
-  }
 }

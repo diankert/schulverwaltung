@@ -34,11 +34,11 @@
 <div class="d-flex justify-content-center">
   <div class="w-75 pt-5">
     <mat-card><h1> Angelegte Tage für Wochenbericht KW {{wochenbericht?.creation_date | date : 'w'}}</h1>
-      <mat-card-subtitle>Bereits {{tage.length}} Einträge vorhanden</mat-card-subtitle>
+      <mat-card-subtitle> {{tage.length}} Tage bereits vorhanden</mat-card-subtitle>
 
       <mat-card *ngFor="let tag of tage">
         <div class="d-flex justify-content-between align-items-center">
-          <p class="mb-0">{{tag?.datum | date}} {{tag?.thema}}</p>
+          <p class="mb-0">{{tag?.datum | date}} {{tag?.thema}} </p>
           <div class="d-flex justify-content-end align-items-center">
           <button mat-icon-button (click)="openDialog(tag)">
             <mat-icon>create</mat-icon>
@@ -51,5 +51,11 @@
       </mat-card>
 
     </mat-card>
+<!--    <div class="d-flex justify-content-end">-->
+<!--    <button class=" ml-2 mt-4" mat-raised-button color="primary" (click)="onCancel()">-->
+<!--      <mat-icon>keyboard_backspace</mat-icon>-->
+<!--      <span> Zurück</span>-->
+<!--    </button>-->
+<!--    </div>-->
   </div>
 </div>

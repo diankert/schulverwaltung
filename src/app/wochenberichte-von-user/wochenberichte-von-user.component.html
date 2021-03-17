@@ -19,20 +19,17 @@
 
     </mat-card>
     <mat-card>
-      <div class="d-flex flex-column ">
+      <div class="d-flex flex-column">
         <app-wochenberichte-von-user-detail
-          *ngFor="let wochenbericht of wocheneberichtUser | slice:0:20"
+          *ngFor="let wochenbericht of pageSlice"
           [wochenbericht]="wochenbericht">
         </app-wochenberichte-von-user-detail>
       </div>
-<!--      <div class="d-flex justify-content-end">-->
-<!--      <mat-icon (click)="vorherigeWochenberichte()" class="clickable">chevron_left</mat-icon>-->
-<!--      <mat-icon (click)="naechstenWochenberichte()" class="clickable">chevron_right</mat-icon>-->
-<!--      </div>-->
-      <mat-paginator
-                     [pageSize] = "pageSize"
-                     [pageSizeOptions] = "pageSizeOptions"
-                     (page) = "pageEvent = $event">
+
+      <mat-paginator [length]="this.wocheneberichtUser.length"
+                     [pageSize] = "10"
+                     [pageSizeOptions] = "[10, 20]"
+                     (page) = "onPageChange($event)">
       </mat-paginator>
 
     </mat-card>

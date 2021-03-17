@@ -10,4 +10,5 @@ export class InhaltVonTagAnzeigenService{
   inhaltZumAnzeigen = new BehaviorSubject<Inhalt[]>(null);
   inhaltTAG = new BehaviorSubject<Tag>(null);
   tag: Tag;
+  inhalt: Inhalt;
 }
