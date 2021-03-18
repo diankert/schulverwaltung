@@ -11,6 +11,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import {MatDialog} from '@angular/material/dialog';
 import {InhaltVonTagAnzeigenComponent} from '../inhalt-von-tag-anzeigen/inhalt-von-tag-anzeigen.component';
 import {InhaltVonTagAnzeigenService} from '../inhalt-von-tag-anzeigen/inhalt-von-tag-anzeigen.service';
+import {getSortHeaderNotContainedWithinSortError} from '@angular/material/sort/sort-errors';
 
 @Injectable()
 
@@ -63,6 +64,7 @@ export class WochenberichteVonUserEditComponent implements OnInit {
       thema: this.wochenberichtTagAnlegenFormGroup.controls.thema.value,
       wb_id: this.wbID
     };
+    console.log('This wb id: ', this.wbID)
     this.wochenberichtVorlageService.addTag(neuenTagAnlegen).subscribe(item => {
       this.erstellterTag = item;
       this.tage.push({...item})
