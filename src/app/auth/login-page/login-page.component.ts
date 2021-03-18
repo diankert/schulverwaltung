@@ -10,6 +10,7 @@ import {UserService} from '../user.service';
 export class LoginPageComponent implements OnInit {
   hide = true;
   username  = '';
+  password  = '';
 
   constructor(private router: Router,
               private userService: UserService) { }
@@ -17,17 +18,19 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void {}
 
   routeToHeader() {
-    this.userService.findUser(this.username).subscribe(foundUser => {
-      if (!foundUser || foundUser.length < 1) {
-        alert("Keinen passenden User gefunden!")
-      } else {
-        this.userService.idChanged.next(foundUser[0].teilnehmer_id);
-        // if(this.userService[0].status == "admin")
-        // {
-        //   this.router.navigate( ['/', 'adminansicht'] );
-        // }
-        this.router.navigate( ['/', 'start'] );
-      }
+    this.userService.findUser(this.username, this.password).subscribe(foundUser => {
+      //if (!foundUser || foundUser.length < 1) {
+      //  alert("Keinen passenden User gefunden!")
+      //} else {
+      this.userService.type = foundUser.type
+      this.userService.idChanged.next(foundUser.id);
+      console.log('this.userService.type = foundUser.type: ', this.userService.type = foundUser.type)
+      // if(this.userService[0].status == "admin")
+      // {
+      //   this.router.navigate( ['/', 'adminansicht'] );
+      // }
+      this.router.navigate( ['/', 'start'] );
+      //}
     });
   }
 }

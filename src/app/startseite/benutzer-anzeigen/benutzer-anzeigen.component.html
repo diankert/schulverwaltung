@@ -1,14 +1,33 @@
-
-<mat-card class="example-card">
+<mat-card *ngIf="userService.type == 'teilnehmer'" class="example-card">
   <mat-card-header>
-    <img mat-card-avatar [src]="schuelerBild?.dateiname"   alt="Photo of a Student">
+    <img mat-card-avatar [src]=schuelerBild?.dateiname alt="Photo of a Student">
     <mat-card-title>{{schueler?.vorname}}</mat-card-title>
     <mat-card-title>{{schueler?.nachname}}</mat-card-title>
   </mat-card-header>
-  <img mat-card-image class="mat-card-image" [src]="schuelerBild?.dateiname"  alt="Photo of a Student">
+  <img mat-card-image class="mat-card-image" [src]=schuelerBild?.dateiname alt="Photo of a Student">
   <mat-card-content>
   </mat-card-content>
+  <strong>{{schueler?.vorname}} </strong> <strong>{{schueler?.nachname}}</strong>
 </mat-card>
-
-
-
+<mat-card *ngIf="userService.type == 'dozent'" class="example-card">
+  <mat-card-header>
+    <img mat-card-avatar [src]=dozentBild?.dateiname alt="Photo of a Teacher">
+    <mat-card-title>{{dozent?.vorname}}</mat-card-title>
+    <mat-card-title>{{dozent?.nachname}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image class="mat-card-image" [src]=dozentBild?.dateiname alt="Photo of a Teacher">
+  <mat-card-content>
+  </mat-card-content>
+  <strong>{{dozent?.vorname}} </strong> <strong>{{dozent?.nachname}}</strong>
+</mat-card>
+<mat-card *ngIf="userService.type == 'verwaltungsmitarbeiter'" class="example-card">
+  <mat-card-header>
+    <img mat-card-avatar [src]=verwaltungsmitarbeiterBild?.dateiname alt="Photo of an Employee">
+    <mat-card-title>{{verwaltungsmitarbeiter?.vorname}}</mat-card-title>
+    <mat-card-title>{{verwaltungsmitarbeiter?.nachname}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image class="mat-card-image" [src]=verwaltungsmitarbeiterBild?.dateiname alt="Photo of an Employee">
+  <mat-card-content>
+  </mat-card-content>
+  <strong>{{verwaltungsmitarbeiter?.vorname}} </strong> <strong>{{verwaltungsmitarbeiter?.nachname}}</strong>
+</mat-card>

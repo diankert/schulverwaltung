@@ -28,14 +28,14 @@ export class AppComponent {
     this.userService.idChanged.subscribe(id => {
       this.id = id;
       if (id) {
-        this.bilderService.findBild(id).subscribe(foundBild => {
-          if (!foundBild) {
-            console.log('id? ', id)
-          } else {
-            this.schuelerBild = foundBild;
-            // console.log(this.schuelerBild)
-          }
-        });
+        // this.bilderService.findBild(id).subscribe(foundBild => {
+        //   if (!foundBild) {
+        //     console.log('id? ', id)
+        //   } else {
+        //     this.schuelerBild = foundBild;
+        //     console.log(this.schuelerBild)
+        //   }
+        // });
       }
     });
   }
