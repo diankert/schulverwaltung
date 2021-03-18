@@ -27,6 +27,8 @@ export class BenutzerAnzeigen implements OnInit {
   schuelerBild: Bild
   dozentBild: Bild
   verwaltungsmitarbeiterBild: Bild
+  bildPath: string;
+
   constructor(
     private schuelerData: TeilnehmerDataService,
     private dozentData: DozentDataService,
@@ -46,13 +48,7 @@ export class BenutzerAnzeigen implements OnInit {
             this.schueler = foundSchueler
           }
         })
-        this.bilderService.findBild(id).subscribe((foundBild) => {
-          if (!foundBild) {
-            console.log('id? ', id)
-          } else {
-            this.schuelerBild = foundBild
-          }
-        })
+        this.bildPath = this.bilderService.bildFuerUser(id);
       })
     } else if(this.userService.type == 'dozent') {
       this.userService.idChanged.subscribe((id) => {
@@ -62,13 +58,7 @@ export class BenutzerAnzeigen implements OnInit {
             console.log('id? ', id)
           } else {
             this.dozent = foundDozent
-          }
-        })
-        this.bilderService.findBild(id).subscribe((foundBild) => {
-          if (!foundBild) {
-            console.log('id? ', id)
-          } else {
-            this.dozentBild = foundBild
+            this.bildPath = this.bilderService.bildFuerUser(id);
           }
         })
       })
@@ -82,13 +72,7 @@ export class BenutzerAnzeigen implements OnInit {
             this.verwaltungsmitarbeiter = foundVerwaltungsmitarbeiter
           }
         })
-        this.bilderService.findBild(id).subscribe((foundBild) => {
-          if (!foundBild) {
-            console.log('id? ', id)
-          } else {
-            this.verwaltungsmitarbeiterBild = foundBild
-          }
-        })
+        this.bildPath = this.bilderService.bildFuerUser(id);
       })
     }
   }

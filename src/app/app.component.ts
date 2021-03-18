@@ -14,7 +14,7 @@ export class AppComponent {
   id: string;
   schueler: TeilnehmerData;
   toolbarShow = false;
-  schuelerBild: Bild;
+  bildPath: string;
 
   constructor(private schuelerData: TeilnehmerDataService,
               private userService: UserService,
@@ -23,24 +23,9 @@ export class AppComponent {
     this.userService.idChanged.subscribe(id => {
       this.id = id ? id : null;
       this.toolbarShow = !!id;
-
+      this.bildPath = this.bilderService.bildFuerUser(id);
     });
-    // this.userService.idChanged.subscribe(id => {
-      // this.id = id;
-      // if (id) {
-        // this.bilderService.findBild(id).subscribe(foundBild => {
-        //   if (!foundBild) {
-        //     console.log('id? ', id)
-        //   } else {
-        //     this.schuelerBild = foundBild;
-        //     console.log(this.schuelerBild)
-        //   }
-        // });
-      // }
-    // });
   }
-
-
 
   onLogout() {
     this.userService.logout();
