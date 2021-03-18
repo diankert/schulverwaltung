@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TeilnehmerData, TeilnehmerDataService} from '../../services/teilnehmer-data.service';
 import {FormControl, FormGroup} from '@angular/forms';
+import {formatDate} from '@angular/common';
 
 
 @Component({
@@ -30,10 +31,12 @@ export class TeilnehmerAnlegenComponent implements OnInit {
     }
 
     onSubmit() {
+      const rawDate: Date = this.teilnehmerAnlegenFormGroup.controls.geburtsdatum.value;
+      const isoDate: string = formatDate(rawDate, 'YYYY-MM-dd', 'de')
       const neuerTeilnehmer = {
         vorname: this.teilnehmerAnlegenFormGroup.controls.vorname.value,
         nachname: this.teilnehmerAnlegenFormGroup.controls.nachname.value,
-        geburtsdatum: this.teilnehmerAnlegenFormGroup.controls.geburtsdatum.value,
+        geburtsdatum: isoDate,
         strasse: this.teilnehmerAnlegenFormGroup.controls.strasse.value,
         hausnummer: this.teilnehmerAnlegenFormGroup.controls.hausnummer.value,
         telefon: this.teilnehmerAnlegenFormGroup.controls.telefon.value,
