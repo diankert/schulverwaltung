@@ -20,6 +20,35 @@ export interface TeilnehmerData {
   wochenberichte?: Wochenbericht[];
 };
 
+export interface DozData {
+  id?: string;
+  pic?:string;
+  vorname: string;
+  nachname: string;
+  geburtsdatum: string;
+  strasse: string;
+  hausnummer: string;
+  email: string;
+  telefon: string;
+  plz: string;
+  stadt: string;
+};
+
+export interface VerwaltungsData {
+  id?: string;
+  pic?:string;
+  vorname: string;
+  nachname: string;
+  geburtsdatum: string;
+  strasse: string;
+  hausnummer: string;
+  email: string;
+  telefon: string;
+  plz: string;
+  stadt: string;
+};
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -37,6 +66,36 @@ export class TeilnehmerDataService {
 
   updateTeilnehmer(teilnehmer: TeilnehmerData): Observable<TeilnehmerData> {
     return this.http.put<TeilnehmerData>('/api/teilnehmer/update', teilnehmer);
+  }
+
+
+
+
+  findVerwaltungs(id: string) {
+    return this.http.get<VerwaltungsData>('api/verwaltungsmitarbeiter/get/?id='+ id+'&showrelated=true');
+  }
+
+  addVerwaltungs(teilnehmer: VerwaltungsData): Observable<TeilnehmerData> {
+    return this.http.post<VerwaltungsData>('/api/verwaltungsmitarbeiter/create', teilnehmer)
+  }
+
+  updateVerwaltungs(verwaltungsmitarbeiter: VerwaltungsData): Observable<VerwaltungsData> {
+    return this.http.put<VerwaltungsData>('/api/verwaltungsmitarbeiter/update', verwaltungsmitarbeiter);
+  }
+
+
+
+
+  findDozent(id: string) {
+    return this.http.get<DozData>('api/dozent/get/?id='+ id+'&showrelated=true');
+  }
+
+  addDozent(dozent: DozData): Observable<DozData> {
+    return this.http.post<DozData>('/api/dozent/create', dozent)
+  }
+
+  updateDozent(dozent: DozData): Observable<DozData> {
+    return this.http.put<DozData>('/api/dozent/update', dozent);
   }
 
 }

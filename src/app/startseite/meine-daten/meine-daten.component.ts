@@ -21,20 +21,47 @@ export class MeineDatenComponent implements OnInit {
     this.userService.idChanged.subscribe(id => {
       this.id = id ? id : null;
 
-      if (id) {
-        this.teilnehmerDataService.findTeilnehmer(id).subscribe(foundTeilnehmer => {
-          if (!foundTeilnehmer) {
-            console.log('teilnehmer NICHT GEFUNDEN ', foundTeilnehmer)
-          } else {
-            this.teilnehmer = foundTeilnehmer;
-            this.teilnehmerDatenBearbeitenFormGroup = this.getUpdatedFormGroup(foundTeilnehmer);
-          }
-        });
+      if(this.userService.type == 'dozent') {
+        if (id) {
+          this.teilnehmerDataService.findDozent(id).subscribe(foundTeilnehmer => {
+            if (!foundTeilnehmer) {
+              console.log('Dozent NICHT GEFUNDEN ', foundTeilnehmer)
+            } else {
+              this.teilnehmer = foundTeilnehmer;
+              this.teilnehmerDatenBearbeitenFormGroup = this.getUpdatedFormGroup(foundTeilnehmer);
+            }
+          });
+        }
+      }
+      if(this.userService.type == 'teilnehmer') {
+        if (id) {
+          this.teilnehmerDataService.findTeilnehmer(id).subscribe(foundTeilnehmer => {
+            if (!foundTeilnehmer) {
+              console.log('teilnehmer NICHT GEFUNDEN ', foundTeilnehmer)
+            } else {
+              this.teilnehmer = foundTeilnehmer;
+              this.teilnehmerDatenBearbeitenFormGroup = this.getUpdatedFormGroup(foundTeilnehmer);
+            }
+          });
+        }
+      }
+      if(this.userService.type == 'verwaltungsmitarbeiter') {
+        if (id) {
+          this.teilnehmerDataService.findVerwaltungs(id).subscribe(foundTeilnehmer => {
+            if (!foundTeilnehmer) {
+              console.log('teilnehmer NICHT GEFUNDEN ', foundTeilnehmer)
+            } else {
+              this.teilnehmer = foundTeilnehmer;
+              this.teilnehmerDatenBearbeitenFormGroup = this.getUpdatedFormGroup(foundTeilnehmer);
+            }
+          });
+        }
       }
     });
 
     this.teilnehmerDatenBearbeitenFormGroup = this.getUpdatedFormGroup();
   }
+
 
   getUpdatedFormGroup(teilnehmer?: TeilnehmerData): FormGroup {
     return new FormGroup({
@@ -50,6 +77,7 @@ export class MeineDatenComponent implements OnInit {
     });
   }
 
+
   onSubmit() {
     const teilnehmerToUpdate = {
       id: this.id,
@@ -63,9 +91,26 @@ export class MeineDatenComponent implements OnInit {
       plz: this.teilnehmerDatenBearbeitenFormGroup.controls.plz.value,
       email: this.teilnehmerDatenBearbeitenFormGroup.controls.email.value,
     };
-    this.teilnehmerDataService.updateTeilnehmer(teilnehmerToUpdate).subscribe(data => {
-      console.log('data: ', data)
-      console.log('Updateschuelereins: ', teilnehmerToUpdate)
-    });
+    if(this.userService.type == 'teilnehmer') {
+      this.teilnehmerDataService.updateTeilnehmer(teilnehmerToUpdate).subscribe(data => {
+        console.log('data: ', data)
+        console.log('Updateschuelereins: ', teilnehmerToUpdate)
+
+      });
+    }
+    if(this.userService.type == 'dozent') {
+      this.teilnehmerDataService.updateDozent(teilnehmerToUpdate).subscribe(data => {
+        console.log('data: ', data)
+        console.log('Updateschuelereins: ', teilnehmerToUpdate)
+
+      });
+    }
+    if(this.userService.type == 'verwaltungsmitarbeiter') {
+      this.teilnehmerDataService.updateVerwaltungs(teilnehmerToUpdate).subscribe(data => {
+        console.log('data: ', data)
+        console.log('Updateschuelereins: ', teilnehmerToUpdate)
+
+      });
+    }
   }
 }

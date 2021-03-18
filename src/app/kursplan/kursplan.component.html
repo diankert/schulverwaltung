@@ -20,16 +20,16 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row (click)="onRowClicked(myRowData)" *matRowDef="let myRowData; columns: displayedColumns"></tr>
   </table>
-      <table class="a" mat-table [dataSource]="kursInhalt">
+<!--      <table class="a" mat-table [dataSource]="kursInhalt">-->
 
-        <ng-container matColumnDef="beschreibung">
-          <th mat-header-cell *matHeaderCellDef>Beschreibung</th>
-          <td mat-cell *matCellDef="let kursInhalt"> {{kursInhalt.beschreibung}}</td>
-        </ng-container>
+<!--        <ng-container matColumnDef="beschreibung">-->
+<!--          <th mat-header-cell *matHeaderCellDef>Beschreibung</th>-->
+<!--          <td mat-cell *matCellDef="let kursInhalt"> {{kursInhalt.beschreibung}}</td>-->
+<!--        </ng-container>-->
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumnsKursinhalt"></tr>
-        <tr mat-row *matRowDef="let myRowData; columns: displayedColumnsKursinhalt"></tr>
-      </table>
+<!--        <tr mat-header-row *matHeaderRowDef="displayedColumnsKursinhalt"></tr>-->
+<!--        <tr mat-row *matRowDef="let myRowData; columns: displayedColumnsKursinhalt"></tr>-->
+<!--      </table>-->
 </div>
 </div>
 <!--<app-calendar></app-calendar>-->
