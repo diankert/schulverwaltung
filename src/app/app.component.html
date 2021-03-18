@@ -1,5 +1,5 @@
 <mat-toolbar *ngIf="toolbarShow" color="black">
-<!--<mat-toolbar color="black">-->
+  <!--<mat-toolbar color="black">-->
   <span class="fill-remaining-space">
     <button mat-icon-button [matMenuTriggerFor]="menu" #menuTrigger="matMenuTrigger"
             (mouseover)="menuTrigger.openMenu()">
@@ -10,35 +10,43 @@
       <button mat-menu-item routerLink="/start">
         <mat-icon>home</mat-icon>
         <span>Home</span>
+
       </button>
-       <button mat-menu-item routerLink="/kursplan">
-<mat-icon> local_library</mat-icon>
+       <button *ngIf="this.userService.type =='dozent' || this.userService.type =='teilnehmer' || this.userService.type =='verwaltungsmitarbeiter'" mat-menu-item routerLink="/kursplan">
+        <mat-icon> local_library</mat-icon>
         <span>Kursplan</span>
       </button>
-       <button mat-menu-item  routerLink="/pruefungsuebersicht" >
+
+       <button *ngIf="this.userService.type =='dozent' || this.userService.type =='teilnehmer'" mat-menu-item  routerLink="/pruefungsuebersicht" >
          <mat-icon>school</mat-icon>
         <span>Prüfungsübersicht</span>
       </button>
-       <button mat-menu-item  routerLink="/neuenuseranlegen" >
+
+       <button *ngIf="this.userService.type =='verwaltungsmitarbeiter'"  mat-menu-item  routerLink="/neuenuseranlegen" >
        <mat-icon> contacts</mat-icon>
         <span>Mitglied anlegen</span>
       </button>
-       <button mat-menu-item  routerLink="/allewochenberichtevomuser" >
+
+       <button *ngIf="this.userService.type =='verwaltungsmitarbeiter'" mat-menu-item  routerLink="/allewochenberichtevomuser" >
        	<mat-icon>calendar_today</mat-icon>
         <span>Wochenbericht</span>
       </button>
-      <button mat-menu-item  routerLink="/listenansicht" >
+
+      <button *ngIf="this.userService.type =='verwaltungsmitarbeiter'" mat-menu-item  routerLink="/listenansicht" >
        <mat-icon>list</mat-icon>
         <span>Liste von Usern</span>
       </button>
-      <button mat-menu-item  routerLink="/todolist" >
+
+      <button *ngIf="this.userService.type =='dozent' || this.userService.type =='teilnehmer' || this.userService.type =='verwaltungsmitarbeiter'" mat-menu-item  routerLink="/todolist" >
        <mat-icon>style</mat-icon>
         <span>To Do Liste</span>
       </button>
+
       <button mat-menu-item (click)="onLogout()" >
         <mat-icon>exit_to_app</mat-icon>
         <span>Logout</span>
       </button>
+
     </span>
     </mat-menu>
   </span>

@@ -1,5 +1,5 @@
 import {Component, Injectable} from '@angular/core';
-import {UserService} from './auth/user.service';
+import {LoginData, UserService} from './auth/user.service';
 import {TeilnehmerDataService, TeilnehmerData} from './services/teilnehmer-data.service';
 import {BehaviorSubject} from 'rxjs';
 import {Bild, BilderUserService} from './services/bilder-user.service';
@@ -16,7 +16,6 @@ export class AppComponent {
   toolbarShow = false;
   schuelerBild: Bild;
 
-
   constructor(private schuelerData: TeilnehmerDataService,
               private userService: UserService,
               private bilderService: BilderUserService) {}
@@ -24,10 +23,11 @@ export class AppComponent {
     this.userService.idChanged.subscribe(id => {
       this.id = id ? id : null;
       this.toolbarShow = !!id;
+
     });
-    this.userService.idChanged.subscribe(id => {
-      this.id = id;
-      if (id) {
+    // this.userService.idChanged.subscribe(id => {
+      // this.id = id;
+      // if (id) {
         // this.bilderService.findBild(id).subscribe(foundBild => {
         //   if (!foundBild) {
         //     console.log('id? ', id)
@@ -36,9 +36,11 @@ export class AppComponent {
         //     console.log(this.schuelerBild)
         //   }
         // });
-      }
-    });
+      // }
+    // });
   }
+
+
 
   onLogout() {
     this.userService.logout();

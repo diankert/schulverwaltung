@@ -25,10 +25,7 @@ export class LoginPageComponent implements OnInit {
       this.userService.type = foundUser.type
       this.userService.idChanged.next(foundUser.id);
       console.log('this.userService.type = foundUser.type: ', this.userService.type = foundUser.type)
-      // if(this.userService[0].status == "admin")
-      // {
-      //   this.router.navigate( ['/', 'adminansicht'] );
-      // }
+
       this.router.navigate( ['/', 'start'] );
       //}
     });
