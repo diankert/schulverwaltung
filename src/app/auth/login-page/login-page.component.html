@@ -12,7 +12,7 @@
       </button>
     </mat-form-field>
 
-    <button class="button" mat-raised-button color="primary" [disabled]="username === ''" (click)="routeToHeader()">
+    <button class="button" mat-raised-button color="primary" [disabled]="username === '' || password ===''"  (click)="routeToHeader()">
       Anmelden
     </button>
   </div>

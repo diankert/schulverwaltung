@@ -66,15 +66,15 @@ export class KursplanComponent implements OnInit {
             }
           });
       }
-      this.kursplanService.getKursInhalt().subscribe(kursInhalt =>{
-        if(!kursInhalt){
-          console.log('KEIN KURSINHALT')
-        } else{
-          this.kursInhalt = kursInhalt;
-          console.log(this.kursInhalt)
-        }
+      // this.kursplanService.getKursInhalt().subscribe(kursInhalt =>{
+      //   if(!kursInhalt){
+      //     console.log('KEIN KURSINHALT')
+      //   } else{
+      //     this.kursInhalt = kursInhalt;
+      //     console.log(this.kursInhalt)
+      //   }
 
-      })
+      // })
     })
   }
 

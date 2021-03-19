@@ -11,6 +11,7 @@ import {WochenberichteVonUserCreateComponent} from './wochenberichte-von-user/wo
 import {WochenberichteVonUserEditComponent} from './wochenberichte-von-user/wochenberichte-von-user-edit/wochenberichte-von-user-edit.component';
 import {NeuenUserAnlegenComponent} from './neuen-user-anlegen/neuen-user-anlegen.component';
 import { PageListComponent } from './page-list/page-list.component';
+import {CalendarComponent} from './shared/calendar/calendar.component';
 
 const routes: Routes = [
   {
@@ -24,7 +25,7 @@ const routes: Routes = [
   },
   {
     path: 'kursplan',
-    component: KursplanComponent,
+    component: CalendarComponent,
     canActivate: [AuthGuard]
   },
   {

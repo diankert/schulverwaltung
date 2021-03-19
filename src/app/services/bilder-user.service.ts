@@ -18,11 +18,11 @@ export interface Bild {
   providedIn: 'root'
 })
 export class BilderUserService{
-  bildPath: string;
+  // bildPath: string;
   constructor(private http: HttpClient) { }
 
   // findBild(id: string) {
-  //   return this.http.get<Bild>('api/bilder/get/?id='+ id);
+    // return this.http.get<Bild>('api/bild/get/?id='+ id);
   // }
 
   bildFuerUser(id: string): string {

@@ -8,45 +8,47 @@
           (ngSubmit)="onSubmit()">
           <mat-form-field class="example-full-width">
             <mat-label>Vorname</mat-label>
-            <input matInput formControlName="vorname">
+            <input matInput formControlName="vorname" [(ngModel)]="vorname">
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>Nachname</mat-label>
-            <input matInput formControlName="nachname">
+            <input matInput formControlName="nachname" [(ngModel)]="nachname">
           </mat-form-field>
           <mat-form-field>
             <mat-label>Geburtsdatum</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="geburtsdatum">
+            <input [(ngModel)]="gebdate" matInput [matDatepicker]="picker" formControlName="geburtsdatum">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>Straße</mat-label>
-            <input matInput formControlName="strasse">
+            <input matInput formControlName="strasse" [(ngModel)]="strasse">
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>Hausnummer</mat-label>
-            <input matInput formControlName="hausnummer">
+            <input matInput formControlName="hausnummer" [(ngModel)]="hsnr">
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>plz</mat-label>
-            <input matInput formControlName="plz">
+            <input matInput formControlName="plz" [(ngModel)]="plz">
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>Telefonnummer</mat-label>
-            <input matInput formControlName="telefon">
+            <input matInput formControlName="telefon" [(ngModel)]="tel">
           </mat-form-field>
           <mat-form-field class="example-full-width">
             <mat-label>E-Mail</mat-label>
-            <input matInput formControlName="email">
+            <input matInput formControlName="email" [(ngModel)]="email">
           </mat-form-field>
         </form>
         <div class="d-flex justify-content-end pt-5">
-        <button mat-raised-button color="primary" (click)="onSubmit()">Anlegen</button>
-      </div>
+          <button mat-raised-button color="primary"
+                  [disabled]="vorname === '' || email === '' || nachname === '' || gebdate === '' || strasse === '' || hsnr ===''
+                          || plz ==='' || tel ===''"(click)="onSubmit()">Anlegen</button>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 

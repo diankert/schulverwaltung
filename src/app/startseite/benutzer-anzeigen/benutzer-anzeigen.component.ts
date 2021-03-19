@@ -28,7 +28,7 @@ export class BenutzerAnzeigen implements OnInit {
   dozentBild: Bild
   verwaltungsmitarbeiterBild: Bild
   bildPath: string;
-
+  pic: string;
   constructor(
     private schuelerData: TeilnehmerDataService,
     private dozentData: DozentDataService,
@@ -73,6 +73,16 @@ export class BenutzerAnzeigen implements OnInit {
           }
         })
         this.bildPath = this.bilderService.bildFuerUser(id);
+        // this.bilderService.findBild(id).subscribe((foundBild) => {
+        //   if (!foundBild) {
+        //     console.log('id? ', id)
+        //   } else {
+        //     this.schuelerBild = foundBild
+        //     this.pic = foundBild.dateiname
+        //     console.log('This pic: ', this.pic)
+        //   }
+        // })
+
       })
     }
   }

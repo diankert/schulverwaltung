@@ -27,7 +27,7 @@
         <span>Mitglied anlegen</span>
       </button>
 
-       <button *ngIf="this.userService.type =='verwaltungsmitarbeiter'" mat-menu-item  routerLink="/allewochenberichtevomuser" >
+       <button *ngIf="this.userService.type =='verwaltungsmitarbeiter' || this.userService.type =='teilnehmer'" mat-menu-item  routerLink="/allewochenberichtevomuser" >
        	<mat-icon>calendar_today</mat-icon>
         <span>Wochenbericht</span>
       </button>

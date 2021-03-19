@@ -12,6 +12,14 @@ export class DozentenanlegenComponent implements OnInit {
   dozentenAnlegenFormGroup: FormGroup;
   dozent: DozentData;
   disabled = false;
+  vorname = '';
+  email = '';
+  nachname = '';
+  gebdate ='';
+  strasse = '';
+  hsnr = '';
+  plz = '';
+  tel = '';
 
   constructor(private dozentDataService: DozentDataService) { }
 
@@ -21,7 +29,6 @@ export class DozentenanlegenComponent implements OnInit {
 
       vorname: new FormControl(''),
       nachname: new FormControl(''),
-      // geburtsdatum: new FormControl('yyyy-mm-dd'),
       geburtsdatum: new FormControl(new Date('')),
       strasse: new FormControl(''),
       hausnummer: new FormControl(''),
